@@ -8,7 +8,7 @@ function photographerFactory(data) {
     function getUserCardDOM() {
         const article = document.createElement('article');
         const urlPage = document.createElement('a');
-        urlPage.setAttribute("href", `./photographer.html/${id}`);
+        urlPage.setAttribute("href", `./photographer.html?${id}`);
         const img = document.createElement('img');
         img.setAttribute("src", picture)
         const h2 = document.createElement('h2');
