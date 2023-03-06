@@ -12,7 +12,7 @@ async function getPhotographers() {
 async function displayData(photographers, media) {
     const photosSection = document.querySelector(".photos_section");
     const id = isoleIdUrl(urlLien);
-    const photoId = media.filter(photoRetour => photoRetour.photographerId === parseInt(id));//retourne une liste de tableau qui répond à la comparaison
+    const photoId = media.filter(photoRetour => photoRetour.photographerId === parseInt(id));//retourne une liste d'un tableau qui répond à la comparaison
     
     photoId.forEach((photo) => {
         
