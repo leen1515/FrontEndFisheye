@@ -1,6 +1,4 @@
-<<<<<<< Updated upstream
-//Mettre le code JavaScript lié à la page photographer.html
-=======
+
 //Mettre le code JavaScript lié à la page photographer.html
 async function getPhotographers() {
  
@@ -43,4 +41,3 @@ async function init() {
 }
 
 init();
->>>>>>> Stashed changes
