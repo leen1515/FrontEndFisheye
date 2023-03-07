@@ -48,3 +48,21 @@ h1 {
     height: 200px;
     width: 200px;
 }
+
+
+.photos_section{
+    width:100%;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+figure{
+    margin:auto;
+    background-color:#901C1C;
+    width:200px;
+    align-self: center;
+}
+
+.image{
+   width: 100%;
+}

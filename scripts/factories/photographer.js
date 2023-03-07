@@ -22,8 +22,6 @@ function photographerFactory(data) {
         article.appendChild(text);
         return (article);
     }
-
-
     return { name, id, picture, tagline, city, country, price, getUserCardDOM };
 }
 
@@ -48,15 +46,19 @@ function photoFactory(data, photographerName) {
     const picturePhoto = `./assets/images/${garderPrenom(name)}/${image}`;
 
     function getPhotoCardDOM() {
-        const article = document.createElement('article');
+        const figure = document.createElement('figure');
         const img = document.createElement('img');
-        img.setAttribute("src", picturePhoto)
+        img.setAttribute("src", picturePhoto);
+        img.setAttribute("class","image");
+        const figCaption = document.createElement('figcaption');
         const h2 = document.createElement('h2');
         h2.textContent = title;
-        article.appendChild(img);
-        article.appendChild(h2);
+        figure.appendChild(img);
+        figCaption.appendChild(h2);
+        figure.appendChild(figCaption);
+        
 
-        return (article);
+        return (figure);
     }
 
     return { photographerId, title, image, likes, date, price, getPhotoCardDOM }
