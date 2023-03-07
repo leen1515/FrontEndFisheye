@@ -12,17 +12,28 @@ async function getPhotographers() {
 //ajout de l'argument media pour recuperer les photos respectives de chaque photographe
 async function displayData(photographers, media) {
     const photosSection = document.querySelector(".photos_section");
+    const photographeHeader = document.querySelector(".photograph-header");
     const id = isoleIdUrl(urlLien);
     const photoId = media.filter(photoRetour => photoRetour.photographerId === parseInt(id));//retourne une liste d'un tableau qui répond à la comparaison
     
     photoId.forEach((photo) => {
-        
         const photographerName = photographers.find(photographer => photographer.id === parseInt(id));//retourne le premier resultat qui correspond à la comparaison
         const photoModel = photoFactory(photo, photographerName);
         const photoCardDOM = photoModel.getPhotoCardDOM();
         photosSection.appendChild(photoCardDOM);
 
     });
+
+    const photographerId = photographers.filter(photographerId => photographerId.id === parseInt(id))
+    photographerId.forEach((photographe)=>{
+        console.log(photographe);
+        const photoModel = photographeCarteFactory(photographe);
+        const photoCardDOM = photoModel.getPhotoUserCardDOM();
+        photographeHeader.appendChild(photoCardDOM);
+
+    })
+
+
 
 }
 

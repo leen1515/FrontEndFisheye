@@ -18,7 +18,7 @@ function photographerFactory(data) {
         article.appendChild(h2);
         const text = document.createElement('p');
         text.setAttribute("class", "texte-description");
-        text.innerHTML = `${tagline}<br> localisation : ${city}, ${country} <br> tarif : ${price}€/heure`;
+        text.innerHTML = `${tagline}<br> localisation : ${city}, ${country} <br> tarif : ${price}€/jour`;
         article.appendChild(text);
         return (article);
     }
@@ -62,6 +62,31 @@ function photoFactory(data, photographerName) {
     }
 
     return { photographerId, title, image, likes, date, price, getPhotoCardDOM }
+}
+
+
+function photographeCarteFactory(data) {
+    const { name, id, tagline, city, country, price, portrait} = data;
+
+    const picture = `assets/photographers/${portrait}`;
+
+    function getPhotoUserCardDOM() {
+        const div = document.createElement('div');
+        div.setAttribute("class","header-img");
+        const img = document.createElement('img');
+        img.setAttribute("src", picture);
+        img.setAttribute("class", "image-head");
+        const h2 = document.createElement('h2');
+        h2.textContent = name;
+        div.appendChild(img);
+        div.appendChild(h2);
+        const text = document.createElement('p');
+        text.setAttribute("class", "texte-description");
+        text.innerHTML = `${tagline}<br> localisation : ${city}, ${country}`;
+        div.appendChild(text);
+        return (div);
+    }
+    return { name, id, picture, tagline, city, country, price, getPhotoUserCardDOM};
 }
 
 
