@@ -47,21 +47,9 @@ async function init() {
 
 init();
 
-const urlLien = window.location.href;
 
 console.log(isoleIdUrl(urlLien));
 
-
-function isoleIdUrl(urlLien) {
-    var i;
-    var urlId = "";
-    for (i = urlLien.length - 1; i > -1; i--) {
-        if (urlLien.charAt(i - 1) == "?")
-            break;
-    }
-    urlId = urlLien.substring(i,);
-    return (urlId);
-}
 
 
 

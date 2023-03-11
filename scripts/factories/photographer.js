@@ -1,13 +1,4 @@
-function urlImageMiniature(imageM) {
-    let i;
-    let tmp = "";
-    for (i = imageM.length - 1; i > -1; i--) {
-        if (imageM.charAt(i) == ".")
-            break;
-    }
-    tmp = imageM.substring(0, i);
-    return tmp;
-}
+
 
 
 function photographerFactory(data) {
@@ -38,16 +29,7 @@ function photographerFactory(data) {
     return { name, id, picture, tagline, city, country, price, getUserCardDOM };
 }
 
-function garderPrenom(name) {
-    let i;
-    let tmp = "";
-    for (i = name.length - 1; i > -1; i--) {
-        if (name.charAt(i) == " ")
-            break;
-    }
-    tmp = name.substring(0, i);
-    return (tmp);
-}
+
 
 
 function photoFactory(data, photographerName) {
