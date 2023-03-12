@@ -84,7 +84,7 @@ class MediaFactory {
         img.setAttribute("src", `${filtreLien}_m.jpg`);
         img.setAttribute("class", "image");
         img.setAttribute("data-src", conserverMiniatureVideo(this.video, picturePhoto, `${filtreLien}_m.jpg`));
-        // img.setAttribute("onload", chargement(img));
+        img.setAttribute("onload", chargement(img));
 
 
         aImg.addEventListener("click", () => {
@@ -120,30 +120,15 @@ class MediaFactory {
         let indexMouvementModifie = idImage;
         console.log("gauche", indexMouvementModifie, idImage);
 
-        // let picturePhoto = ;
-
-
-
-
-
         gauche.addEventListener("click", () => {indexMouvementModifie = gaucheRecule(indexMouvementModifie, this.mediasParents); console.log("gauche index", indexMouvementModifie); console.log("gauche",{indexMouvementModifie}); gauche.setAttribute("href", `./photographer.html?id=${this.photographerId}&image=${indexMouvementModifie}`)})
-        //  imageSelect.src = `assets/images/${surname}/${this.mediasParents[indexMouvementModifie].image}`; console.log("index retour", indexMouvementModifie, imageSelect.src); window.location.reload()});
+
         droite.addEventListener("click", () => { indexMouvementModifie = droiteAvance(indexMouvementModifie, this.mediasParents); console.log("droite index", indexMouvementModifie); console.log("droite",{indexMouvementModifie}); droite.setAttribute("href", `./photographer.html?id=${this.photographerId}&image=${indexMouvementModifie}`)});
-        //  imageSelect.src = `assets/images/${surname}/${this.mediasParents[indexMouvementModifie].image}`; console.log("index retour", indexMouvementModifie, imageSelect.src); window.location.reload()});
-
-        // let indexRetour =  boutonGaucheDroite(this.index, this.mediasParents);
-
-        // let picturePhoto = 
-
-        // gauche.addEventListener("click", () => { imageSelect.src = `${picturePhoto}`; console.log("index retour", indexMouvementModifie, imageSelect.src) });
-        // droite.addEventListener("click", () => { imageSelect.src = `${picturePhoto}`; console.log("index retour", indexMouvementModifie, imageSelect.src) });
 
         if (!document.querySelector(".lightBox-element")) {
 
             const lightBoxSection = document.querySelector(".lightBox_section");
             const lightbox = document.createElement("figure");
             const imageLightbox = document.createElement("img");
-
 
             lightbox.setAttribute("class", "lightBox-element");
             lightbox.style.width = "300px";

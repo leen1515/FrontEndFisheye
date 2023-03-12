@@ -66,22 +66,6 @@ function chargement(img) {
     setTimeout(() => { img.setAttribute("src", img.getAttribute("data-src"), img.removeAttribute("data-src")) }, 2000);
 }
 
-function interactionPresenceLight(image) {
-    
-
-}
-
-
-// function boutonGaucheDroite(indexMouvement, mediasParents) {
-//     let indexMouvementModifie = indexMouvement;
-//     let gauche = document.querySelector("#idGauche");
-//     let droite = document.querySelector("#idDroite");
-//     console.log("gauche", gauche);
-    
-//     gauche.addEventListener("click", () => { indexMouvementModifie = gaucheRecule(indexMouvementModifie, mediasParents); console.log("gauche index", indexMouvementModifie) });
-//     droite.addEventListener("click", () => { indexMouvementModifie = droiteAvance(indexMouvementModifie, mediasParents); console.log("droite index", indexMouvementModifie) });
-//     return (indexMouvementModifie);
-// }
 
 function gaucheRecule(indexMouvementModifie, mediasParents) {
     ((indexMouvementModifie > 0) ? indexMouvementModifie-- : indexMouvementModifie = mediasParents.length);
