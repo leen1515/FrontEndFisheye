@@ -38,16 +38,68 @@ function verificationExtension(fichier) {
     if (verif.test(fichier)) {
         return true;
     }
-    else { 
-        return false; 
+    else {
+        return false;
     };
 }
 
-function remplaceVideoImage(video, image){
-    if (video){
+function remplaceVideoImage(video, image) {
+    if (video) {
         return video;
     }
-    else{
+    else {
         return image;
     }
+}
+
+function conserverMiniatureVideo(video, image, imageMiniature) {
+    if (video) {
+        return imageMiniature;
+    }
+    else {
+        return image;
+    }
+}
+
+function chargement(img) {
+    console.log("charge", "img");
+    setTimeout(() => { img.setAttribute("src", img.getAttribute("data-src"), img.removeAttribute("data-src")) }, 2000);
+}
+
+function interactionPresenceLight(image) {
+    
+
+}
+
+
+// function boutonGaucheDroite(indexMouvement, mediasParents) {
+//     let indexMouvementModifie = indexMouvement;
+//     let gauche = document.querySelector("#idGauche");
+//     let droite = document.querySelector("#idDroite");
+//     console.log("gauche", gauche);
+    
+//     gauche.addEventListener("click", () => { indexMouvementModifie = gaucheRecule(indexMouvementModifie, mediasParents); console.log("gauche index", indexMouvementModifie) });
+//     droite.addEventListener("click", () => { indexMouvementModifie = droiteAvance(indexMouvementModifie, mediasParents); console.log("droite index", indexMouvementModifie) });
+//     return (indexMouvementModifie);
+// }
+
+function gaucheRecule(indexMouvementModifie, mediasParents) {
+    ((indexMouvementModifie > 0) ? indexMouvementModifie-- : indexMouvementModifie = mediasParents.length);
+    return indexMouvementModifie;
+}
+function droiteAvance(indexMouvementModifie, mediasParents) {
+    ((indexMouvementModifie <= mediasParents.length) ? indexMouvementModifie++ : indexMouvementModifie = 0);
+    return indexMouvementModifie;
+}
+
+function recupereImageUrl(urlImage) {
+    const url = new URL(urlImage);
+    let idUrl="";
+    if (new URLSearchParams(url.search)) {
+        idUrl = url.searchParams.get("image");
+    }
+    else {
+        idUrl = 0;
+    }
+    return idUrl;
 }

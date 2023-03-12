@@ -11,6 +11,7 @@ async function displayData(photographers, medias) {
     const photographersSection = document.querySelector(".photographer_section");
     const photographeHeader = document.querySelector(".photograph-header");
     const mediaSection = document.querySelector(".photos_section");
+
     const urlAffiche = window.location.href;
     const recupeIdLien = recupereIdUrl(urlAffiche);
     console.log("urlAffiche", urlAffiche);
@@ -34,26 +35,26 @@ async function displayData(photographers, medias) {
             photographeHeader.appendChild(userBanniereCardDOM);
         }
         )
+        
+        const idUrl = recupereImageUrl(urlAffiche);
+        console.log("id url", idUrl);
+
         const mediasId = medias.filter((mediaId) => mediaId.photographerId == recupeIdLien);
         const photographerName = idPhotographe.name;
-        console.log("mediaId", mediasId)
-        mediasId.forEach((media) => {
-            const {photographerId, title, image, video, likes, date, price} = media;
+        console.log("mediaId", mediasId);
 
-            const mediaModel = new MediaFactory(photographerName, photographerId, title, image, video, likes, date, price);
+        mediasId.forEach((media, index, mediasParents) => {
+            const { id, photographerId, title, image, video, likes, date, price } = media;
+            const mediaModel = new MediaFactory(mediasParents, index, id, photographerName, photographerId, title, image, video, likes, date, price);
             const mediaDom = mediaModel.getPhotoDOM();
             mediaSection.appendChild(mediaDom);
+            mediaModel.ouvreLightbox(idUrl);
 
-            // if (verificationExtension(image)){
-                
-            // const mediaDom = mediaModel.getPhotoDOM();
-            // mediaSection.appendChild(mediaDom);
-            // }
-            // else{
-            // const mediaDOM = mediaModel.getVideoDOM();
-            // mediaSection.appendChild(mediaDOM);
-            // }
-        });
+
+        })
+        
+
+
 
     }
 }
