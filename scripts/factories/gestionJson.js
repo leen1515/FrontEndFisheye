@@ -8,9 +8,9 @@ async function getPhotographers() {
 }
 
 async function displayData(photographers, medias) {
-    const photographersSection = document.querySelector(".photographer_section");
-    const photographeHeader = document.querySelector(".photograph-header");
-    const mediaSection = document.querySelector(".photos_section");
+    const photographersSection = document.querySelector(".photographer-section");
+    const photographeHeader = document.querySelector(".photographe-header");
+    const mediaSection = document.querySelector(".photos-section");
 
     const urlAffiche = window.location.href;
     const recupeIdLien = recupereIdUrl(urlAffiche);
