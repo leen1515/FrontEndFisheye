@@ -2,5 +2,23 @@
   "dependencies": {
     "autoprefixer": "^10.4.14",
     "sass": "^1.59.2"
-  }
+  },
+  "name": "frontendfisheye",
+  "description": "Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "sass": "sass --watch sass/main.scss:css/stylefrontendfisheye.css --style expanded"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leen1515/FrontEndFisheye.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leen1515/FrontEndFisheye/issues"
+  },
+  "homepage": "https://github.com/leen1515/FrontEndFisheye#readme"
 }

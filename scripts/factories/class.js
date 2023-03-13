@@ -40,6 +40,7 @@ class PhotographerFactory {
         localisation.textContent = `${this.city}, ${this.country}`;
         slogan.innerHTML = `${this.tagline}`;
         paragraphe.textContent = `${this.price}€/jour`;
+        img.setAttribute("onload", chargement(img));
 
         //ajout des éléments les uns aux autres jusqu'au *DOM
         urlPage.appendChild(img);
