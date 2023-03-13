@@ -170,7 +170,6 @@ class MediaFactory {
         groupeLike.appendChild(divLikes);
         figure.appendChild(figCaption);
 
-        console.log("imageminiature", photo.getAttribute("src"));
         return (figure);
     }
 
@@ -184,31 +183,37 @@ class MediaFactory {
 
         let indexMouvementModifie = idImage;
         console.log("gauche", indexMouvementModifie, idImage);
-
+        const parentLightbox = document.querySelector(".lightBox_section__bouton");
         
-        gauche.addEventListener("click", () => { indexMouvementModifie = gaucheRecule(indexMouvementModifie, this.mediasParents); console.log("gauche", { indexMouvementModifie }); gauche.setAttribute("href", `./photographer.html?id=${this.photographerId}&image=${indexMouvementModifie}`) })
-
+        gauche.addEventListener("click", () => { indexMouvementModifie = gaucheRecule(indexMouvementModifie, this.mediasParents); console.log("gauche", { indexMouvementModifie }); gauche.setAttribute("href", `./photographer.html?id=${this.photographerId}&image=${indexMouvementModifie}`) });
         droite.addEventListener("click", () => { indexMouvementModifie = droiteAvance(indexMouvementModifie, this.mediasParents); console.log("droite", { indexMouvementModifie }); droite.setAttribute("href", `./photographer.html?id=${this.photographerId}&image=${indexMouvementModifie}`) });
 
         if (!document.querySelector(".lightBox-element")&&!document.querySelector(".lightBox-element__photo")) {
 
             //creation des élements pour le *DOM
-            const lightboxSection = document.querySelector(".lightBox_section");
+            const lightboxSection = document.querySelector(".lightBox__section");
             const lightbox = document.createElement("figure");
             const imageLightbox = document.createElement("img");
             const lightboxCaption = document.createElement("figcaption");
             const lightboxTitre = document.createElement("h3");
+            const lightboxQuitte = document.createElement("div");
 
             //style ajout des classes
             lightbox.setAttribute("class", "lightBox-element");
             imageLightbox.setAttribute("class", "lightBox-element__photo");
             lightboxCaption.setAttribute("class", "lightBox-element__description");
             lightboxTitre.setAttribute("class", "description__h3");
+            lightboxQuitte.setAttribute("class", "lightBox-quitter");
             
             //attribut relatif aux variables et url et remplissage des contenus
+            lightboxQuitte.innerText = "X";
+            lightboxQuitte.addEventListener("click", ()=>{parentLightbox.style.display="none"});
+            lightboxTitre.innerText=`${this.mediasParents[indexMouvementModifie].title}`;
             imageLightbox.setAttribute("src", `assets/images/${surname}/${this.mediasParents[indexMouvementModifie].image}`);
-            
+
+
             //ajout des éléments les uns aux autres jusqu'au *DOM
+            lightbox.appendChild(lightboxQuitte);
             lightbox.appendChild(imageLightbox);
             lightboxSection.appendChild(lightbox);
             lightboxSection.appendChild(lightboxCaption);
