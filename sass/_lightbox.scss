@@ -1,4 +1,4 @@
-.lightBox_section{
+.lightBox__section{
     width:80%; 
     height:80%; 
     overflow: hidden;
@@ -22,7 +22,7 @@
 
 }
 
-.lightBox_section__bouton{
+.lightBox__section__bouton{
     display:flex;
     flex-direction: row;
     justify-content: space-between;
@@ -34,6 +34,10 @@
     height:100%;
     background-color: rgba(255, 255, 255, 0.784);
 
+}
+
+.lightBox__section__bouton--invisible{
+    display:none;
 }
 
 .lightBox-element__description{

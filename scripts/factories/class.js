@@ -78,10 +78,10 @@ class PhotographerFactory {
         paragraphe.setAttribute("class", "texte__slogan");
         location.setAttribute("class", "texte__location")
         buttonContact.setAttribute("class", "contact_button");
-        divAvatar.setAttribute("class","article-photo__lien-vignette")
+        divAvatar.setAttribute("class", "article-photo__lien-vignette")
         avatar.setAttribute("class", "lien-vignette__avatar");
 
-        
+
         //style ajout des Ids aux vignettes par photographe
         avatar.setAttribute("id", `lien-vignette__avatar-${this.id}`);
 
@@ -93,11 +93,11 @@ class PhotographerFactory {
         h1.textContent = this.name;
         paragraphe.textContent = `${this.tagline}`;
         location.textContent = `${this.city}, ${this.country}`;
-        
+
         avatar.setAttribute("onload", chargement(avatar));
 
         //ajout des éléments les uns aux autres jusqu'au *DOM
-        
+
         banniere.appendChild(text);
         text.appendChild(h1);
         text.appendChild(location);
@@ -151,13 +151,17 @@ class MediaFactory {
         divLikes.setAttribute("class", "like__nombre-aime");
         divClickLike.setAttribute("class", "like__icone-aime");
 
+
+        const parentLightbox = document.querySelector(".lightBox__section__bouton--invisible");
+
         //attribut relatif aux variables et url et remplissage des contenus
         photo.setAttribute("onload", chargement(photo));
         photo.setAttribute("data-src", conserverMiniatureVideo(this.video, picturePhoto, `${filtreLien}_m.jpg`));
         photo.setAttribute("src", `${filtreLien}_m.jpg`);
         lienPhoto.addEventListener("click", () => {
-            lienPhoto.setAttribute("href", `./photographer.html?id=${this.photographerId}&image=${this.index}`);
+            lienPhoto.setAttribute("href", `./photographer.html?id=${this.photographerId}&image=${this.index}`); parentLightbox.className = "lightBox__section__bouton"; sessionStorage.setItem("parentLightVisible", "lightBox__section__bouton");
         });
+
         divLikes.textContent = this.likes;
         h2.textContent = this.title;
 
@@ -183,12 +187,12 @@ class MediaFactory {
 
         let indexMouvementModifie = idImage;
         console.log("gauche", indexMouvementModifie, idImage);
-        const parentLightbox = document.querySelector(".lightBox_section__bouton");
-        
-        gauche.addEventListener("click", () => { indexMouvementModifie = gaucheRecule(indexMouvementModifie, this.mediasParents); console.log("gauche", { indexMouvementModifie }); gauche.setAttribute("href", `./photographer.html?id=${this.photographerId}&image=${indexMouvementModifie}`) });
-        droite.addEventListener("click", () => { indexMouvementModifie = droiteAvance(indexMouvementModifie, this.mediasParents); console.log("droite", { indexMouvementModifie }); droite.setAttribute("href", `./photographer.html?id=${this.photographerId}&image=${indexMouvementModifie}`) });
+        const parentLightbox = document.querySelector(".lightBox__section__bouton--invisible");
 
-        if (!document.querySelector(".lightBox-element")&&!document.querySelector(".lightBox-element__photo")) {
+        gauche.addEventListener("click", () => { indexMouvementModifie = gaucheRecule(indexMouvementModifie, this.mediasParents); console.log("gauche", { indexMouvementModifie }); gauche.setAttribute("href", `./photographer.html?id=${this.photographerId}&image=${indexMouvementModifie}`);});
+        droite.addEventListener("click", () => { indexMouvementModifie = droiteAvance(indexMouvementModifie, this.mediasParents); console.log("droite", { indexMouvementModifie }); droite.setAttribute("href", `./photographer.html?id=${this.photographerId}&image=${indexMouvementModifie}`);});
+
+        if (!document.querySelector(".lightBox-element") && !document.querySelector(".lightBox-element__photo")) {
 
             //creation des élements pour le *DOM
             const lightboxSection = document.querySelector(".lightBox__section");
@@ -204,13 +208,20 @@ class MediaFactory {
             lightboxCaption.setAttribute("class", "lightBox-element__description");
             lightboxTitre.setAttribute("class", "description__h3");
             lightboxQuitte.setAttribute("class", "lightBox-quitter");
-            
+
             //attribut relatif aux variables et url et remplissage des contenus
             lightboxQuitte.innerText = "X";
-            lightboxQuitte.addEventListener("click", ()=>{parentLightbox.style.display="none"});
-            lightboxTitre.innerText=`${this.mediasParents[indexMouvementModifie].title}`;
+            lightboxQuitte.addEventListener("click", () => { parentLightbox.className = "lightBox__section__bouton--invisible"});
+            lightboxTitre.innerText = `${this.mediasParents[indexMouvementModifie].title}`;
             imageLightbox.setAttribute("src", `assets/images/${surname}/${this.mediasParents[indexMouvementModifie].image}`);
 
+
+            if (sessionStorage.getItem("parentLightVisible")) {
+                
+                parentLightbox.className = sessionStorage.getItem("parentLightVisible");}
+            else {
+                parentLightbox.className = "lightBox__section__bouton--invisible";
+            }
 
             //ajout des éléments les uns aux autres jusqu'au *DOM
             lightbox.appendChild(lightboxQuitte);
