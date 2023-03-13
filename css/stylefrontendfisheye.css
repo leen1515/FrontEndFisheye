@@ -196,8 +196,7 @@ h1 {
 }
 
 .lightBox__section {
-  width: 80%;
-  height: 80%;
+  margin: auto;
   overflow: hidden;
 }
 
@@ -237,6 +236,12 @@ h1 {
 
 .description__h3 {
   color: #901C1C;
+}
+
+.lightBox-quitter {
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 /*# sourceMappingURL=stylefrontendfisheye.css.map */

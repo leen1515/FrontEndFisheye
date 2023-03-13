@@ -37,6 +37,7 @@ class PhotographerFactory {
 
         //attribut relatif aux variables et url et remplissage des contenus
         urlPage.setAttribute("href", `./photographer.html?id=${this.id}&image=${0}`);
+        urlPage.addEventListener("click", sessionStorage.removeItem("parentLightVisible"));
         img.setAttribute("src", `${urlImageMiniature(picture)}_m.jpg`)
         img.setAttribute("data-src", picture);
         h2.textContent = `${this.name}`;

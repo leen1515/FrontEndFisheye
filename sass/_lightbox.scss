@@ -1,6 +1,5 @@
 .lightBox__section{
-    width:80%; 
-    height:80%; 
+    margin:auto;
     overflow: hidden;
 }
 
@@ -50,4 +49,10 @@
     color:#901C1C;
 
 
+}
+
+.lightBox-quitter{
+position:absolute;
+right:0;
+top:0;
 }
