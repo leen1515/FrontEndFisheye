@@ -1,0 +1,50 @@
+
+.photographe-header {
+ 
+}
+
+.banniere-entete{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #FAFAFA;
+    height: 100%;
+    width:calc(80% - 50px);
+    margin:auto;
+    padding:50px;
+}
+
+
+.banniere__texte{
+    display:flex;
+    flex-direction: column;
+
+}
+
+.texte__nom{
+    color: #D3573C;
+
+}
+
+.texte__slogan{
+
+}
+
+.texte__location{
+    color:#901C1C;
+}
+
+.contact_button {
+    position:relative;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    padding: 11px;
+    width: 170px;
+    height: 70px;
+    border: none;
+    background-color: #901C1C;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: auto;
+}

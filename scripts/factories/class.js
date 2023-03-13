@@ -32,6 +32,9 @@ class PhotographerFactory {
         localisation.setAttribute("class", "texte-description__localisation")
         paragraphe.setAttribute("class", "texte-description__paragraphe");
 
+        //style ajout des Ids aux vignettes par photographe
+        img.setAttribute("id", `lien-vignette__avatar-${this.id}`);
+
         //attribut relatif aux variables et url et remplissage des contenus
         urlPage.setAttribute("href", `./photographer.html?id=${this.id}&image=${0}`);
         img.setAttribute("src", `${urlImageMiniature(picture)}_m.jpg`)
@@ -61,16 +64,26 @@ class PhotographerFactory {
         //creation des élements pour le *DOM
         const banniere = document.createElement("div");
         const h1 = document.createElement("h1");
-        const text = document.createElement("p");
+        const text = document.createElement("div");
+        const paragraphe = document.createElement("p");
+        const location = document.createElement("p");
         const buttonContact = document.createElement("button");
+        const divAvatar = document.createElement("div");
         const avatar = document.createElement("img");
 
         //style ajout des classes
         banniere.setAttribute("class", "banniere-entete");
-        h1.setAttribute("class", "banniere__nom");
-        text.setAttribute("class", "banniere__texte-description");
+        h1.setAttribute("class", "texte__nom");
+        text.setAttribute("class", "banniere__texte");
+        paragraphe.setAttribute("class", "texte__slogan");
+        location.setAttribute("class", "texte__location")
         buttonContact.setAttribute("class", "contact_button");
-        avatar.setAttribute("class", "banniere__avatar");
+        divAvatar.setAttribute("class","article-photo__lien-vignette")
+        avatar.setAttribute("class", "lien-vignette__avatar");
+
+        
+        //style ajout des Ids aux vignettes par photographe
+        avatar.setAttribute("id", `lien-vignette__avatar-${this.id}`);
 
         //attribut relatif aux variables et url et remplissage des contenus
         avatar.setAttribute("src", `${urlImageMiniature(picture)}_m.jpg`);
@@ -78,13 +91,20 @@ class PhotographerFactory {
         buttonContact.addEventListener("click", displayModal);
         buttonContact.textContent = "Contactez-moi";
         h1.textContent = this.name;
-        text.textContent = `${this.tagline}`;
+        paragraphe.textContent = `${this.tagline}`;
+        location.textContent = `${this.city}, ${this.country}`;
+        
+        avatar.setAttribute("onload", chargement(avatar));
 
         //ajout des éléments les uns aux autres jusqu'au *DOM
-        banniere.appendChild(h1);
+        
         banniere.appendChild(text);
+        text.appendChild(h1);
+        text.appendChild(location);
+        text.appendChild(paragraphe);
         banniere.appendChild(buttonContact);
-        banniere.appendChild(avatar);
+        divAvatar.appendChild(avatar)
+        banniere.appendChild(divAvatar);
 
         return (banniere);
     }
@@ -116,6 +136,7 @@ class MediaFactory {
         const photo = document.createElement("img");
         const figCaption = document.createElement("figcaption");
         const h2 = document.createElement("h2");
+        const groupeLike = document.createElement("div");
         const divLikes = document.createElement("div");
         const divClickLike = document.createElement("div");
         const lienPhoto = document.createElement("a");
@@ -126,8 +147,9 @@ class MediaFactory {
         photo.setAttribute("class", "lien-photographie__photographies");
         figCaption.setAttribute("class", "figure__legende");
         h2.setAttribute("class", "legende__h2");
-        divLikes.setAttribute("class", "legende__nombre-aime");
-        divClickLike.setAttribute("class", "legende__icone-aime");
+        groupeLike.setAttribute("class", "legende__like");
+        divLikes.setAttribute("class", "like__nombre-aime");
+        divClickLike.setAttribute("class", "like__icone-aime");
 
         //attribut relatif aux variables et url et remplissage des contenus
         photo.setAttribute("onload", chargement(photo));
@@ -143,8 +165,9 @@ class MediaFactory {
         lienPhoto.appendChild(photo);
         figure.appendChild(lienPhoto);
         figCaption.appendChild(h2);
-        figCaption.appendChild(divLikes);
-        figCaption.appendChild(divClickLike);
+        figCaption.appendChild(groupeLike);
+        groupeLike.appendChild(divClickLike);
+        groupeLike.appendChild(divLikes);
         figure.appendChild(figCaption);
 
         console.log("imageminiature", photo.getAttribute("src"));

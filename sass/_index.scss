@@ -25,13 +25,13 @@ h1 {
 .logo {
     height: 50px;
     width:200px;
-    margin-left: 100px;
+    margin-left: 130px;
 }
 
 .photographer-section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 70px;
+    gap: 50px;
     align-items: top;
 }
 
@@ -88,23 +88,24 @@ h1 {
     height:150px;
 
 }
-.article-photo:nth-child(1) img{
+
+#lien-vignette__avatar-243{
     object-position: -30px -60px;
 }
-.article-photo:nth-child(2) img{
+#lien-vignette__avatar-930{
     object-position: -90px -20px;
 }
-.article-photo:nth-child(3) img{
+#lien-vignette__avatar-82{
     object-position: 0px -20px;
     max-width: 200px;
 }
-.article-photo:nth-child(4) img{
+#lien-vignette__avatar-527{
     object-position: 0px -50px;
 }
-.article-photo:nth-child(5) img{
+#lien-vignette__avatar-925{
     object-position: -90px 0;
 }
-.article-photo:nth-child(6) img{
+#lien-vignette__avatar-195{
     object-position: -80px 0;
 }
 
