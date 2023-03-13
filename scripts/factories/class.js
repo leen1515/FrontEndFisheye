@@ -218,7 +218,6 @@ class MediaFactory {
 
 
             if (sessionStorage.getItem("parentLightVisible")) {
-                
                 parentLightbox.className = sessionStorage.getItem("parentLightVisible");}
             else {
                 parentLightbox.className = "lightBox__section__bouton--invisible";
