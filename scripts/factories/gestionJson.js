@@ -35,7 +35,7 @@ async function displayData(photographers, medias) {
             photographeHeader.appendChild(userBanniereCardDOM);
         }
         )
-        
+
         const idUrl = recupereImageUrl(urlAffiche);
         console.log("id url", idUrl);
 
@@ -52,7 +52,7 @@ async function displayData(photographers, medias) {
 
 
         })
-        
+
 
 
 

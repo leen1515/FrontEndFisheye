@@ -216,7 +216,7 @@ class MediaFactory {
             lightboxTitre.innerText = `${this.mediasParents[indexMouvementModifie].title}`;
             imageLightbox.setAttribute("src", `assets/images/${surname}/${this.mediasParents[indexMouvementModifie].image}`);
 
-
+            //lecture du cache pour faire perdurer l'information lors du rafraichissement de la page.
             if (sessionStorage.getItem("parentLightVisible")) {
                 parentLightbox.className = sessionStorage.getItem("parentLightVisible");}
             else {
