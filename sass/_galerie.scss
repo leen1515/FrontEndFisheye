@@ -1,0 +1,60 @@
+
+.photos-section{
+    width:95%;
+    margin:auto;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: space-between;
+}
+
+.photo-section__figure{
+    display:flex;
+    flex-direction: column;
+    margin:auto;
+    text-align: left;
+    width:400px;
+    height:400px;
+}
+
+.figure__lien-photographie{
+    margin:auto;
+    width:300px;
+    height:300px;
+    overflow: hidden;
+}
+
+.lien-photographie__photographies{
+    margin:auto;
+    width:100%;
+    height:100%;
+    object-fit: cover;
+}
+
+.figure__legende{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    margin:auto;
+    color: #901C1C;
+}
+
+.legende__h2{
+
+
+}
+.legende__like{
+
+
+}
+
+.like__nombre-aime{
+
+
+}
+
+.like__icone-aime{
+
+
+}
