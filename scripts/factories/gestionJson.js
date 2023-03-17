@@ -48,7 +48,6 @@ async function displayData(photographers, medias) {
             const mediaModel = new MediaFactory(mediasParents, index, id, photographerName, photographerId, title, image, video, likes, date, price);
             const mediaDom = mediaModel.getPhotoDOM();
             mediaSection.appendChild(mediaDom);
-            mediaModel.ouvreLightbox(idUrl);
 
 
         })

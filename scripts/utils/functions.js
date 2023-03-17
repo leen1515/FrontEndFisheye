@@ -87,3 +87,11 @@ function recupereImageUrl(urlImage) {
     }
     return idUrl;
 }
+
+
+function installerParamId(uriImage, paramId, valeurId){
+    const uri = new URLSearchParams(uriImage.search);
+    if(uri){uri.set(paramId, valeurId);}
+    console.log ("url", paramId, valeurId);
+
+}
