@@ -189,14 +189,13 @@ class MediaFactory {
         let droite = document.querySelector("#idDroite");
 
         let indexMouvementModifie = idImage;
-        console.log("gauche", indexMouvementModifie, idImage);
         const parentLightbox = document.querySelector(".lightBox__section__bouton");
 
 
         gauche.addEventListener("click", () => { indexMouvementModifie = gaucheRecule(indexMouvementModifie, this.mediasParents); console.log("gauche", { indexMouvementModifie }); });
         droite.addEventListener("click", () => { indexMouvementModifie = droiteAvance(indexMouvementModifie, this.mediasParents); console.log("droite", { indexMouvementModifie }); });
 
-        if (!document.querySelector(".lightBox-element") && !document.querySelector(".lightBox-element__photo")) {
+        if (!document.querySelector(".lightBox-element")) {
 
             //creation des élements pour le *DOM
             const lightboxSection = document.querySelector(".lightBox__section");
@@ -215,9 +214,8 @@ class MediaFactory {
             //attribut relatif aux variables et url et remplissage des contenus
             
             lightboxQuitte.innerText = "X";
-            lightboxQuitte.addEventListener("click", () => { parentLightbox.className = "lightBox__section__bouton--invisible" });
+            lightboxQuitte.addEventListener("click", () => { parentLightbox.className = "lightBox__section__bouton--invisible";   document.querySelector(".lightBox-element").remove() });
 
-            imageLightbox.setAttribute("src", `assets/images/${surname}/${this.mediasParents[idImage].image}`);
             gauche.addEventListener("click", () => { imageLightbox.setAttribute("src", `assets/images/${surname}/${this.mediasParents[indexMouvementModifie].image}`); lightboxTitre.innerText = `${this.mediasParents[indexMouvementModifie].title}`; });
             droite.addEventListener("click", () => { imageLightbox.setAttribute("src", `assets/images/${surname}/${this.mediasParents[indexMouvementModifie].image}`); lightboxTitre.innerText = `${this.mediasParents[indexMouvementModifie].title}`; });
 
@@ -225,7 +223,7 @@ class MediaFactory {
             lightbox.appendChild(lightboxQuitte);
             lightbox.appendChild(imageLightbox);
             lightboxSection.appendChild(lightbox);
-            lightboxSection.appendChild(lightboxCaption);
+            lightbox.appendChild(lightboxCaption);
             lightboxCaption.appendChild(lightboxTitre);
         }
     };
