@@ -68,17 +68,17 @@ function chargement(img) {
 
 
 function gaucheRecule(indexMouvementModifie, mediasParents) {
-    ((indexMouvementModifie > 0) ? indexMouvementModifie-- : indexMouvementModifie = mediasParents.length);
+    ((indexMouvementModifie > 0) ? indexMouvementModifie-- : indexMouvementModifie = mediasParents.length - 1);
     return indexMouvementModifie;
 }
 function droiteAvance(indexMouvementModifie, mediasParents) {
-    ((indexMouvementModifie <= mediasParents.length) ? indexMouvementModifie++ : indexMouvementModifie = 0);
+    ((indexMouvementModifie <= mediasParents.length - 2) ? indexMouvementModifie++ : indexMouvementModifie = 0);
     return indexMouvementModifie;
 }
 
 function recupereImageUrl(urlImage) {
     const url = new URL(urlImage);
-    let idUrl="";
+    let idUrl = "";
     if (new URLSearchParams(url.search)) {
         idUrl = url.searchParams.get("image");
     }
@@ -89,9 +89,9 @@ function recupereImageUrl(urlImage) {
 }
 
 
-function installerParamId(uriImage, paramId, valeurId){
+function installerParamId(uriImage, paramId, valeurId) {
     const uri = new URLSearchParams(uriImage.search);
-    if(uri){uri.set(paramId, valeurId);}
-    console.log ("url", paramId, valeurId);
+    if (uri) { uri.set(paramId, valeurId); }
+    console.log("url", paramId, valeurId);
 
 }

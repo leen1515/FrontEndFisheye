@@ -133,6 +133,7 @@ class MediaFactory {
         const filtreLien = urlImageMiniature(picturePhoto);
 
         //creation des élements pour le *DOM
+
         const figure = document.createElement("figure");
         const photo = document.createElement("img");
         const figCaption = document.createElement("figcaption");
@@ -154,7 +155,7 @@ class MediaFactory {
 
         const parentLightbox = document.querySelector(".lightBox__section__bouton--invisible");
 
-        lienPhoto.addEventListener("click", () => { parentLightbox.className = "lightBox__section__bouton"; this.ouvreLightbox(this.index);});
+        lienPhoto.addEventListener("click", () => { parentLightbox.className = "lightBox__section__bouton"; this.ouvreLightbox(this.index); });
 
         //attribut relatif aux variables et url et remplissage des contenus
         photo.setAttribute("onload", chargement(photo));
@@ -178,12 +179,9 @@ class MediaFactory {
 
 
     ouvreLightbox(idImage) {
-        
-        
-        let surname = garderPrenom(this.photographerName);
-        const imageLightbox = document.createElement("img");
-        imageLightbox.setAttribute("src", `assets/images/${surname}/${this.mediasParents[idImage].image}`);
 
+
+        let surname = garderPrenom(this.photographerName);
 
         let gauche = document.querySelector("#idGauche");
         let droite = document.querySelector("#idDroite");
@@ -191,9 +189,9 @@ class MediaFactory {
         let indexMouvementModifie = idImage;
         const parentLightbox = document.querySelector(".lightBox__section__bouton");
 
-
         gauche.addEventListener("click", () => { indexMouvementModifie = gaucheRecule(indexMouvementModifie, this.mediasParents); console.log("gauche", { indexMouvementModifie }); });
         droite.addEventListener("click", () => { indexMouvementModifie = droiteAvance(indexMouvementModifie, this.mediasParents); console.log("droite", { indexMouvementModifie }); });
+
 
         if (!document.querySelector(".lightBox-element")) {
 
@@ -203,29 +201,98 @@ class MediaFactory {
             const lightboxCaption = document.createElement("figcaption");
             const lightboxTitre = document.createElement("h3");
             const lightboxQuitte = document.createElement("div");
-
-            //style ajout des classes
+            //style ajout des classes pour l'image
             lightbox.setAttribute("class", "lightBox-element");
-            imageLightbox.setAttribute("class", "lightBox-element__photo");
             lightboxCaption.setAttribute("class", "lightBox-element__description");
             lightboxTitre.setAttribute("class", "description__h3");
             lightboxQuitte.setAttribute("class", "lightBox-quitter");
 
-            //attribut relatif aux variables et url et remplissage des contenus
-            
-            lightboxQuitte.innerText = "X";
-            lightboxQuitte.addEventListener("click", () => { parentLightbox.className = "lightBox__section__bouton--invisible";   document.querySelector(".lightBox-element").remove() });
 
-            gauche.addEventListener("click", () => { imageLightbox.setAttribute("src", `assets/images/${surname}/${this.mediasParents[indexMouvementModifie].image}`); lightboxTitre.innerText = `${this.mediasParents[indexMouvementModifie].title}`; });
-            droite.addEventListener("click", () => { imageLightbox.setAttribute("src", `assets/images/${surname}/${this.mediasParents[indexMouvementModifie].image}`); lightboxTitre.innerText = `${this.mediasParents[indexMouvementModifie].title}`; });
+            let videoVerification;
+
+            if (this.video !== undefined) {
+                videoVerification = true;
+                console.log("video", this.video);
+            }
+            else {
+                videoVerification = false;;
+                console.log("image", this.image);
+            }
+
+            //attribut relatif aux variables et url et remplissage des contenus
+
+            lightboxQuitte.innerText = "X";
+            lightboxQuitte.addEventListener("click", () => { parentLightbox.className = "lightBox__section__bouton--invisible"; document.querySelector(".lightBox-element").remove() });
+
 
             //ajout des éléments les uns aux autres jusqu'au *DOM
+
+            const imageLightbox = document.createElement("img");
+            const lightboxVideo = document.createElement("video");
+            const lightboxVideoSource = document.createElement("source");
+
+            gauche.addEventListener("click", () => { (this.mediasParents[indexMouvementModifie].video !== undefined ? videoVerification = true : videoVerification = false); console.log("verif", videoVerification); });
+            droite.addEventListener("click", () => { (this.mediasParents[indexMouvementModifie].video !== undefined ? videoVerification = true : videoVerification = false); console.log("verif", videoVerification); });
+
             lightbox.appendChild(lightboxQuitte);
-            lightbox.appendChild(imageLightbox);
+
+
+            lightboxVideo.controls = true;
+            lightboxVideo.setAttribute("width", "90%");
+            lightboxVideoSource.setAttribute("type", "video/mp4");
+            lightboxVideo.setAttribute("class", "lightBox-element__video");
+            lightboxVideo.appendChild(lightboxVideoSource);
+
             lightboxSection.appendChild(lightbox);
             lightbox.appendChild(lightboxCaption);
             lightboxCaption.appendChild(lightboxTitre);
+
+            imageLightbox.setAttribute("class", "lightBox-element__photo");
+
+            lightboxSection.appendChild(lightbox);
+            lightboxCaption.appendChild(lightboxTitre);
+            lightbox.appendChild(lightboxCaption);
+
+            if (videoVerification) {
+                imageLightbox.remove();
+                lightbox.appendChild(lightboxVideo);
+                lightboxVideoSource.setAttribute("src", `assets/images/${surname}/${this.mediasParents[indexMouvementModifie].video}`);
+            } else {
+                lightboxVideo.remove();
+                imageLightbox.setAttribute("src", `assets/images/${surname}/${this.mediasParents[indexMouvementModifie].image}`);
+                lightboxVideoSource.setAttribute("src", " ");
+                lightbox.appendChild(imageLightbox);
+            }
+
+            droite.addEventListener("click", () => {
+                if (videoVerification) {
+                    lightbox.appendChild(lightboxVideo);
+                    imageLightbox.remove();
+                    lightboxVideoSource.setAttribute("src", `assets/images/${surname}/${this.mediasParents[indexMouvementModifie].video}`);
+                } else {
+                    imageLightbox.setAttribute("src", `assets/images/${surname}/${this.mediasParents[indexMouvementModifie].image}`);
+                    lightbox.appendChild(imageLightbox);
+                    lightboxVideo.remove();
+
+                }
+            })
+
+            gauche.addEventListener("click", () => {
+                if (videoVerification) {
+                    imageLightbox.remove();
+                    lightbox.appendChild(lightboxVideo);
+                    lightboxVideoSource.setAttribute("src", `assets/images/${surname}/${this.mediasParents[indexMouvementModifie].video}`);
+                } else {
+                    imageLightbox.setAttribute("src", `assets/images/${surname}/${this.mediasParents[indexMouvementModifie].image}`);
+                    lightbox.appendChild(imageLightbox);
+                    lightboxVideo.remove();
+                }
+            })
+
+
         }
+
+
     };
 }
 
