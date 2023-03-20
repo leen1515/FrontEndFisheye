@@ -72,7 +72,7 @@ function gaucheRecule(indexMouvementModifie, mediasParents) {
     return indexMouvementModifie;
 }
 function droiteAvance(indexMouvementModifie, mediasParents) {
-    ((indexMouvementModifie <= mediasParents.length - 2) ? indexMouvementModifie++ : indexMouvementModifie = 0);
+    ((indexMouvementModifie < mediasParents.length - 1) ? indexMouvementModifie++ : indexMouvementModifie = 0);
     return indexMouvementModifie;
 }
 
