@@ -42,15 +42,52 @@ async function displayData(photographers, medias) {
         const mediasId = medias.filter((mediaId) => mediaId.photographerId == recupeIdLien);
         const photographerName = idPhotographe.name;
         console.log("mediaId", mediasId);
+        MediaDeclencheTri(mediasId);
 
-        mediasId.forEach((media, index, mediasParents) => {
-            const { id, photographerId, title, image, video, likes, date, price } = media;
-            const mediaModel = new MediaFactory(mediasParents, index, id, photographerName, photographerId, title, image, video, likes, date, price);
-            const mediaDom = mediaModel.getPhotoDOM();
-            mediaSection.appendChild(mediaDom);
+        function triage(trierMedias) {
+            let photosEnveloppe = document.createElement("div");
+            photosEnveloppe.setAttribute("class", "section__enveloppe");
+            trierMedias.map((media, index, mediasParents) => {
+                const { id, photographerId, title, image, video, likes, date, price } = media;
+                const mediaModel = new MediaFactory(mediasParents, index, id, photographerName, photographerId, title, image, video, likes, date, price);
+                const mediaDom = mediaModel.getPhotoDOM();
+                photosEnveloppe.appendChild(mediaDom);
+                mediaSection.appendChild(photosEnveloppe);
 
+            }
+            )
 
-        })
+        }
+
+        function MediaDeclencheTri(mediasaTrier) {
+
+            let resultatTrie = new Tri(mediasaTrier).likeDecroissant();
+            triage(resultatTrie);
+            let selectOption = document.querySelector('#select-tri');
+
+            selectOption.addEventListener("change", (resultatTrie) => {
+                if (selectOption.options[0].selected === true) {
+                    if (document.querySelector('div.section__enveloppe') !== null) {
+                        document.querySelector('div.section__enveloppe').remove();
+                    } resultatTrie = new Tri(mediasaTrier).likeDecroissant(); triage(resultatTrie);
+                }
+            });
+
+            selectOption.addEventListener("change", (resultatTrie) => {
+                if (selectOption.options[1].selected === true) {
+                    if (document.querySelector('div.section__enveloppe') !== null) {
+                        document.querySelector('div.section__enveloppe').remove();
+                    } resultatTrie = new Tri(mediasaTrier).dateDecroissant(), triage(resultatTrie);
+                }
+            });
+            selectOption.addEventListener("change", (resultatTrie) => {
+                if (selectOption.options[2].selected === true) {
+                    if (document.querySelector('div.section__enveloppe') !== null) {
+                        document.querySelector('div.section__enveloppe').remove();
+                    } resultatTrie = new Tri(mediasaTrier).alphabetiqueCroissant(), triage(resultatTrie);
+                }
+            });
+        }
 
 
 

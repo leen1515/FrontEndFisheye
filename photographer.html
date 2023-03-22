@@ -22,6 +22,16 @@
     <main id="main">
       <div class="photographe-header">
       </div>
+      <div class ="selection">
+        <p>Trier par </p>
+        <div class="selection__enfant">
+          <select id="select-tri">
+            <option value="0" class="select-tri__option">Popularité</option>
+            <option value="1" class="select-tri__option">Date</option>
+            <option value="2" class="select-tri__option">Titre</option>
+          </select>
+        </div>
+      </div>
       <div class="photos-section"></div>
       <div class="lightBox__section__bouton--invisible">
         <div id="idGauche"
@@ -53,13 +63,15 @@
         </form>
       </div>
     </div>
-    <script src="./scripts/factories/gestionJson.js"
+    <script src="./scripts/gestionJson/gestionJson.js"
       type="text/javascript"></script>
     <script src="./scripts/factories/class.js"
       type="text/javascript"></script>
     <script src="./scripts/utils/functions.js"
       type="text/javascript"></script>
     <script src="./scripts/utils/contactForm.js"
+      type="text/javascript"></script>
+      <script src="./scripts/utils/triageMedias.js"
       type="text/javascript"></script>
   </body>
 
