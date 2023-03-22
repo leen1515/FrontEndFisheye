@@ -116,11 +116,18 @@ h1 {
 }
 
 .photos-section {
+  width: 100%;
+  display: flex;
+}
+
+.section__enveloppe {
   width: 95%;
   margin: auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-content: space-between;
+  align-items: center;
+  text-align: center;
 }
 
 .photo-section__figure {
