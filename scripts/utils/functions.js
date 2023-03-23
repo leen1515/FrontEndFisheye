@@ -62,15 +62,14 @@ function conserverMiniatureVideo(video, image, imageMiniature) {
 }
 
 function chargement(img) {
-    console.log("charge", "img");
     setTimeout(() => { img.setAttribute("src", img.getAttribute("data-src"), img.removeAttribute("data-src")) }, 2000);
 }
-
 
 function gaucheRecule(indexMouvementModifie, mediasParents) {
     ((indexMouvementModifie > 0) ? indexMouvementModifie-- : indexMouvementModifie = mediasParents.length - 1);
     return indexMouvementModifie;
 }
+
 function droiteAvance(indexMouvementModifie, mediasParents) {
     ((indexMouvementModifie < mediasParents.length - 1) ? indexMouvementModifie++ : indexMouvementModifie = 0);
     return indexMouvementModifie;
@@ -88,10 +87,7 @@ function recupereImageUrl(urlImage) {
     return idUrl;
 }
 
-
 function installerParamId(uriImage, paramId, valeurId) {
     const uri = new URLSearchParams(uriImage.search);
     if (uri) { uri.set(paramId, valeurId); }
-    console.log("url", paramId, valeurId);
-
 }
