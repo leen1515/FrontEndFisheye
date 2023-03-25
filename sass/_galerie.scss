@@ -29,11 +29,27 @@
 }
 
 .lien-photographie__photographies{
+    filter: blur(10px);
     margin:auto;
     width:100%;
     height:100%;
     object-fit: cover;
+    animation-name: flouChargement;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
 }
+
+.lien-photographie__photographies--flou{
+    margin:auto;
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    filter: blur(10px);
+    animation-name: flouChargement;
+        animation-duration: 3s;
+        animation-fill-mode: forwards;
+}
+
 
 .figure__legende{
     display: flex;
@@ -60,6 +76,40 @@
 }
 
 .like__icone-aime{
+
+
+}
+
+//etiquette en bas de la galerie
+
+.photographe-etiquette{
+position:fixed;
+display:flex;
+flex-direction: row;
+align-items: center;
+justify-content: space-between;
+bottom:0;
+right:0;
+width:300px;
+height:30px;
+background-color: #DB8876;
+font-size: 24px;
+font-weight: 500;
+color:black;
+z-index: 5;
+padding:10px 20px;
+border-radius: 5px;
+
+}
+.photographe-etiquette__totalLikes{
+
+
+}
+.photographe-etiquette__coeur{
+
+
+}
+.photographe-etiquette__prix{
 
 
 }

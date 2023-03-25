@@ -13,17 +13,27 @@ async function displayData(photographers, medias) {
     const photographeHeader = document.querySelector(".photographe-header");
     const urlAffiche = window.location.href;
     const recupeIdLien = recupereIdUrl(urlAffiche);
-    const mediasId = medias.filter((mediaId) => mediaId.photographerId == recupeIdLien);  
+    const mediasId = medias.filter((mediaId) => mediaId.photographerId == recupeIdLien);
     const idPhotographe = photographers.find((photographe) => photographe.id == recupeIdLien);
     const photographerName = idPhotographe.name;
 
-    new Array(idPhotographe).forEach((unPhotographe) => {
-        const { name, id, tagline, city, country, price, portrait } = unPhotographe;
+    let mediasIdLikes = [];
+    mediasId.forEach((media)=>{mediasIdLikes.push(media.likes)});
+    const likesPhotos = totalCompteurLikes(mediasIdLikes);
+
+    new Array(idPhotographe).forEach((chaquePhotographe) => {
+        const { name, id, tagline, city, country, price, portrait } = chaquePhotographe;
         const photographerBanniereModel = new PhotographerFactory(name, id, tagline, city, country, price, portrait);
         const userBanniereCardDOM = photographerBanniereModel.getUserBanniereCardDOM();
         photographeHeader.appendChild(userBanniereCardDOM);
+        
+        const etiquetteModel = new EtiquetteFactory(likesPhotos, price).etiquetteLikePrix();
+        mediaSection.appendChild(etiquetteModel);
+
+
     }
     )
+    
     SelectDeclencheTri(mediasId, photographerName);
 }
 
@@ -38,6 +48,7 @@ function triage(trierMedias, photographerNameTransfert) {
         mediaSection.appendChild(photosEnveloppe);
     }
     )
+
 }
 
 async function init() {

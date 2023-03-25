@@ -33,7 +33,7 @@ class MediaFactory {
         //style ajout des classes
         figure.setAttribute("class", "photo-section__figure");
         lienPhoto.setAttribute("class", "figure__lien-photographie")
-        photo.setAttribute("class", "lien-photographie__photographies");
+        photo.setAttribute("class", "lien-photographie__photographies--flou");
         figCaption.setAttribute("class", "figure__legende");
         h2.setAttribute("class", "legende__h2");
         groupeLike.setAttribute("class", "legende__like");
@@ -42,12 +42,18 @@ class MediaFactory {
 
         const parentLightbox = document.querySelector(".lightBox__section__bouton--invisible");
 
-        lienPhoto.addEventListener("click", () => { parentLightbox.className = "lightBox__section__bouton"; this.ouvreLightbox(this.index); });
+        lienPhoto.addEventListener("click", () => { parentLightbox.className = "lightBox__section__bouton"; this.creerLightbox(this.index); });
+
 
         //attribut relatif aux variables et url et remplissage des contenus
-        photo.setAttribute("onload", chargement(photo));
-        photo.setAttribute("data-src", conserverMiniatureVideo(this.video, picturePhoto, `${filtreLien}_m.jpg`));
-        photo.setAttribute("src", `${filtreLien}_m.jpg`);
+        let source = conserverMiniatureVideo(this.video, picturePhoto, `${filtreLien}_m.jpg`);
+
+        photo.setAttribute("src", `${source}`);
+        photo.addEventListener('onload', chargement(photo, source, filtreLien, "lien-photographie__photographies"));
+
+        // photo.setAttribute("onload", chargement(photo));
+        // photo.setAttribute("data-src", conserverMiniatureVideo(this.video, picturePhoto, `${filtreLien}_m.jpg`));
+        // photo.setAttribute("src", `${filtreLien}_m.jpg`);
 
         divLikes.textContent = this.likes;
         h2.textContent = this.title;
@@ -65,10 +71,11 @@ class MediaFactory {
     }
 
 
-    ouvreLightbox(idImage) {
+    creerLightbox(idImage) {
 
         let indexMouvementModifie = idImage;
         let surname = garderPrenom(this.photographerName);
+
         let videoVerification;
 
         if (this.video !== undefined) {
@@ -93,7 +100,7 @@ class MediaFactory {
             const lightbox = document.createElement("figure");
             const lightboxCaption = document.createElement("figcaption");
             const lightboxTitre = document.createElement("h3");
-            const lightboxQuitte = document.createElement("div"); 
+            const lightboxQuitte = document.createElement("div");
             const imageLightbox = document.createElement("img");
             const lightboxVideo = document.createElement("video");
             const lightboxVideoSource = document.createElement("source");
@@ -160,5 +167,31 @@ class MediaFactory {
             lightbox.appendChild(lightboxCaption);
         }
     };
+}
+
+class EtiquetteFactory {
+    constructor(likes, prix) {
+        this.likes = likes;
+        this.prix = prix;
+    }
+    etiquetteLikePrix() {
+        const etiquette = document.createElement("div");
+        const totalCoeur = document.createElement("div");
+        const prix = document.createElement("div");
+
+        etiquette.setAttribute("class", "photographe-etiquette");
+        totalCoeur.setAttribute("class", "photographe-etiquette__coeur");
+        prix.setAttribute("class", "photographe-etiquette__prix");
+
+        totalCoeur.innerHTML = `${this.likes} <i class='fa-solid fa-heart'></i>`;
+        prix.innerHTML = `${this.prix}€ / jour`;
+
+
+        etiquette.appendChild(totalCoeur);
+        etiquette.appendChild(prix);
+
+        return (etiquette);
+    }
+
 }
 

@@ -61,9 +61,37 @@ function conserverMiniatureVideo(video, image, imageMiniature) {
     }
 }
 
-function chargement(img) {
-    setTimeout(() => { img.setAttribute("src", img.getAttribute("data-src"), img.removeAttribute("data-src")) }, 2000);
+function chargePromise(source, filtreLien) {
+    return new Promise((resolve, reject) => {
+        setTimeout(()=>{
+            resolve(source);
+            reject(`${filtreLien}_m.jpg`);}, 4000)
+    });
 }
+function chargement(photo, source, filtreLien, classNom) {
+    photo.setAttribute("src", `${filtreLien}_m.jpg`);
+    console.log("photo en attente", photo);
+       chargePromise(source, filtreLien).then(result => {
+            photo.setAttribute("src", source);
+            photo.className = classNom;
+            console.log("photo charge", photo);
+        return result;
+     }).catch(error => {
+        photo.setAttribute("src", `${filtreLien}_m.jpg`);
+        console.log("photo pas charge", photo);
+       return error
+     });     
+}
+
+
+// function chargement(img) {
+//     setTimeout(() => { img.setAttribute("src", img.getAttribute("data-src"), img.removeAttribute("data-src")) }, 2000);
+// }
+
+
+
+
+
 
 function gaucheRecule(indexMouvementModifie, mediasParents) {
     ((indexMouvementModifie > 0) ? indexMouvementModifie-- : indexMouvementModifie = mediasParents.length - 1);
@@ -90,4 +118,10 @@ function recupereImageUrl(urlImage) {
 function installerParamId(uriImage, paramId, valeurId) {
     const uri = new URLSearchParams(uriImage.search);
     if (uri) { uri.set(paramId, valeurId); }
+}
+
+function totalCompteurLikes(likes){
+    let totalLikes = 0;
+    likes.forEach((like)=>{totalLikes += like});
+    return totalLikes;
 }

@@ -1,3 +1,11 @@
+@keyframes flouChargement {
+  from {
+    filter: blur(10px);
+  }
+  to {
+    filter: blur(0px);
+  }
+}
 body {
   font-family: "DM Sans", sans-serif;
   margin: 0;
@@ -82,37 +90,26 @@ h1 {
   height: 150px;
 }
 
-#lien-vignette__avatar-243 {
-  object-position: -30px -60px;
-}
-
-#lien-vignette__avatar-930 {
-  object-position: -90px -20px;
-}
-
-#lien-vignette__avatar-82 {
-  object-position: 0px -20px;
-  max-width: 200px;
-}
-
-#lien-vignette__avatar-527 {
-  object-position: 0px -50px;
-}
-
-#lien-vignette__avatar-925 {
-  object-position: -90px 0;
-}
-
-#lien-vignette__avatar-195 {
-  object-position: -80px 0;
-}
-
 .lien-vignette__avatar {
-  width: 500%;
-  height: 500%;
+  width: 120%;
+  height: 120%;
+  object-fit: cover;
+  object-position: bottom;
   max-height: 300px;
   max-width: 350px;
-  object-fit: contain;
+}
+
+.lien-vignette__avatar--flou {
+  filter: blur(10%);
+  width: 120%;
+  height: 120%;
+  object-fit: cover;
+  object-position: bottom -20px;
+  max-height: 300px;
+  max-width: 350px;
+  animation-name: flouChargement;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
 }
 
 .photos-section {
@@ -147,10 +144,25 @@ h1 {
 }
 
 .lien-photographie__photographies {
+  filter: blur(10px);
   margin: auto;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  animation-name: flouChargement;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
+
+.lien-photographie__photographies--flou {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(10px);
+  animation-name: flouChargement;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
 }
 
 .figure__legende {
@@ -161,6 +173,32 @@ h1 {
   width: 300px;
   margin: auto;
   color: #901C1C;
+}
+
+.photographe-etiquette {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  bottom: 0;
+  right: 0;
+  width: 300px;
+  height: 30px;
+  background-color: #DB8876;
+  font-size: 24px;
+  font-weight: 500;
+  color: black;
+  z-index: 5;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.photographe-header {
+  filter: blur(10px);
+  animation-name: flouChargement;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
 }
 
 .banniere-entete {
@@ -222,6 +260,10 @@ h1 {
   height: 100%;
   object-fit: contain;
   overflow: hidden;
+}
+
+.lightBox-element__video {
+  margin: auto;
 }
 
 .lightBox__section__bouton {

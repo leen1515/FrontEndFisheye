@@ -1,1 +1,11 @@
 //pour les variables, fonctions, extends, mixins etc.
+
+
+@keyframes flouChargement {
+    from{
+        filter:blur(10px);
+    }
+    to {
+        filter:blur(0px);
+    }
+}

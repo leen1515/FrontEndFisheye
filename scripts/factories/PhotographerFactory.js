@@ -25,26 +25,22 @@ class PhotographerFactory {
         //style ajout des classes
         article.setAttribute("class", "article-photo");
         urlPage.setAttribute("class", "article-photo__lien-vignette");
-        img.setAttribute("class", "lien-vignette__avatar");
+        img.setAttribute("class", "lien-vignette__avatar--flou");
         text.setAttribute("class", "article-photo__texte-description");
         h2.setAttribute("class", "texte-decription__h2");
         slogan.setAttribute("class", "texte-description__slogan");
         localisation.setAttribute("class", "texte-description__localisation")
         paragraphe.setAttribute("class", "texte-description__paragraphe");
 
-        //style ajout des Ids aux vignettes par photographe
-        img.setAttribute("id", `lien-vignette__avatar-${this.id}`);
-
         //attribut relatif aux variables et url et remplissage des contenus
         urlPage.setAttribute("href", `./photos.html?id=${this.id}`);
         urlPage.addEventListener("click", sessionStorage.removeItem("parentLightVisible"));
-        img.setAttribute("src", `${urlImageMiniature(picture)}_m.jpg`)
-        img.setAttribute("data-src", picture);
+        img.setAttribute("src", picture);
         h2.textContent = `${this.name}`;
         localisation.textContent = `${this.city}, ${this.country}`;
         slogan.innerHTML = `${this.tagline}`;
         paragraphe.textContent = `${this.price}€/jour`;
-        img.setAttribute("onload", chargement(img));
+        img.addEventListener("onload", chargement(img, picture, urlImageMiniature(picture), "lien-vignette__avatar"));
 
         //ajout des éléments les uns aux autres jusqu'au *DOM
         urlPage.appendChild(img);
@@ -78,7 +74,7 @@ class PhotographerFactory {
         location.setAttribute("class", "texte__location")
         buttonContact.setAttribute("class", "contact_button");
         divAvatar.setAttribute("class", "article-photo__lien-vignette")
-        avatar.setAttribute("class", "lien-vignette__avatar");
+        avatar.setAttribute("class", "lien-vignette__avatar--flou");
 
 
         //style ajout des Ids aux vignettes par photographe
@@ -87,13 +83,13 @@ class PhotographerFactory {
         //attribut relatif aux variables et url et remplissage des contenus
         avatar.setAttribute("src", `${urlImageMiniature(picture)}_m.jpg`);
         avatar.setAttribute("data-src", picture);
-        buttonContact.addEventListener("click", displayModal);
+        // buttonContact.addEventListener("click", displayModal);
         buttonContact.textContent = "Contactez-moi";
         h1.textContent = this.name;
         paragraphe.textContent = `${this.tagline}`;
         location.textContent = `${this.city}, ${this.country}`;
 
-        avatar.setAttribute("onload", chargement(avatar));
+        avatar.addEventListener("onload", chargement(avatar, picture, urlImageMiniature(picture), "lien-vignette__avatar"));
 
         //ajout des éléments les uns aux autres jusqu'au *DOM
 

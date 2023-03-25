@@ -89,30 +89,24 @@ h1 {
 
 }
 
-#lien-vignette__avatar-243{
-    object-position: -30px -60px;
-}
-#lien-vignette__avatar-930{
-    object-position: -90px -20px;
-}
-#lien-vignette__avatar-82{
-    object-position: 0px -20px;
-    max-width: 200px;
-}
-#lien-vignette__avatar-527{
-    object-position: 0px -50px;
-}
-#lien-vignette__avatar-925{
-    object-position: -90px 0;
-}
-#lien-vignette__avatar-195{
-    object-position: -80px 0;
-}
-
  .lien-vignette__avatar{
-    width:500%;
-    height:500%;
+    width:120%;
+    height:120%;
+    object-fit:cover;
+    object-position:bottom;
     max-height: 300px;
     max-width: 350px;
-    object-fit: contain;
+ }
+
+ .lien-vignette__avatar--flou{
+    filter:blur(10%);
+    width:120%;
+    height:120%;
+    object-fit:cover;
+    object-position:bottom -20px;
+    max-height: 300px;
+    max-width: 350px;
+    animation-name: flouChargement;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
  }
