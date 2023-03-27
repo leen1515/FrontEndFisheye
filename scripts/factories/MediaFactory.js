@@ -120,7 +120,7 @@ class MediaFactory {
             lightboxQuitte.setAttribute("class", "lightBox-quitter");
 
             //attribut relatif aux variables et url et remplissage des contenus
-            lightboxQuitte.innerHTML = "<i class='fa-solid fa-xmark fa-3x'></i>";
+            lightboxQuitte.innerHTML = "<i class='fa-solid fa-xmark fa-4x'></i>";
             lightboxQuitte.addEventListener("click", () => { parentLightbox.className = "lightBox__section__bouton--invisible"; document.querySelector(".lightBox-element").remove() });
             lightbox.appendChild(lightboxQuitte);
             //ajout des éléments les uns aux autres jusqu'au *DOM

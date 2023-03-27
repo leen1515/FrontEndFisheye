@@ -5,36 +5,47 @@
         animation-duration: 3s;
         animation-fill-mode: forwards;
 }
-
 .banniere-entete{
-    display:flex;
-    flex-direction: row;
-    justify-content: space-around;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    align-items: center;
     background-color: #FAFAFA;
     height: 100%;
-    width:calc(80% - 50px);
-    margin:auto;
-    padding:50px;
+    width: calc(80% - 50px);
+    margin: 0 auto;
+    padding:40px 50px;
 }
 
-
+.banniere-entete .article-photo__lien-vignette{
+    position: relative;
+    margin-left: 200px;
+    
+}
 .banniere__texte{
     display:flex;
     flex-direction: column;
+    white-space: nowrap;
 
 }
 
 .texte__nom{
     color: #D3573C;
+    font-size: 40pt;
+    font-weight: 400;
+    margin:20px 20px 0 0;
+    padding:0;
 
 }
 
 .texte__slogan{
-
+    margin:0;
 }
 
 .texte__location{
     color:#901C1C;
+    padding:0;
+    margin:5px 0;
 }
 
 .contact_button {
