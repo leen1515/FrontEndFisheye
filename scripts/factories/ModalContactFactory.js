@@ -48,6 +48,7 @@ class ModalContactFactory {
         installerAttribute(inputMessage, { "class": "formulaire__input", "id": "7", "type": "text", "minlength": "2", "maxlength": "500", "name": "Your message"});
         installerAttribute(inputEmail, { "class": "formulaire__input", "id": "9", "type": "email", "minlength": "2", "maxlength": "50", "name": "Email" });
 
+
         installerAttribute(buttonEnvoyer, { "class": "input__envoyer-bouton" });
         installerAttribute(buttonClose, { "class": "entete__close-bouton" });
 

@@ -2,6 +2,7 @@
 .photos-section{
     width:100%;
     display:flex;
+    z-index: 0;
 }
 .section__enveloppe{
     width:95%;
@@ -96,7 +97,7 @@ background-color: #DB8876;
 font-size: 24px;
 font-weight: 500;
 color:black;
-z-index: 5;
+z-index: 1;
 padding:10px 20px;
 border-radius: 5px;
 

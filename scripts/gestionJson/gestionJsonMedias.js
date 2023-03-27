@@ -8,6 +8,7 @@ async function getPhotographers() {
 
 
 const mediaSection = document.querySelector(".photos-section");
+const modalSection = document.querySelector(".contact_modal");
 
 async function displayData(photographers, medias) {
     const photographeHeader = document.querySelector(".photographe-header");
@@ -29,6 +30,9 @@ async function displayData(photographers, medias) {
         
         const etiquetteModel = new EtiquetteFactory(likesPhotos, price).etiquetteLikePrix();
         mediaSection.appendChild(etiquetteModel);
+
+        const modalModel = new ModalContactFactory(name).formulaireContact();
+        modalSection.appendChild(modalModel);
 
 
     }
