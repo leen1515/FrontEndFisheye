@@ -115,6 +115,7 @@ h1 {
 .photos-section {
   width: 100%;
   display: flex;
+  z-index: 0;
 }
 
 .section__enveloppe {
@@ -189,7 +190,7 @@ h1 {
   font-size: 24px;
   font-weight: 500;
   color: black;
-  z-index: 2;
+  z-index: 1;
   padding: 10px 20px;
   border-radius: 5px;
 }
