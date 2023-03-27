@@ -116,20 +116,24 @@ function totalCompteurLikes(likes){
     return totalLikes;
 }
 
-
 function displayModal() {
     let modalInvisible = document.querySelectorAll(".modal-contact-section--invisible");
     modalInvisible.forEach((element)=>element.className = "modal-contact-section");
 }
-
 
 function closeModal() {
     let modalVisible = document.querySelectorAll(".modal-contact-section");
     modalVisible.forEach((element)=>element.className = "modal-contact-section--invisible");
 }
 
-
 function installerAttribute(element, attribut){
     for(let key in attribut) {
         element.setAttribute(key, attribut[key]);}
+}
+
+function verificationEmail(email){
+    return /^[a-zA-Z0-9._-]+\@[a-zA-Z0-9._-]+\.[a-zA-Z.]{2,15}$/g.test(email.value);
+}
+function verificationString(text){
+    return /^([a-zA-Z])+$/g.test(text.value);
 }

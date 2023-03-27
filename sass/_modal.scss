@@ -19,6 +19,7 @@
     height: 100%;
     top: 0;
     left: 0;
+    z-index: 30;
 
 }
 
@@ -27,11 +28,11 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 500px;
+    width: 400px;
     height: auto;
     top: 100px;
     background-color: #DB8876;
-    padding: 50px;
+    padding: 15px 20px;
     border-radius: 5px;
 }
 
@@ -49,14 +50,54 @@
     font-size: 30pt;
     font-weight: 400;
     white-space: nowrap;
-    margin:0;
+    margin:0 0 20px 0;
 
 }
+.formulaire__input{
+    border-radius: 5px;
+    height: 30px;
+    outline:none;
+    border:none;
+}
 
-.formulaire__input {}
+.formulaire__label{
+    font-size: 15pt;
+}
 
-.input__envoyer-bouton {}
+[name = "Your message"] {
+    height:100px;
+}
+
+.input__envoyer-bouton {
+    position:relative;
+    text-align: center;
+    padding:15px 40px;
+    font-size: 10pt;
+    font-weight: 400;
+    color: white;
+    width: 50px;
+    height: auto;
+    border: none;
+    background-color: #901C1C;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left:0;
+    margin-top: 15px;
+    z-index: 20;
+
+}
 
 .entete__close-bouton {
     color: white;
 }
+
+.formulaire__erreur{
+    position:relative;
+    opacity:1;
+    color: rgb(0, 0, 0);
+    align-self: center;
+    animation-duration: 2s;
+    animation-iteration-count: 5;
+    animation-fill-mode:backwards;
+}
+
