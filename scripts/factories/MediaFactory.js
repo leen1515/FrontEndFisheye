@@ -120,10 +120,9 @@ class MediaFactory {
             lightboxQuitte.setAttribute("class", "lightBox-quitter");
 
             //attribut relatif aux variables et url et remplissage des contenus
-
-            lightboxQuitte.innerHTML = "<i class='fa-solid fa-x'></i>";
+            lightboxQuitte.innerHTML = "<i class='fa-solid fa-xmark fa-3x'></i>";
             lightboxQuitte.addEventListener("click", () => { parentLightbox.className = "lightBox__section__bouton--invisible"; document.querySelector(".lightBox-element").remove() });
-
+            lightbox.appendChild(lightboxQuitte);
             //ajout des éléments les uns aux autres jusqu'au *DOM
 
             droite.addEventListener("click", () => {
@@ -132,9 +131,15 @@ class MediaFactory {
                     lightbox.appendChild(lightboxVideo);
                     imageLightbox.remove();
                     lightboxVideoSource.setAttribute("src", `assets/images/${surname}/${this.mediasParents[indexMouvementModifie].video}`);
+                    lightboxTitre.innerText = `${this.mediasParents[indexMouvementModifie].title}`;
+                    lightboxCaption.appendChild(lightboxTitre);
+                    lightbox.appendChild(lightboxCaption);
                 } else {
                     imageLightbox.setAttribute("src", `assets/images/${surname}/${this.mediasParents[indexMouvementModifie].image}`);
                     lightbox.appendChild(imageLightbox);
+                    lightboxTitre.innerText = `${this.mediasParents[indexMouvementModifie].title}`;
+                    lightboxCaption.appendChild(lightboxTitre);
+                    lightbox.appendChild(lightboxCaption);
                     lightboxVideo.remove();
                 }
             })
@@ -145,9 +150,15 @@ class MediaFactory {
                     imageLightbox.remove();
                     lightbox.appendChild(lightboxVideo);
                     lightboxVideoSource.setAttribute("src", `assets/images/${surname}/${this.mediasParents[indexMouvementModifie].video}`);
+                    lightboxTitre.innerText = `${this.mediasParents[indexMouvementModifie].title}`;
+                    lightboxCaption.appendChild(lightboxTitre);
+                    lightbox.appendChild(lightboxCaption);
                 } else {
                     imageLightbox.setAttribute("src", `assets/images/${surname}/${this.mediasParents[indexMouvementModifie].image}`);
                     lightbox.appendChild(imageLightbox);
+                    lightboxTitre.innerText = `${this.mediasParents[indexMouvementModifie].title}`;
+                    lightboxCaption.appendChild(lightboxTitre);
+                    lightbox.appendChild(lightboxCaption);
                     lightboxVideo.remove();
                 }
             })
@@ -156,24 +167,27 @@ class MediaFactory {
                 imageLightbox.remove();
                 lightbox.appendChild(lightboxVideo);
                 lightboxVideoSource.setAttribute("src", `assets/images/${surname}/${this.mediasParents[indexMouvementModifie].video}`);
+                lightboxTitre.innerText = `${this.mediasParents[indexMouvementModifie].title}`;
+                lightboxCaption.appendChild(lightboxTitre);
             } else {
                 lightboxVideo.remove();
                 imageLightbox.setAttribute("src", `assets/images/${surname}/${this.mediasParents[indexMouvementModifie].image}`);
                 lightboxVideoSource.setAttribute("src", " ");
                 lightbox.appendChild(imageLightbox);
+                
+                lightboxTitre.innerText = `${this.mediasParents[indexMouvementModifie].title}`;        
+                lightboxCaption.appendChild(lightboxTitre);
+                lightbox.appendChild(lightboxCaption);
             }
-
-            lightbox.appendChild(lightboxQuitte);
 
             lightboxVideo.controls = true;
             lightboxVideo.setAttribute("width", "90%");
             lightboxVideoSource.setAttribute("type", "video/mp4");
             lightboxVideo.setAttribute("class", "lightBox-element__video");
             lightboxVideo.appendChild(lightboxVideoSource);
+
             imageLightbox.setAttribute("class", "lightBox-element__photo");
             lightboxSection.appendChild(lightbox);
-            lightboxCaption.appendChild(lightboxTitre);
-            lightbox.appendChild(lightboxCaption);
         }
     };
 }

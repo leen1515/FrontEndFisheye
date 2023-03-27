@@ -131,10 +131,11 @@ h1 {
 .photo-section__figure {
   display: flex;
   flex-direction: column;
-  margin: auto;
+  margin: 0 auto;
   text-align: left;
   width: 400px;
-  height: 400px;
+  height: 350px;
+  margin-bottom: 20px;
 }
 
 .figure__lien-photographie {
@@ -172,13 +173,24 @@ h1 {
   justify-content: space-between;
   align-items: center;
   width: 300px;
-  margin: auto;
+  height: auto;
+  margin: 0 auto;
   color: #901C1C;
+  font-size: 15pt;
+}
+
+.legende__h2 {
+  font-size: 15pt;
+  margin: 0;
 }
 
 .legende__like {
   display: flex;
   flex-direction: row;
+}
+
+.like__nombre-aime {
+  font-weight: 700;
 }
 
 .fa-heart-margin {
@@ -253,7 +265,7 @@ h1 {
 }
 
 .lightBox__section {
-  margin: auto;
+  margin: 0 auto;
   overflow: hidden;
 }
 
@@ -265,7 +277,9 @@ h1 {
 }
 
 .lightBox-element__photo {
-  margin: auto;
+  margin: 0 auto;
+  position: relative;
+  top: 0;
   width: 100%;
   max-width: 800px;
   max-height: 600px;
@@ -276,9 +290,11 @@ h1 {
 
 .lightBox-element__video {
   margin: auto;
+  width: 800px;
 }
 
 .lightBox__section__bouton {
+  visibility: visible;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -292,7 +308,7 @@ h1 {
 }
 
 .lightBox__section__bouton--invisible {
-  display: none;
+  visibility: hidden;
 }
 
 .description__h3 {
@@ -300,7 +316,20 @@ h1 {
 }
 
 .lightBox-quitter {
+  position: absolute;
   color: #901C1C;
+  right: 0;
+  margin-right: 40px;
+}
+
+.boutonGauche {
+  color: #901C1C;
+  margin-left: 40px;
+}
+
+.boutonDroite {
+  color: #901C1C;
+  margin-right: 40px;
 }
 
 .contact_modal {

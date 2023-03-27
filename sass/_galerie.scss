@@ -16,10 +16,11 @@
 .photo-section__figure{
     display:flex;
     flex-direction: column;
-    margin:auto;
+    margin:0 auto;
     text-align: left;
     width:400px;
-    height:400px;
+    height:350px;
+    margin-bottom: 20px;
 }
 
 .figure__lien-photographie{
@@ -58,12 +59,16 @@
     justify-content: space-between;
     align-items: center;
     width: 300px;
-    margin:auto;
+    height:auto;
+    margin:0 auto;
     color: #901C1C;
+    font-size: 15pt;
+
 }
 
 .legende__h2{
-
+    font-size: 15pt;
+    margin:0;
 
 }
 .legende__like{
@@ -76,7 +81,7 @@ flex-direction: row;
 }
 
 .like__nombre-aime{
-
+    font-weight: 700;
 
 }
 
