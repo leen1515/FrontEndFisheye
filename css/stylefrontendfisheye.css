@@ -238,6 +238,7 @@ h1 {
   border-radius: 5px;
   cursor: pointer;
   margin: auto;
+  z-index: 20;
 }
 
 .lightBox__section {
@@ -285,6 +286,66 @@ h1 {
 
 .description__h3 {
   color: #901C1C;
+}
+
+.lightBox-quitter {
+  color: #901C1C;
+}
+
+.contact_modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-contact-section--invisible {
+  visibility: hidden;
+}
+
+.modal-contact-section {
+  visibility: visible;
+  background-color: rgba(255, 255, 255, 0.719);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.modal-formulaire {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 500px;
+  height: auto;
+  top: 100px;
+  background-color: #DB8876;
+  padding: 50px;
+  border-radius: 5px;
+}
+
+.formulaire__entete {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: top;
+  white-space: nowrap;
+}
+
+.entete__recepteur-titre {
+  color: black;
+  font-size: 30pt;
+  font-weight: 400;
+  white-space: nowrap;
+  margin: 0;
+}
+
+.entete__close-bouton {
+  color: white;
 }
 
 /*# sourceMappingURL=stylefrontendfisheye.css.map */

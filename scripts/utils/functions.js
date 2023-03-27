@@ -83,16 +83,6 @@ function chargement(photo, source, filtreLien, classNom) {
      });     
 }
 
-
-// function chargement(img) {
-//     setTimeout(() => { img.setAttribute("src", img.getAttribute("data-src"), img.removeAttribute("data-src")) }, 2000);
-// }
-
-
-
-
-
-
 function gaucheRecule(indexMouvementModifie, mediasParents) {
     ((indexMouvementModifie > 0) ? indexMouvementModifie-- : indexMouvementModifie = mediasParents.length - 1);
     return indexMouvementModifie;
@@ -124,4 +114,22 @@ function totalCompteurLikes(likes){
     let totalLikes = 0;
     likes.forEach((like)=>{totalLikes += like});
     return totalLikes;
+}
+
+
+function displayModal() {
+    let modalInvisible = document.querySelectorAll(".modal-contact-section--invisible");
+    modalInvisible.forEach((element)=>element.className = "modal-contact-section");
+}
+
+
+function closeModal() {
+    let modalVisible = document.querySelectorAll(".modal-contact-section");
+    modalVisible.forEach((element)=>element.className = "modal-contact-section--invisible");
+}
+
+
+function installerAttribute(element, attribut){
+    for(let key in attribut) {
+        element.setAttribute(key, attribut[key]);}
 }

@@ -62,7 +62,7 @@ class PhotographerFactory {
         const text = document.createElement("div");
         const paragraphe = document.createElement("p");
         const location = document.createElement("p");
-        const buttonContact = document.createElement("button");
+        const buttonContact = document.createElement("div");
         const divAvatar = document.createElement("div");
         const avatar = document.createElement("img");
 
@@ -75,7 +75,8 @@ class PhotographerFactory {
         buttonContact.setAttribute("class", "contact_button");
         divAvatar.setAttribute("class", "article-photo__lien-vignette")
         avatar.setAttribute("class", "lien-vignette__avatar--flou");
-
+        
+        buttonContact.addEventListener("click", displayModal);
 
         //style ajout des Ids aux vignettes par photographe
         avatar.setAttribute("id", `lien-vignette__avatar-${this.id}`);
@@ -83,7 +84,6 @@ class PhotographerFactory {
         //attribut relatif aux variables et url et remplissage des contenus
         avatar.setAttribute("src", `${urlImageMiniature(picture)}_m.jpg`);
         avatar.setAttribute("data-src", picture);
-        // buttonContact.addEventListener("click", displayModal);
         buttonContact.textContent = "Contactez-moi";
         h1.textContent = this.name;
         paragraphe.textContent = `${this.tagline}`;
