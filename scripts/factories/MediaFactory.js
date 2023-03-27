@@ -52,13 +52,13 @@ class MediaFactory {
         photo.addEventListener('onload', chargement(photo, source, filtreLien, "lien-photographie__photographies"));
         
         divLikes.innerHTML = `${this.likes} `;
-        divClickLike.innerHTML = " <i class='fa-regular fa-heart'></i>";
+        divClickLike.innerHTML = "<i class='fa-regular fa-heart fa-heart-margin'></i>";
         let clique = false;
         divClickLike.addEventListener("click", ()=>{(!clique?clique = true:clique = false); 
-            if (clique){divLikes.innerHTML = `${this.likes+1} `; divClickLike.innerHTML = " <i class='fa-solid fa-heart'></i>";}
+            if (clique){divLikes.innerHTML = `${this.likes+1} `; divClickLike.innerHTML = "<i class='fa-solid fa-heart fa-heart-margin'></i>";}
             else{
                 divLikes.innerHTML = `${this.likes} `;
-                divClickLike.innerHTML = " <i class='fa-regular fa-heart'></i>";
+                divClickLike.innerHTML = "<i class='fa-regular fa-heart fa-heart-margin'></i>";
             }
         }
         );

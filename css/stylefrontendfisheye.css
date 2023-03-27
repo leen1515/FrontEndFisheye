@@ -181,6 +181,10 @@ h1 {
   flex-direction: row;
 }
 
+.fa-heart-margin {
+  margin: 0 5px;
+}
+
 .photographe-etiquette {
   position: fixed;
   display: flex;
