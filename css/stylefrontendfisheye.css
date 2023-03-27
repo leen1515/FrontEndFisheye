@@ -176,6 +176,11 @@ h1 {
   color: #901C1C;
 }
 
+.legende__like {
+  display: flex;
+  flex-direction: row;
+}
+
 .photographe-etiquette {
   position: fixed;
   display: flex;

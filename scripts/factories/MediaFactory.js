@@ -50,12 +50,21 @@ class MediaFactory {
 
         photo.setAttribute("src", `${source}`);
         photo.addEventListener('onload', chargement(photo, source, filtreLien, "lien-photographie__photographies"));
+        
+        divLikes.innerHTML = `${this.likes} `;
+        divClickLike.innerHTML = " <i class='fa-regular fa-heart'></i>";
+        let clique = false;
+        divClickLike.addEventListener("click", ()=>{(!clique?clique = true:clique = false); 
+            if (clique){divLikes.innerHTML = `${this.likes+1} `; divClickLike.innerHTML = " <i class='fa-solid fa-heart'></i>";}
+            else{
+                divLikes.innerHTML = `${this.likes} `;
+                divClickLike.innerHTML = " <i class='fa-regular fa-heart'></i>";
+            }
+        }
+        );
 
-        // photo.setAttribute("onload", chargement(photo));
-        // photo.setAttribute("data-src", conserverMiniatureVideo(this.video, picturePhoto, `${filtreLien}_m.jpg`));
-        // photo.setAttribute("src", `${filtreLien}_m.jpg`);
+       
 
-        divLikes.textContent = this.likes;
         h2.textContent = this.title;
 
         //ajout des éléments les uns aux autres jusqu'au *DOM
@@ -63,8 +72,8 @@ class MediaFactory {
         figure.appendChild(lienPhoto);
         figCaption.appendChild(h2);
         figCaption.appendChild(groupeLike);
-        groupeLike.appendChild(divClickLike);
         groupeLike.appendChild(divLikes);
+        groupeLike.appendChild(divClickLike);
         figure.appendChild(figCaption);
 
         return (figure);

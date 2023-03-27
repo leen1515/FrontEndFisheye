@@ -33,8 +33,6 @@ async function displayData(photographers, medias) {
 
         const modalModel = new ModalContactFactory(name).formulaireContact();
         modalSection.appendChild(modalModel);
-
-
     }
     )
     
