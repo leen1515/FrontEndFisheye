@@ -50,20 +50,21 @@ class MediaFactory {
 
         photo.setAttribute("src", `${source}`);
         photo.addEventListener('onload', chargement(photo, source, filtreLien, "lien-photographie__photographies"));
-        
+
         divLikes.innerHTML = `${this.likes} `;
         divClickLike.innerHTML = "<i class='fa-regular fa-heart fa-heart-margin'></i>";
         let clique = false;
-        divClickLike.addEventListener("click", ()=>{(!clique?clique = true:clique = false); 
-            if (clique){divLikes.innerHTML = `${this.likes+1} `; divClickLike.innerHTML = "<i class='fa-solid fa-heart fa-heart-margin'></i>";}
-            else{
+        divClickLike.addEventListener("click", () => {
+            (!clique ? clique = true : clique = false);
+            if (clique) { divLikes.innerHTML = `${this.likes + 1} `; divClickLike.innerHTML = "<i class='fa-solid fa-heart fa-heart-margin'></i>"; }
+            else {
                 divLikes.innerHTML = `${this.likes} `;
                 divClickLike.innerHTML = "<i class='fa-regular fa-heart fa-heart-margin'></i>";
             }
         }
         );
 
-       
+
 
         h2.textContent = this.title;
 
@@ -169,13 +170,15 @@ class MediaFactory {
                 lightboxVideoSource.setAttribute("src", `assets/images/${surname}/${this.mediasParents[indexMouvementModifie].video}`);
                 lightboxTitre.innerText = `${this.mediasParents[indexMouvementModifie].title}`;
                 lightboxCaption.appendChild(lightboxTitre);
+                lightbox.appendChild(lightboxCaption);
             } else {
                 lightboxVideo.remove();
                 imageLightbox.setAttribute("src", `assets/images/${surname}/${this.mediasParents[indexMouvementModifie].image}`);
                 lightboxVideoSource.setAttribute("src", " ");
                 lightbox.appendChild(imageLightbox);
-                
-                lightboxTitre.innerText = `${this.mediasParents[indexMouvementModifie].title}`;        
+
+                lightboxTitre.innerText = `${this.mediasParents[indexMouvementModifie].title}`;
+                lightboxTitre.innerText = `${this.mediasParents[indexMouvementModifie].title}`;
                 lightboxCaption.appendChild(lightboxTitre);
                 lightbox.appendChild(lightboxCaption);
             }
