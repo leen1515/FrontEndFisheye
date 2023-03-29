@@ -449,4 +449,12 @@ h1 {
   animation-fill-mode: backwards;
 }
 
+.select-option {
+  display: none;
+}
+
+.option-menu-choisi {
+  display: block;
+}
+
 /*# sourceMappingURL=stylefrontendfisheye.css.map */

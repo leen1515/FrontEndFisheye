@@ -137,3 +137,4 @@ function verificationEmail(email){
 function verificationString(text){
     return /^([a-zA-Z])+$/g.test(text.value);
 }
+
