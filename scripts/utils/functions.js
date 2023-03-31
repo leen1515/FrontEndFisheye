@@ -61,7 +61,7 @@ function chargePromise (source) {
     setTimeout(() => {
       resolve(source)
       reject(new Error(undefined))
-    }, 500)
+    }, 1000)
   })
 }
 
