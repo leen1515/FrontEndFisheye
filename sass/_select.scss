@@ -1,6 +1,24 @@
 
+.selection{
+    position: relative;
+    margin-left:80px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width:150px;
+    font-size: 15pt;
+    cursor:pointer;
+}
+
 .select-option{
     display:none;
+    color: white; 
+}
+.option-menu{
+    padding:10px 0;
+    border-top: 2px solid white;
 }
 
 .selection input{
@@ -11,36 +29,32 @@
     background-color: #901C1C;
     color:white;
     font-size: 15pt;
-    
-    width:200px;
-}
-
-.selection{
-    margin-left:130px;
-    display:flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    width:200px;
-    font-size: 15pt;
+    padding:10px 0;
+    width:150px;
+    height:auto;
+    cursor:pointer;
 }
 
 .select-menu{
+    position:absolute;
+    margin-left: 100px;
+    top:0;
+    left:0;
     padding:10px;
     background-color: #901C1C;
     height:auto;
+    border-radius: 5px;
+    z-index: 10;
     
 }
 .select-input{
     display:flex;
     flex-direction: row;
+    align-items: center;
     white-space: nowrap;
 
 }
 
-.select-option{
-    color:white;
-    
-}
 
 .fa-color-white{
     color:white;
@@ -48,4 +62,8 @@
 
 .select-label{
     white-space: nowrap;
+    margin-right: 40px;
+    margin-top: 15px;
+    font-weight: 600;
+
 }
