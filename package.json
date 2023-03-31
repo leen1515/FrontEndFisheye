@@ -4,10 +4,17 @@
     "sass": "^1.59.2"
   },
   "name": "frontendfisheye",
+  "type": "module",
   "description": "Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "^8.37.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.7.0",
+    "eslint-plugin-promise": "^6.1.1"
+  },
   "scripts": {
     "sass": "sass --watch sass/main.scss:css/stylefrontendfisheye.css --style expanded"
   },
@@ -21,4 +28,5 @@
     "url": "https://github.com/leen1515/FrontEndFisheye/issues"
   },
   "homepage": "https://github.com/leen1515/FrontEndFisheye#readme"
+  
 }

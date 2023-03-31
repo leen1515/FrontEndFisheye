@@ -1,9 +1,51 @@
 
 .select-option{
     display:none;
+}
+
+.selection input{
+    display:block;
+    white-space: nowrap;
+    border:none;
+    outline:none;
+    background-color: #901C1C;
+    color:white;
+    font-size: 15pt;
+    
+    width:200px;
+}
+
+.selection{
+    margin-left:130px;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width:200px;
+    font-size: 15pt;
+}
+
+.select-menu{
+    padding:10px;
+    background-color: #901C1C;
+    height:auto;
+    
+}
+.select-input{
+    display:flex;
+    flex-direction: row;
+    white-space: nowrap;
 
 }
 
-.option-menu-choisi{
-    display:block;
+.select-option{
+    color:white;
+    
+}
+
+.fa-color-white{
+    color:white;
+}
+
+.select-label{
+    white-space: nowrap;
 }
