@@ -12,9 +12,6 @@
 }
 
 .lightBox-element__photo {
-    animation-name: flouChargement;
-    animation-duration: 3s;
-    animation-fill-mode: forwards;
     margin: 0 auto;
     position: relative;
     top: 0;
@@ -24,6 +21,18 @@
 
 }
 
+.lightBox-element__photo--flou {
+    filter: blur(150px);
+    animation-name: flouChargement;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    margin: 0 auto;
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 600px;
+    object-fit: contain;
+}
 
 .lightBox-element__video {
     margin: auto;

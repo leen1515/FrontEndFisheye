@@ -94,9 +94,6 @@ export class MediaFactory {
     const droite = document.querySelector('#idDroite')
     const parentLightbox = document.querySelector('.lightBox__section__bouton')
 
-    gauche.addEventListener('click', () => { indexMouvementModifie = gaucheRecule(indexMouvementModifie, this.mediasParents) })
-    droite.addEventListener('click', () => { indexMouvementModifie = droiteAvance(indexMouvementModifie, this.mediasParents) })
-
     if (!document.querySelector('.lightBox-element')) {
       // creation des élements pour le *DOM
       const lightboxSection = document.querySelector('.lightBox__section')
@@ -112,7 +109,7 @@ export class MediaFactory {
       lightboxCaption.setAttribute('class', 'lightBox-element__description')
       lightboxTitre.setAttribute('class', 'description__h3')
       lightboxQuitte.setAttribute('class', 'lightBox-quitter')
-      imageLightbox.setAttribute('class', 'lightBox-element__photo')
+      imageLightbox.setAttribute('class', 'lightBox-element__photo--flou')
 
       // attribut relatif aux variables et url et remplissage des contenus
       lightboxQuitte.innerHTML = "<i class='fa-solid fa-xmark fa-4x'></i>"
@@ -121,6 +118,7 @@ export class MediaFactory {
       // ajout des éléments les uns aux autres jusqu'au *DOM
 
       droite.addEventListener('click', () => {
+        indexMouvementModifie = droiteAvance(indexMouvementModifie, this.mediasParents);
         (this.mediasParents[indexMouvementModifie].video !== undefined ? videoVerification = true : videoVerification = false)
         if (videoVerification) {
           lightbox.appendChild(lightboxVideo)
@@ -131,16 +129,17 @@ export class MediaFactory {
           lightbox.appendChild(lightboxCaption)
         } else {
           imageLightbox.setAttribute('src', `assets/images/${surname}/${this.mediasParents[indexMouvementModifie].image}`)
-          imageLightbox.addEventListener('onload', chargement(imageLightbox, `assets/images/${surname}/${this.mediasParents[indexMouvementModifie].image}`, urlImageMiniature(`assets/images/${surname}/${this.mediasParents[indexMouvementModifie].image}`), 'lightBox-element__photo'))
-          lightbox.appendChild(imageLightbox)
+          imageLightbox.addEventListener('onload', chargement(imageLightbox, `assets/images/${surname}/${this.mediasParents[indexMouvementModifie].image}`, urlImageMiniature(`assets/images/${surname}/${this.mediasParents[indexMouvementModifie].image}`), 'lightBox-element__photo--flou'))
           lightboxTitre.innerText = `${this.mediasParents[indexMouvementModifie].title}`
+          lightboxVideo.remove()
+          lightbox.appendChild(imageLightbox)
           lightboxCaption.appendChild(lightboxTitre)
           lightbox.appendChild(lightboxCaption)
-          lightboxVideo.remove()
         }
       })
 
       gauche.addEventListener('click', () => {
+        indexMouvementModifie = gaucheRecule(indexMouvementModifie, this.mediasParents);
         (this.mediasParents[indexMouvementModifie].video !== undefined ? videoVerification = true : videoVerification = false)
         if (videoVerification) {
           imageLightbox.remove()
@@ -151,14 +150,15 @@ export class MediaFactory {
           lightbox.appendChild(lightboxCaption)
         } else {
           imageLightbox.setAttribute('src', `assets/images/${surname}/${this.mediasParents[indexMouvementModifie].image}`)
-          imageLightbox.addEventListener('onload', chargement(imageLightbox, `assets/images/${surname}/${this.mediasParents[indexMouvementModifie].image}`, urlImageMiniature(`assets/images/${surname}/${this.mediasParents[indexMouvementModifie].image}`), 'lightBox-element__photo'))
-          lightbox.appendChild(imageLightbox)
+          imageLightbox.addEventListener('onload', chargement(imageLightbox, `assets/images/${surname}/${this.mediasParents[indexMouvementModifie].image}`, urlImageMiniature(`assets/images/${surname}/${this.mediasParents[indexMouvementModifie].image}`), 'lightBox-element__photo--flou'))
           lightboxTitre.innerText = `${this.mediasParents[indexMouvementModifie].title}`
+          lightboxVideo.remove()
+          lightbox.appendChild(imageLightbox)
           lightboxCaption.appendChild(lightboxTitre)
           lightbox.appendChild(lightboxCaption)
-          lightboxVideo.remove()
         }
-      })
+      }
+      )
 
       if (videoVerification) {
         imageLightbox.remove()
@@ -170,11 +170,9 @@ export class MediaFactory {
       } else {
         lightboxVideo.remove()
         imageLightbox.setAttribute('src', `assets/images/${surname}/${this.mediasParents[indexMouvementModifie].image}`)
-        imageLightbox.addEventListener('onload', chargement(imageLightbox, `assets/images/${surname}/${this.mediasParents[indexMouvementModifie].image}`, urlImageMiniature(`assets/images/${surname}/${this.mediasParents[indexMouvementModifie].image}`), 'lightBox-element__photo'))
+        imageLightbox.addEventListener('onload', chargement(imageLightbox, `assets/images/${surname}/${this.mediasParents[indexMouvementModifie].image}`, urlImageMiniature(`assets/images/${surname}/${this.mediasParents[indexMouvementModifie].image}`), 'lightBox-element__photo--flou'))
         lightboxVideoSource.setAttribute('src', ' ')
         lightbox.appendChild(imageLightbox)
-
-        lightboxTitre.innerText = `${this.mediasParents[indexMouvementModifie].title}`
         lightboxTitre.innerText = `${this.mediasParents[indexMouvementModifie].title}`
         lightboxCaption.appendChild(lightboxTitre)
         lightbox.appendChild(lightboxCaption)
@@ -185,8 +183,7 @@ export class MediaFactory {
       lightboxVideoSource.setAttribute('type', 'video/mp4')
       lightboxVideo.setAttribute('class', 'lightBox-element__video')
       lightboxVideo.appendChild(lightboxVideoSource)
-
-      imageLightbox.setAttribute('class', 'lightBox-element__photo')
+      imageLightbox.setAttribute('class', 'lightBox-element__photo--flou')
       lightboxSection.appendChild(lightbox)
     }
   };

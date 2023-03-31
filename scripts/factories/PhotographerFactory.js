@@ -91,7 +91,7 @@ export class PhotographerFactory {
     paragraphe.textContent = `${this.tagline}`
     location.textContent = `${this.city}, ${this.country}`
 
-    avatar.addEventListener('onload', chargement(avatar, picture, urlImageMiniature(picture), 'lien-vignette__avatar'))
+    avatar.addEventListener('onload', chargement(avatar, picture, urlImageMiniature(picture), 'lien-vignette__avatar--flou'))
 
     // ajout des éléments les uns aux autres jusqu'au *DOM
 

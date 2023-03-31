@@ -96,17 +96,19 @@ h1 {
     object-position:bottom -20px;
     max-height: 300px;
     max-width: 350px;
+    
  }
 
  .lien-vignette__avatar--flou{
-    filter:blur(10%);
+    filter:blur(100%);
     width:120%;
     height:120%;
     object-fit:cover;
     object-position:bottom -20px;
     max-height: 300px;
     max-width: 350px;
+    
     animation-name: flouChargement;
-    animation-duration: 3s;
+    animation-duration: 0.5s;
     animation-fill-mode: forwards;
  }

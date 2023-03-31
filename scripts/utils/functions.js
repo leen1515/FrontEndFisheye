@@ -61,32 +61,29 @@ function chargePromise (source) {
     setTimeout(() => {
       resolve(source)
       reject(new Error(undefined))
-    }, 3000)
+    }, 500)
   })
 }
 
 export function chargement (photo, source, filtreLien, classNom) {
   photo.setAttribute('src', `${filtreLien}_m.jpg`)
-  console.log('photo en attente', photo)
   chargePromise(source).then(result => {
     photo.setAttribute('src', source)
     photo.className = classNom
-    console.log('photo charge', photo)
     return result
   }).catch(error => {
     photo.setAttribute('src', `${filtreLien}_m.jpg`)
-    console.log('photo pas charge', photo)
     return error
   })
 }
 
 export function gaucheRecule (indexMouvementModifie, mediasParents) {
-  ((indexMouvementModifie > 0) ? indexMouvementModifie-- : indexMouvementModifie = mediasParents.length - 1)
+  (indexMouvementModifie > 0 ? indexMouvementModifie-- : indexMouvementModifie = mediasParents.length - 1)
   return indexMouvementModifie
 }
 
 export function droiteAvance (indexMouvementModifie, mediasParents) {
-  ((indexMouvementModifie < mediasParents.length - 1) ? indexMouvementModifie++ : indexMouvementModifie = 0)
+  (indexMouvementModifie < mediasParents.length - 1 ? indexMouvementModifie++ : indexMouvementModifie = 0)
   return indexMouvementModifie
 }
 
