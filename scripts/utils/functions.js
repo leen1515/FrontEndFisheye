@@ -61,7 +61,7 @@ function chargePromise (source) {
     setTimeout(() => {
       resolve(source)
       reject(new Error(undefined))
-    }, 4000)
+    }, 3000)
   })
 }
 
@@ -114,11 +114,13 @@ export function totalCompteurLikes (likes) {
 }
 
 export function displayModal () {
-  const modalInvisible = document.querySelectorAll('.modal-contact-section--invisible')
+  const modalInvisible = document.querySelector('.modal-contact-section--invisible')
   modalInvisible.className = 'modal-contact-section'
 }
 
 export function closeModal () {
+  const formulaire = document.querySelector('form')
+  formulaire.reset()
   const modalVisible = document.querySelector('.modal-contact-section')
   modalVisible.className = 'modal-contact-section--invisible'
 }

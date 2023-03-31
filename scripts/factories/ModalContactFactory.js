@@ -14,7 +14,7 @@ export class ModalContactFactory {
     const inputPrenom = document.createElement('input')
     const inputNom = document.createElement('input')
     const inputEmail = document.createElement('input')
-    const inputMessage = document.createElement('input')
+    const inputMessage = document.createElement('textarea')
     const buttonEnvoyer = document.createElement('div')
     const buttonClose = document.createElement('div')
 
@@ -45,8 +45,8 @@ export class ModalContactFactory {
 
     installerAttribute(inputPrenom, { class: 'formulaire__input', id: '3', type: 'text', minlength: '2', maxlength: '50', name: 'First name' })
     installerAttribute(inputNom, { class: 'formulaire__input', id: '5', type: 'text', minlength: '2', maxlength: '50', name: 'last name' })
-    installerAttribute(inputMessage, { class: 'formulaire__input', id: '7', type: 'text', minlength: '2', maxlength: '500', name: 'Your message' })
-    installerAttribute(inputEmail, { class: 'formulaire__input', id: '9', type: 'email', minlength: '2', maxlength: '50', name: 'Email' })
+    installerAttribute(inputEmail, { class: 'formulaire__input', id: '7', type: 'email', minlength: '2', maxlength: '50', name: 'Email' })
+    installerAttribute(inputMessage, { role: 'text field', class: 'formulaire__input', id: '9', type: 'textarea', wrap: 'hard', rows: '50', cols: '50', minlength: '2', maxlength: '500', name: 'Your message' })
 
     installerAttribute(buttonEnvoyer, { class: 'input__envoyer-bouton' })
     installerAttribute(buttonClose, { class: 'entete__close-bouton' })

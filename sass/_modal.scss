@@ -2,6 +2,7 @@
     position: fixed;
     width: 100%;
     height: 100%;
+    z-index: 5;
 }
 
 .modal-contact-section--invisible {
@@ -64,8 +65,9 @@
     font-size: 15pt;
 }
 
-[name = "Your message"] {
+[name = "Your message"]{
     height:100px;
+    resize: none;
 }
 
 .input__envoyer-bouton {
@@ -89,10 +91,13 @@
 
 .entete__close-bouton {
     color: white;
+    cursor: pointer;
 }
 
 .formulaire__erreur{
     position:relative;
+    height:20px;
+    padding-top: 10px;
     opacity:1;
     color: rgb(0, 0, 0);
     align-self: center;
