@@ -24,6 +24,7 @@
 }
 
 .figure__lien-photographie{
+    cursor:pointer;
     margin:auto;
     width:300px;
     height:300px;
@@ -31,6 +32,7 @@
 }
 
 .lien-photographie__photographies{
+    position:relative;
     filter: blur(10px);
     margin:auto;
     width:100%;
@@ -39,9 +41,11 @@
     animation-name: flouChargement;
     animation-duration: 3s;
     animation-fill-mode: forwards;
+    z-index: 1;
 }
 
 .lien-photographie__photographies--flou{
+    position:relative;
     margin:auto;
     width:100%;
     height:100%;
@@ -50,6 +54,7 @@
     animation-name: flouChargement;
         animation-duration: 3s;
         animation-fill-mode: forwards;
+    z-index: 1;
 }
 
 
@@ -86,7 +91,7 @@ flex-direction: row;
 }
 
 .like__icone-aime{
-
+ cursor:pointer;
 
 }
 
@@ -110,7 +115,7 @@ background-color: #DB8876;
 font-size: 24px;
 font-weight: 500;
 color:black;
-z-index: 1;
+z-index: 2;
 padding:10px 20px;
 border-radius: 5px;
 
