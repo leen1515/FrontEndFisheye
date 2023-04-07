@@ -1,11 +1,12 @@
 import { installerAttribute, verificationString, verificationEmail, closeModal } from '../utils/functions.js'
-
-export class ModalContactFactory {
+// class referente pour construire dynamiquement la modale pour chaque photographe
+export class ModalContactBuilder {
   constructor (name) {
-    this.name = name
+    this.name = name // travaille avec le nom correspondant à l'id du photographe de la page
   }
 
   formulaireContact () {
+    // crée les balises nécessaires pour former la modal contact
     const modalContactForm = document.createElement('div')
     const formulaire = document.createElement('form')
     const erreurVisible = document.createElement('div')
@@ -23,11 +24,14 @@ export class ModalContactFactory {
     const labelEmail = document.createElement('label')
     const labelMessage = document.createElement('label')
 
+    // appel de la fonction installerAtribute(), créer spécialement pour me faciliter la mise en place
+    // des attributs nécessaires
     installerAttribute(labelPrenom, { for: '3', class: 'formulaire__label' })
     installerAttribute(labelNom, { for: '5', class: 'formulaire__label' })
     installerAttribute(labelEmail, { for: '7', class: 'formulaire__label' })
     installerAttribute(labelMessage, { for: '9', class: 'formulaire__label' })
 
+    // transmet les données au contenu html de la balise correspondante
     nomRecepteur.innerHTML = `Contactez-moi <br> ${this.name}`
     labelPrenom.textContent = 'Prénom'
     labelNom.textContent = 'Nom'
@@ -65,6 +69,7 @@ export class ModalContactFactory {
       }
     })
 
+    // ajout des différentes balises les uns aux autres
     modalContactForm.appendChild(formulaire)
 
     enteteModal.appendChild(nomRecepteur)
@@ -85,6 +90,9 @@ export class ModalContactFactory {
 
     formulaire.appendChild(erreurVisible)
     formulaire.appendChild(buttonEnvoyer)
+
+    // retourne le noeud parent, cela permettra d'instancier l'objet buildé dans le dom pour le
+    // photographe concerné
     return (modalContactForm)
   }
 }

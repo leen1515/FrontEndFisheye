@@ -1,6 +1,6 @@
 import { chargement, urlImageMiniature, displayModal } from '../utils/functions.js'
 
-export class PhotographerFactory {
+export class PhotographerBuilder {
   constructor (nameId, id, tagline, city, country, price, portrait) {
     this.name = nameId
     this.id = id
@@ -40,7 +40,7 @@ export class PhotographerFactory {
     img.setAttribute('src', picture)
     h2.textContent = `${this.name}`
     localisation.textContent = `${this.city}, ${this.country}`
-    slogan.innerHTML = `${this.tagline}`
+    slogan.textContent = `${this.tagline}`
     paragraphe.textContent = `${this.price}€/jour`
     img.addEventListener('onload', chargement(img, picture, urlImageMiniature(picture), 'lien-vignette__avatar'))
 
@@ -80,7 +80,7 @@ export class PhotographerFactory {
 
     buttonContact.addEventListener('click', displayModal)
 
-    // style ajout des Ids aux vignettes par photographe
+    // style ajout des Ids aux vignettes correspondant au photographe parcouru
     avatar.setAttribute('id', `lien-vignette__avatar-${this.id}`)
 
     // attribut relatif aux variables et url et remplissage des contenus

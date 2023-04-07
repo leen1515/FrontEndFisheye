@@ -77,16 +77,6 @@ export function chargement (photo, source, filtreLien, classNom) {
   })
 }
 
-export function gaucheRecule (indexMouvementModifie, mediasParents) {
-  (indexMouvementModifie > 0 ? indexMouvementModifie-- : indexMouvementModifie = mediasParents.length - 1)
-  return indexMouvementModifie
-}
-
-export function droiteAvance (indexMouvementModifie, mediasParents) {
-  (indexMouvementModifie < mediasParents.length - 1 ? indexMouvementModifie++ : indexMouvementModifie = 0)
-  return indexMouvementModifie
-}
-
 export function recupereImageUrl (urlImage) {
   const url = new URL(urlImage)
   const urlSearch = new URLSearchParams(url.search)
@@ -105,9 +95,10 @@ export function installerParamId (uriImage, paramId, valeurId) {
 }
 
 export function totalCompteurLikes (likes) {
-  let totalLikes = 0
-  likes.forEach((like) => { totalLikes += like })
-  return totalLikes
+  const somme = (accumulator, curr) => accumulator + curr
+  const sommeTotal = Array.from(likes).reduce(somme)
+  console.log('sg', sommeTotal)
+  return sommeTotal
 }
 
 export function displayModal () {
@@ -133,4 +124,13 @@ export function verificationEmail (email) {
 }
 export function verificationString (text) {
   return /^([a-zA-Z])+$/g.test(text.value)
+}
+
+export function verificationImgAltLike (fichier) {
+  const verif = /\/aimée$/
+  if (verif.test(fichier)) {
+    return true
+  } else {
+    return false
+  };
 }

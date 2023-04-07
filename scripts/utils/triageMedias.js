@@ -1,4 +1,4 @@
-import { installerAttribute } from './functions.js'
+import { installerAttribute } from '../utils/functions.js'
 import { triage } from '../gestionJson/gestionJsonMedias.js'
 class Tri {
   constructor (media) {
@@ -9,6 +9,7 @@ class Tri {
     const mediaTri = this.media.sort((a, b) => {
       return b.likes - a.likes
     })
+
     return mediaTri
   }
 
@@ -16,6 +17,7 @@ class Tri {
     const mediaTri = this.media.sort((a, b) => {
       return new Date(b.date) - new Date(a.date)
     })
+
     return mediaTri
   }
 
@@ -56,6 +58,7 @@ function selectOrdre () {
   selectOptionPopularite.style.display = 'none'
 
   selectOptionPopularite.addEventListener('click', () => {
+    // sessionLikeUtilisateur()
     optionMenuChoisie.value = tagPopularite
     selectOptionPopularite.style.display = 'none'
     selectOptionDate.style.display = 'block'
@@ -63,6 +66,7 @@ function selectOrdre () {
     selectMenu.style.display = 'none'
   })
   selectOptionDate.addEventListener('click', () => {
+    // sessionLikeUtilisateur()
     optionMenuChoisie.value = tagDate
     selectOptionPopularite.style.display = 'block'
     selectOptionDate.style.display = 'none'
@@ -70,6 +74,7 @@ function selectOrdre () {
     selectMenu.style.display = 'none'
   })
   selectOptionTitre.addEventListener('click', () => {
+    // sessionLikeUtilisateur()
     optionMenuChoisie.value = tagTitre
     selectOptionPopularite.style.display = 'block'
     selectOptionDate.style.display = 'block'
@@ -83,9 +88,7 @@ selectOrdre()
 export function SelectDeclencheTri (mediasaTrier, photographerName) {
   let resultatTrie = new Tri(mediasaTrier).likeDecroissant()
   triage(resultatTrie, photographerName)
-  const selectOption = document.querySelector("input[name='option-choisie']")
   const selectAllOption = document.querySelectorAll('.option-menu')
-  console.log('select', selectOption)
 
   selectAllOption[0].addEventListener('click', () => {
     if (document.querySelector('div.section__enveloppe') !== null) {
@@ -100,6 +103,7 @@ export function SelectDeclencheTri (mediasaTrier, photographerName) {
   selectAllOption[2].addEventListener('click', () => {
     if (document.querySelector('div.section__enveloppe') !== null) {
       document.querySelector('div.section__enveloppe').remove()
-    } resultatTrie = new Tri(mediasaTrier).alphabetiqueCroissant(); triage(resultatTrie, photographerName)
+    }
+    resultatTrie = new Tri(mediasaTrier).alphabetiqueCroissant(); triage(resultatTrie, photographerName)
   })
 }

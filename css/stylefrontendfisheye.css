@@ -168,6 +168,15 @@ h1 {
   z-index: 1;
 }
 
+.lien-photographie__video {
+  position: relative;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
 .figure__legende {
   display: flex;
   flex-direction: row;
@@ -303,7 +312,7 @@ h1 {
 .lightBox-element__photo--flou {
   filter: blur(150px);
   animation-name: flouChargement;
-  animation-duration: 2s;
+  animation-duration: 0.5s;
   animation-fill-mode: forwards;
   margin: 0 auto;
   position: relative;
@@ -346,16 +355,19 @@ h1 {
   color: #901C1C;
   right: 0;
   margin-right: 100px;
+  cursor: pointer;
 }
 
 .boutonGauche {
   color: #901C1C;
   margin-left: 100px;
+  cursor: pointer;
 }
 
 .boutonDroite {
   color: #901C1C;
   margin-right: 100px;
+  cursor: pointer;
 }
 
 .contact_modal {

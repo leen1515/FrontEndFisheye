@@ -24,7 +24,7 @@
 .lightBox-element__photo--flou {
     filter: blur(150px);
     animation-name: flouChargement;
-    animation-duration: 2s;
+    animation-duration: 0.5s;
     animation-fill-mode: forwards;
     margin: 0 auto;
     position: relative;
@@ -75,15 +75,17 @@
     color: #901C1C;
     right: 0;
     margin-right: 100px;
+    cursor:pointer;
 }
 
 .boutonGauche {
     color: #901C1C;
     margin-left: 100px;
-
+    cursor:pointer;
 }
 
 .boutonDroite {
     color: #901C1C;
     margin-right: 100px;
+    cursor:pointer;
 }

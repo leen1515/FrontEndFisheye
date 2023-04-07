@@ -1,4 +1,4 @@
-import { PhotographerFactory } from '../factories/PhotographerFactory.js'
+import { PhotographerBuilder } from '../constructeur/PhotographerBuilder.js'
 
 async function getPhotographers () {
   const photographersJson = await fetch('./data/photographers.json') // lecture du lien json
@@ -11,7 +11,7 @@ async function displayData (photographers) {
 
   photographers.forEach((photographer) => {
     const { name, id, tagline, city, country, price, portrait } = photographer
-    const photographerModel = new PhotographerFactory(name, id, tagline, city, country, price, portrait)
+    const photographerModel = new PhotographerBuilder(name, id, tagline, city, country, price, portrait)
     const userCardDOM = photographerModel.getUserCardDOM()
     photographersSection.appendChild(userCardDOM)
   })
