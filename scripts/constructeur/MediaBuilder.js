@@ -1,4 +1,4 @@
-import { conserverMiniatureVideo, chargement, urlImageMiniature } from '../utils/functions.js'
+import { chargement, urlImageMiniature } from '../utils/functions.js'
 import { interactionClavierSouris } from '../utils/lightboxMove.js'
 
 export class MediaBuilder {
@@ -69,7 +69,7 @@ export class MediaBuilder {
     if (!this.media[1]) {
       picturePhoto = `assets/images/${this.surname}/${this.media[0]}`
       filtreLien = urlImageMiniature(picturePhoto)
-      source = conserverMiniatureVideo(this.media[0], picturePhoto, `${filtreLien}_m.jpg`)
+      source = picturePhoto
       photo.setAttribute('src', `${source}`)
       photo.addEventListener('onload', chargement(photo, source, filtreLien, 'lien-photographie__photographies'))
       lienPhoto.appendChild(photo)
@@ -78,7 +78,7 @@ export class MediaBuilder {
       videoDiv.appendChild(videoSource)
       lienPhoto.appendChild(videoDiv)
     }
-    // ajout des éléments les uns aux autres jusqu'au *DOM
+    // ajout des éléments les uns aux autres jusqu'au DOM
     figure.appendChild(lienPhoto)
     figCaption.appendChild(h2)
     figCaption.appendChild(groupeLike)
@@ -89,18 +89,21 @@ export class MediaBuilder {
     return (figure)
   }
 
+  // réalisation de la méthode pour creer la lightbox au clique sur l'image. La propriété lié à l'index de l'image lui est communiqué en argument
   creerLightbox (idImage) {
+    // vérifie ce que retourne la propriete media pour savoir si à l'index idImage il s'agit d'une vidéo ou d'une image
     let videoVerification
     if (this.media[1]) {
       videoVerification = true
     } else {
       videoVerification = false
     }
-
+    // selectionne les boutons déjà présents dans le DOM
     const parentLightbox = document.querySelector('.lightBox__section__bouton')
 
+    // verifie si la classe .lightbox-element n'existe pas pour creer les balises nécéssaire à la construction de la lightbox
     if (!document.querySelector('.lightBox-element')) {
-      // creation des élements pour le *DOM
+      // creation des élements pour le DOM
       const lightboxSection = document.querySelector('.lightBox__section')
       const lightbox = document.createElement('figure')
       const lightboxCaption = document.createElement('figcaption')

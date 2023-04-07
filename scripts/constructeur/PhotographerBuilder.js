@@ -1,5 +1,6 @@
 import { chargement, urlImageMiniature, displayModal } from '../utils/functions.js'
 
+// création de la classe model de la bannière du photographe, construit et associe les proprietes
 export class PhotographerBuilder {
   constructor (nameId, id, tagline, city, country, price, portrait) {
     this.name = nameId
@@ -11,6 +12,7 @@ export class PhotographerBuilder {
     this.portrait = portrait
   }
 
+  // création d'une méthode pour réaliser les cartes des photographes sur la page Index.html
   getUserCardDOM () {
     const picture = `assets/photographers/${this.portrait}`
 
@@ -55,6 +57,7 @@ export class PhotographerBuilder {
     return (article)
   }
 
+  // création de la méthode pour créer la bannière au dessus de la page de chaque photographe spécifique
   getUserBanniereCardDOM () {
     const picture = `assets/photographers/${this.portrait}`
 
@@ -103,6 +106,7 @@ export class PhotographerBuilder {
     divAvatar.appendChild(avatar)
     banniere.appendChild(divAvatar)
 
+    // retourne l'element div parent pour qu'il soit rajouté à la création de chaque page du photographe du coté de gestionJsonMedia.js
     return (banniere)
   }
 }

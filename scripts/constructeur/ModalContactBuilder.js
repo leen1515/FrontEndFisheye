@@ -56,7 +56,7 @@ export class ModalContactBuilder {
     installerAttribute(buttonClose, { class: 'entete__close-bouton' })
 
     buttonClose.addEventListener('click', closeModal)
-
+    // verifie les valeurs des champs remplie par l'utilisateur avant de renvoyer l'ensemble des valeur vers le console.log
     buttonEnvoyer.addEventListener('click', () => {
       if (verificationString(inputPrenom) && verificationString(inputNom) && verificationString(inputMessage) && verificationEmail(inputEmail)) {
         console.log(` Prenom: ${inputPrenom.value} | Nom: ${inputNom.value} | Email: ${inputEmail.value}, Votre message: ${inputMessage.value} `)

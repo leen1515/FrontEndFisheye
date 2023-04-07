@@ -48,7 +48,6 @@ export class EtiquetteBuilder {
       })
     }
 
-    console.log('dkdi', likeTotal)
     etiquette.appendChild(totalCoeur)
     etiquette.appendChild(prix)
     return (etiquette)

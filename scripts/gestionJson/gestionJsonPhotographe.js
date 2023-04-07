@@ -10,9 +10,13 @@ async function displayData (photographers) {
   const photographersSection = document.querySelector('.photographer-section')
 
   photographers.forEach((photographer) => {
+    // mets les valeurs spécifique à chaque photographe contenu dans le tableau photographer dans de nouvelles constantes
     const { name, id, tagline, city, country, price, portrait } = photographer
+    // pour chaque photographe, une carte est construite avec comme argument, les constantes utilisés par chaque photographe
     const photographerModel = new PhotographerBuilder(name, id, tagline, city, country, price, portrait)
+    // l'objet créé pour chaque photographe est mis dans une constante, nous appelons ainsi la methode pour construire la carte du photographe
     const userCardDOM = photographerModel.getUserCardDOM()
+    // elle retourne un element div créé, qui est ensuite ajouté à la section des photographes dans le DOM.
     photographersSection.appendChild(userCardDOM)
   })
 }
