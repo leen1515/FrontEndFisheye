@@ -68,15 +68,23 @@ export class MediaBuilder {
     let picturePhoto
     let filtreLien
     let source
+    // pour ajouter la balise video ou media selon ce que retourne le media
+    // si le retour à l'index 1 est faux, il s'agit d'une image, le retour à l'index 0 de media est alors ajouté à l'url
     if (!this.media[1]) {
       picturePhoto = `assets/images/${this.surname}/${this.media[0]}`
+      // stocke dans la variable la fonction pour trouver son équivalent en miniature
       filtreLien = urlImageMiniature(picturePhoto)
       source = picturePhoto
+      // installe l'attribut src de l'image avec la photo originale
       photo.setAttribute('src', `${source}`)
+      // au chargement de la source, la fonction chargement est lancé pour mettre dans l'attribut src le miniature en attendant son chargement au complet
       photo.addEventListener('onload', chargement(photo, source, filtreLien, 'lien-photographie__photographies'))
+      // la balise est ajouté à son parent
       lienPhoto.appendChild(photo)
     } else if (this.media[1]) {
+      // si le media retourne vrai, alors il s'agit d'une video, l'url est mis à jour
       videoSource.setAttribute('src', `assets/images/${this.surname}/${this.media[0]}`)
+      // la balise source est ajouté à la balise video et l'ensemble rejoint leur parent
       videoDiv.appendChild(videoSource)
       lienPhoto.appendChild(videoDiv)
     }
