@@ -1,6 +1,7 @@
 import { chargement, urlImageMiniature } from '../utils/functions.js'
 import { interactionClavierSouris } from '../utils/lightboxMove.js'
 
+// création de la classe pour former les proprietes des objets qui seront utilisées pour la construction de la galerie et de la lightbox
 export class MediaBuilder {
   constructor (mediasParents, index, id, photographerId, title, media, likes, date, price, surname) {
     this.mediasParents = mediasParents
@@ -15,6 +16,7 @@ export class MediaBuilder {
     this.surname = surname
   }
 
+  // méthode pour construire chaque média au sein de la galerie
   getPhotoDOM () {
     // construction des balises qui formeront chacune des photos affichées dans la galerie.
     const figure = document.createElement('figure')
@@ -124,6 +126,7 @@ export class MediaBuilder {
       lightboxQuitte.addEventListener('click', () => { parentLightbox.className = 'lightBox__section__bouton--invisible'; document.querySelector('.lightBox-element').remove() })
       lightbox.appendChild(lightboxQuitte)
 
+      // appel de la fonction interactionClavierSouris pour la navigation dans la lightbox, tranmission des proprietes necessaires aux fonctionnement de la lightbox en argument
       interactionClavierSouris(
         idImage,
         this.surname,
@@ -137,6 +140,7 @@ export class MediaBuilder {
         lightboxCaption,
         parentLightbox)
 
+      // ajout au 1er chargement de la lightbox des attributs necessaires + son installation dans le dom
       lightboxVideo.controls = true
       lightboxVideo.setAttribute('width', '90%')
       lightboxVideoSource.setAttribute('type', 'video/mp4')
