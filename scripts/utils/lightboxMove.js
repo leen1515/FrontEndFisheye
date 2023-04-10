@@ -102,7 +102,9 @@ export function interactionClavierSouris (idImage,
         lightboxCaption)
     } else if (toucheCode === 'Escape') {
       // si la touche echap est enclenché, nous attribuons la classe invisble au parent de la lightbox et nous effacons l'élément enfant du DOM
-      parentLightbox.className = 'lightBox__section__bouton--invisible'; document.querySelector('.lightBox-element').remove()
+      if (document.querySelector('.lightBox-element')) {
+        parentLightbox.className = 'lightBox__section__bouton--invisible'; document.querySelector('.lightBox-element').remove()
+      }
     }
   })
 

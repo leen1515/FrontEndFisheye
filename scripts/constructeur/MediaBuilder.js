@@ -33,11 +33,13 @@ export class MediaBuilder {
     // style ajout des classes
     figure.setAttribute('class', 'photo-section__figure')
     // ajout de l'attribut tabindex dans la balise figure pour maitriser la navigation clavier par la touche tabulation
-    figure.setAttribute('tabindex', `${this.index + 1}`)
+    figure.setAttribute('tabindex', `${0}`)
+    figure.setAttribute('id', `${this.index}`)
     lienPhoto.setAttribute('class', 'figure__lien-photographie')
     photo.setAttribute('class', 'lien-photographie__photographies--flou')
     photo.setAttribute('alt', `${this.title}`)
     videoDiv.setAttribute('class', 'lien-photographie__video')
+    videoDiv.setAttribute('alt', `${this.title}`)
     figCaption.setAttribute('class', 'figure__legende')
     h2.setAttribute('class', 'legende__h2')
     groupeLike.setAttribute('class', 'legende__like')
@@ -46,20 +48,22 @@ export class MediaBuilder {
     divLikes.setAttribute('id', `id-nombre-aime-${this.index}`)
     divClickLike.setAttribute('class', 'like__icone-aime')
     divClickLike.setAttribute('id', `bouton-icone-aime-${this.index}`)
+    divClickLike.setAttribute('name', `${this.index}`)
     // récupère la div de la lightbox, qui est invisible tant que non cliqué.
     const parentLightbox = document.querySelector('.lightBox__section__bouton--invisible')
 
     // ajout de l'interaction au clique et au clavier pour déclencher la méthode this.creerlightbox de notre class. Nous y transmettons le parametre
     // this.index en argument.
     lienPhoto.addEventListener('click', () => { parentLightbox.className = 'lightBox__section__bouton'; this.creerLightbox(this.index) })
+
     document.addEventListener('keydown', (e) => {
       const toucheCode = e.key // récupère l'evenement de la touche et compare le code qu'elle retourne. Si ce dernier est égal à Entrer, et
       // que le focus est actif, alors nous sélectionnons la classe css des photos qui subissent le focus. Ainsi nous pouvons récuperer
       // l'index correspondant à son attribut tabindex et nous la transmettons en parametre dans la méthode appelée this.creerLightbox.
       // L'image dont le focus est actif s'ouvre dans la lightbox lorsque nous appuyons sur la touche Entrée.
-      if (toucheCode === 'Enter' && document.hasFocus()) {
-        const indexPhoto = document.querySelector('.photo-section__figure:focus').getAttribute('tabindex')
-        parentLightbox.className = 'lightBox__section__bouton'; this.creerLightbox(indexPhoto - 1)
+      if (toucheCode === 'Enter' && document.hasFocus() && document.querySelector('.contact_button:focus') === null && document.querySelector('.photo-section__figure:focus')) {
+        const indexPhoto = document.querySelector('.photo-section__figure:focus').getAttribute('id')
+        parentLightbox.className = 'lightBox__section__bouton'; this.creerLightbox(indexPhoto)
       }
     })
 
@@ -78,7 +82,7 @@ export class MediaBuilder {
       // installe l'attribut src de l'image avec la photo originale
       photo.setAttribute('src', `${source}`)
       // au chargement de la source, la fonction chargement est lancé pour mettre dans l'attribut src le miniature en attendant son chargement au complet
-      photo.addEventListener('onload', chargement(photo, source, filtreLien, 'lien-photographie__photographies'))
+      photo.addEventListener('onload', chargement(photo, source, filtreLien))
       // la balise est ajouté à son parent
       lienPhoto.appendChild(photo)
     } else if (this.media[1]) {

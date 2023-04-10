@@ -4,7 +4,7 @@ import { MediaBuilder } from '../constructeur/MediaBuilder.js'
 import { recupereIdUrl } from '../utils/functions.js'
 import { EtiquetteBuilder } from '../constructeur/EtiquetteBuilder.js'
 import { ModalContactBuilder } from '../constructeur/ModalContactBuilder.js'
-// import { LikeFactory } from '../factory/likeFactory.js'
+import { navigationClavierModal, navigationClavierEchap } from '../utils/navigationClavier.js'
 import { ProfilFactory } from '../factory/profilFactory.js'
 import { MediaFactory } from '../factory/mediaFactory.js'
 import { SelectDeclencheTri } from '../utils/triageMedias.js'
@@ -27,7 +27,7 @@ async function displayData (photographers, medias) {
   const urlAffiche = window.location.href
   // cette fonction filtre l'url pour ne récupérer que l'id dans une constante
   const recupeIdLien = recupereIdUrl(urlAffiche)
-  // filtre les données medias pour retourner uniquement l'ensemble des medias dont l'id photograhe correspond à l'id de l'url récuperé
+  // filtre les données medias pour retourner uniquement l'ensemble des medias dont l'id photographe correspond à l'id de l'url récuperé
   const mediasId = medias.filter((mediaId) => mediaId.photographerId === parseInt(recupeIdLien))
   // retourne avec la methode js uniquement le photographe dont l'id correspond à l'id récuperé de l'url
   const idPhotographe = photographers.find((photographe) => photographe.id === parseInt(recupeIdLien))
@@ -63,6 +63,7 @@ export function triage (trierMedias, photographerNameTransfert) {
   const photosEnveloppe = document.createElement('div')
   photosEnveloppe.setAttribute('class', 'section__enveloppe')
   trierMedias.forEach((media, index, mediasParents) => {
+    // usage du destructuring pour enregistrer dans les constantes les valeurs du tableau media
     const { id, photographerId, title, image, video, likes, date, price } = media
     prix = price
     // a chaque média, son like est lu, puis ajouté au tableau mediasIdLikes
@@ -94,7 +95,9 @@ export function triage (trierMedias, photographerNameTransfert) {
   // des photographes. Ainsi, chaque photographe à son étiquette selon ses propres propriétées.
   mediaSection.appendChild(etiquetteModel)
 }
-
+// navigation au clavier
+navigationClavierModal()
+navigationClavierEchap()
 async function init () {
   // Récupère les datas des photographes
   const { photographers, media } = await getPhotographers()

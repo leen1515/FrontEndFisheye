@@ -3,7 +3,7 @@
 // Lis l'url de la barre d'adresse et la place dans une constante
 export const urlLien = window.location.href
 
-// prend le nom de l'image et le retourne en tant que nom de sa version miniature
+// prend le nom de l'image et le retourne en tant que nom de sa version miniature, utilisé pour affiché une version miniature de l'image pendant le chargement
 export function urlImageMiniature (imageM) {
   let i
   let imageChargement = ''
@@ -26,7 +26,7 @@ export function recupereIdUrl (urlLien) {
   }
 }
 
-// filtre l'ensemble nom/prenom et ne retourne que le prenom
+// filtre l'ensemble nom/prenom et ne retourne que le prenom, utilisé pour trouver les dossiers appartenant à chaque photographe
 export function garderPrenom (name) {
   let i
   let tmp = ''
@@ -40,20 +40,20 @@ export function garderPrenom (name) {
 // réalise une promesse pour gerer le chargement
 function chargePromise (source) {
   return new Promise((resolve, reject) => {
+    // un leger delai est ajouté pour laisser le temps à l'effet flou de se déploier si le chargement est trop rapide
     setTimeout(() => {
       resolve(source)
       reject(new Error(undefined))
-    }, 1000)
+    }, 500)
   })
 }
 
 // charge la promesse et agit selon ce qu'elle retourne, si elle est undefined, la miniature sera affiché à la place
-export function chargement (photo, source, filtreLien, classNom) {
+export function chargement (photo, source, filtreLien) {
 // affiche la miniature en attendant que la source d'origine se charge
   photo.setAttribute('src', `${filtreLien}_m.jpg`)
   chargePromise(source).then(result => {
     photo.setAttribute('src', source)
-    photo.className = classNom
     return result
   }).catch(error => {
     photo.setAttribute('src', `${filtreLien}_m.jpg`)
@@ -61,11 +61,11 @@ export function chargement (photo, source, filtreLien, classNom) {
   })
 }
 
-// le tableau likes est parcouru et la somme est calculé avec la methode reduce avant d'être retournée, utilisé dans la classe EtiquetteBuilder
+// le tableau likes est parcouru et la somme est calculé avec la methode reduce avant d'être retournée,
+// utilisé dans la classe EtiquetteBuilder pour le total des likes
 export function totalCompteurLikes (likes) {
   const somme = (accumulator, curr) => accumulator + curr
   const sommeTotal = Array.from(likes).reduce(somme)
-  console.log('sg', sommeTotal)
   return sommeTotal
 }
 
@@ -80,9 +80,10 @@ export function closeModal () {
   const formulaire = document.querySelector('form')
   formulaire.reset()
   const modalVisible = document.querySelector('.modal-contact-section')
-  modalVisible.className = 'modal-contact-section--invisible'
+  if (modalVisible) {
+    modalVisible.className = 'modal-contact-section--invisible'
+  }
 }
-
 // la fonction installerAtrtribute est codé pour faciliter l'ajout d'attribut nombreux
 export function installerAttribute (element, attribut) {
   for (const key in attribut) {
@@ -90,7 +91,7 @@ export function installerAttribute (element, attribut) {
   }
 }
 
-// verifie le mail et retourne une valeur boleenne
+// verifie le mail et retourne une valeur boleenne, utilisé pour la modale
 export function verificationEmail (email) {
   return /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z.]{2,15}$/g.test(email.value)
 }

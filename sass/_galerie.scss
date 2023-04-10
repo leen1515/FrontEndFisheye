@@ -39,6 +39,7 @@
     height: 100%;
     object-fit: cover;
     z-index: 1;
+    border-radius: 5px;
 }
 
 .lien-photographie__photographies--flou {
@@ -51,10 +52,12 @@
     animation-name: flouChargement;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
+    border-radius: 5px;
     z-index: 1;
 }
 
 .lien-photographie__video{
+    border-radius: 5px;
     position: relative;
     margin: auto;
     width: 100%;
@@ -77,7 +80,7 @@
 }
 
 .legende__h2 {
-    font-size: 15pt;
+    font-size: 13pt;
     margin: 0;
 
 }
@@ -91,8 +94,10 @@
 .groupeLike {}
 
 .like__nombre-aime {
+    display:flex;
     font-weight: 700;
-
+    align-items: center;
+    font-size: 13pt;
 }
 
 .like__icone-aime {
@@ -128,6 +133,11 @@
 
 .photographe-etiquette__totalLikes {}
 
-.photographe-etiquette__coeur {}
+.photographe-etiquette__coeur {
+    display:flex;
+    flex-direction: row-reverse;
+    align-items: center;
+
+}
 
 .photographe-etiquette__prix {}

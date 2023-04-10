@@ -2,7 +2,7 @@ import { chargement, urlImageMiniature, displayModal } from '../utils/functions.
 
 // création de la classe model de la bannière du photographe, construit et associe les proprietes
 export class PhotographerBuilder {
-  constructor (nameId, id, tagline, city, country, price, portrait) {
+  constructor (nameId, id, tagline, city, country, price, portrait, index) {
     this.name = nameId
     this.id = id
     this.tagline = tagline
@@ -10,6 +10,7 @@ export class PhotographerBuilder {
     this.country = country
     this.price = price
     this.portrait = portrait
+    this.index = index
   }
 
   // création d'une méthode pour réaliser les cartes des photographes sur la page Index.html
@@ -28,6 +29,8 @@ export class PhotographerBuilder {
 
     // style ajout des classes
     article.setAttribute('class', 'article-photo')
+    article.setAttribute('tabindex', this.index)
+    article.setAttribute('id', `id-${this.index}`)
     urlPage.setAttribute('class', 'article-photo__lien-vignette')
     img.setAttribute('class', 'lien-vignette__avatar--flou')
     text.setAttribute('class', 'article-photo__texte-description')
@@ -38,13 +41,12 @@ export class PhotographerBuilder {
 
     // attribut relatif aux variables et url et remplissage des contenus
     urlPage.setAttribute('href', `./photos.html?id=${this.id}`)
-    urlPage.addEventListener('click', sessionStorage.removeItem('parentLightVisible'))
     img.setAttribute('src', picture)
     h2.textContent = `${this.name}`
     localisation.textContent = `${this.city}, ${this.country}`
     slogan.textContent = `${this.tagline}`
     paragraphe.textContent = `${this.price}€/jour`
-    img.addEventListener('onload', chargement(img, picture, urlImageMiniature(picture), 'lien-vignette__avatar'))
+    img.addEventListener('onload', chargement(img, picture, urlImageMiniature(picture)))
 
     // ajout des éléments les uns aux autres jusqu'au *DOM
     urlPage.appendChild(img)
@@ -73,6 +75,7 @@ export class PhotographerBuilder {
 
     // style ajout des classes
     banniere.setAttribute('class', 'banniere-entete')
+    banniere.setAttribute('tabindex', 0)
     h1.setAttribute('class', 'texte__nom')
     text.setAttribute('class', 'banniere__texte')
     paragraphe.setAttribute('class', 'texte__slogan')
@@ -81,6 +84,7 @@ export class PhotographerBuilder {
     divAvatar.setAttribute('class', 'article-photo__lien-vignette')
     avatar.setAttribute('class', 'lien-vignette__avatar--flou')
 
+    buttonContact.setAttribute('tabindex', 0)
     buttonContact.addEventListener('click', displayModal)
 
     // style ajout des Ids aux vignettes correspondant au photographe parcouru
@@ -94,7 +98,7 @@ export class PhotographerBuilder {
     paragraphe.textContent = `${this.tagline}`
     location.textContent = `${this.city}, ${this.country}`
 
-    avatar.addEventListener('onload', chargement(avatar, picture, urlImageMiniature(picture), 'lien-vignette__avatar--flou'))
+    avatar.addEventListener('onload', chargement(avatar, picture, urlImageMiniature(picture)))
 
     // ajout des éléments les uns aux autres jusqu'au *DOM
 
