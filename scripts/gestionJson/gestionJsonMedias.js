@@ -72,10 +72,10 @@ export function triage (trierMedias, photographerNameTransfert) {
     mediasTitre.push(title)
     // une nouvelle donnée est construite pour ne garder que le prenom de l'ensemble nom/prenom du photographe. Utile pour indiquer les urls
     // des images.
-    const photographeIdentification = new ProfilFactory(photographerNameTransfert).surnameIsole()
+    const photographeIdentification = ProfilFactory(photographerNameTransfert)
     // deux données retourne deux valeurs, un media et une booleenne. soit l'image est non défini, et cela retourne un media video et une valeur true,
     // soit il s'agit de l'inverse.
-    const mediaVideoOuPhoto = new MediaFactory(image, video).videoOuPhoto()
+    const mediaVideoOuPhoto = MediaFactory(image, video)
     // cree un objet pour chaque photo en lui faisant passer en argument leurs parametres
     const mediaModel = new MediaBuilder(mediasParents, index, id, photographerId, title, mediaVideoOuPhoto, likes, date, price, photographeIdentification)
     // construit les photos dans la galerie pour chaque photographe et les ajoute dans le dom
