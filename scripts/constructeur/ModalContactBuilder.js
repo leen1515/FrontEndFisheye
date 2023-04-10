@@ -1,4 +1,5 @@
 import { installerAttribute, verificationString, verificationEmail, closeModal } from '../utils/functions.js'
+
 // class referente pour construire dynamiquement la modale pour chaque photographe
 export class ModalContactBuilder {
   constructor (name) {
@@ -48,12 +49,12 @@ export class ModalContactBuilder {
     nomRecepteur.setAttribute('class', 'entete__recepteur-titre')
 
     installerAttribute(inputPrenom, { class: 'formulaire__input', id: '3', type: 'text', minlength: '2', maxlength: '50', name: 'First name', tabindex: 0 })
-    installerAttribute(inputNom, { class: 'formulaire__input', id: '5', type: 'text', minlength: '2', maxlength: '50', name: 'last name', tabindex: 1 })
-    installerAttribute(inputEmail, { class: 'formulaire__input', id: '7', type: 'email', minlength: '2', maxlength: '50', name: 'Email', tabindex: 2 })
-    installerAttribute(inputMessage, { role: 'text field', class: 'formulaire__input', id: '9', type: 'textarea', wrap: 'hard', rows: '50', cols: '50', minlength: '2', maxlength: '500', name: 'Your message', tabindex: 3 })
+    installerAttribute(inputNom, { class: 'formulaire__input', id: '5', type: 'text', minlength: '2', maxlength: '50', name: 'last name', tabindex: 0 })
+    installerAttribute(inputEmail, { class: 'formulaire__input', id: '7', type: 'email', minlength: '2', maxlength: '50', name: 'Email', tabindex: 0 })
+    installerAttribute(inputMessage, { role: 'text field', class: 'formulaire__input', id: '9', type: 'textarea', wrap: 'hard', rows: '50', cols: '50', minlength: '2', maxlength: '500', name: 'Your message', tabindex: 0 })
 
-    installerAttribute(buttonEnvoyer, { class: 'input__envoyer-bouton', tabindex: 4 })
-    installerAttribute(buttonClose, { class: 'entete__close-bouton', tabindex: 5 })
+    installerAttribute(buttonEnvoyer, { class: 'input__envoyer-bouton', tabindex: 0 })
+    installerAttribute(buttonClose, { class: 'entete__close-bouton', tabindex: 0 })
 
     buttonClose.addEventListener('click', closeModal)
     document.addEventListener('keydown', (e) => {
@@ -62,6 +63,7 @@ export class ModalContactBuilder {
         closeModal()
       }
     })
+
     // verifie les valeurs des champs remplie par l'utilisateur avant de renvoyer l'ensemble des valeur vers le console.log
     buttonEnvoyer.addEventListener('click', () => {
       if (verificationString(inputPrenom) && verificationString(inputNom) && verificationString(inputMessage) && verificationEmail(inputEmail)) {

@@ -1,10 +1,21 @@
-import { displayModal } from '../utils/functions.js'
+import { displayModal, verificationInput } from '../utils/functions.js'
 
 export function navigationClavierModal () {
-  document.addEventListener('keydown', (e) => {
+  let i = -1
+
+  document.addEventListener('keyup', (e) => {
     const toucheCode = e.key
-    if (toucheCode === 'Enter' && document.querySelector('.contact_button:focus') && document.hasFocus) {
+    if (toucheCode === 'Enter' && document.querySelector('.contact_button:focus') !== null && document.hasFocus) {
       displayModal()
+    } else if (toucheCode === 'Tab' && document.querySelector('.modal-contact-section--invisible') === null && document.hasFocus && document.getElementsByClassName('formulaire__input') !== null) {
+      if (i < document.querySelectorAll('.formulaire__input').length - 1) {
+        i++
+        document.querySelectorAll('.formulaire__input')[i].focus()
+      } else {
+        document.querySelector('.input__envoyer-bouton').focus()
+      }
+    } else if (toucheCode === 'Enter' && document.hasFocus && document.querySelector('.modal-contact-section--invisible') === null) {
+      verificationInput()
     }
   })
 }
@@ -19,7 +30,7 @@ export function navigationClavierGalerie () {
   let divClickLike
   document.addEventListener('keyup', (e) => {
     const toucheCode = e.key
-    if (toucheCode === 'Tab' && document.hasFocus() && (document.querySelector('.photo-section__figure:focus') !== null || document.querySelector('.like__icone-aime:focus') !== null)) {
+    if (toucheCode === 'Tab' && document.hasFocus() && (document.querySelector('.photo-section__figure:focus') !== null || document.querySelector('.like__icone-aime:focus') !== null) && document.querySelector('.modal-contact-section') === null) {
       if (document.querySelector('.like__icone-aime:focus') !== null) {
         i = parseInt(document.querySelector('.like__icone-aime:focus').getAttribute('name'))
         imgTitre = "'" + document.querySelectorAll('.legende__h2')[i].textContent + "'"
@@ -29,7 +40,7 @@ export function navigationClavierGalerie () {
         divLikes = document.getElementById(`id-nombre-aime-${[i]}`)
         divClickLike = document.getElementById(`bouton-icone-aime-${[i]}`)
       }
-    } else if (toucheCode === 'Enter' && document.hasFocus() && document.querySelectorAll('.like__icone-aime')[i] !== null && document.querySelector('photo-section__figure:focus') === null && imgTitreAlt) {
+    } else if (toucheCode === 'Enter' && document.hasFocus() && document.querySelectorAll('.like__icone-aime')[i] !== null && document.querySelector('.photo-section__figure:focus') === null && imgTitreAlt) {
       if (imgTitreAlt.getAttribute('alt') !== `${document.querySelectorAll('.legende__h2')[i].textContent} aimée`) {
         imgTitreAlt.setAttribute('alt', `${document.querySelectorAll('.legende__h2')[i].textContent} aimée`)
         divLikes.textContent = parseInt(divLikes.textContent) + 1
@@ -41,7 +52,7 @@ export function navigationClavierGalerie () {
         divClickLike.innerHTML = "<i class='fa-regular fa-heart fa-heart-margin'></i>"
         coeurChiffre.textContent = parseInt(coeurChiffre.textContent) - 1
       }
-    } else if (toucheCode === 'Enter' && document.hasFocus() && document.querySelectorAll('.like__icone-aime')[i] !== null && document.querySelector('photo-section__figure:focus') === null && videoTitreAlt) {
+    } else if (toucheCode === 'Enter' && document.hasFocus() && document.querySelectorAll('.like__icone-aime')[i] !== null && document.querySelector('.photo-section__figure:focus') === null && videoTitreAlt) {
       if (videoTitreAlt.getAttribute('alt') !== `${document.querySelectorAll('.legende__h2')[i].textContent} aimée`) {
         videoTitreAlt.setAttribute('alt', `${document.querySelectorAll('.legende__h2')[i].textContent} aimée`)
         divLikes.textContent = parseInt(divLikes.textContent) + 1

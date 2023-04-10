@@ -61,14 +61,6 @@ export function chargement (photo, source, filtreLien) {
   })
 }
 
-// le tableau likes est parcouru et la somme est calculé avec la methode reduce avant d'être retournée,
-// utilisé dans la classe EtiquetteBuilder pour le total des likes
-export function totalCompteurLikes (likes) {
-  const somme = (accumulator, curr) => accumulator + curr
-  const sommeTotal = Array.from(likes).reduce(somme)
-  return sommeTotal
-}
-
 // affiche la modale en changeant sa classe
 export function displayModal () {
   const modalInvisible = document.querySelector('.modal-contact-section--invisible')
@@ -99,4 +91,22 @@ export function verificationEmail (email) {
 // pour verifier les champs du formulaire
 export function verificationString (text) {
   return /^([a-zA-Z])+$/g.test(text.value)
+}
+
+export function verificationInput () {
+  const inputPrenom = document.getElementsByName('First name')
+  const inputNom = document.getElementsByName('last name')
+  const inputMessage = document.getElementsByName('Your message')
+  const inputEmail = document.getElementsByName('Email')
+  const erreurVisible = document.querySelector('.formulaire__erreur')
+  if (verificationString(inputPrenom) && verificationString(inputNom) && verificationString(inputMessage) && verificationEmail(inputEmail)) {
+    console.log(` Prenom: ${inputPrenom.value} | Nom: ${inputNom.value} | Email: ${inputEmail.value}, Votre message: ${inputMessage.value} `)
+    erreurVisible.textContent = 'Votre message a été envoyé ! '
+    setTimeout(() => { erreurVisible.textContent = '' }, 4000)
+    // renitialise le formulaire
+    document.querySelector('.modal-formulaire').reset()
+  } else {
+    erreurVisible.textContent = 'Données Incorrectes'
+    setTimeout(() => { erreurVisible.textContent = '' }, 4000)
+  }
 }

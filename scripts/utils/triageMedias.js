@@ -72,7 +72,7 @@ function selectOrdre () {
     document.addEventListener('keydown', (e) => {
       let ordreChoix
       const toucheCode = e.key
-      if (toucheCode === 'Enter' && document.hasFocus && document.querySelector('.select-menu:focus') && document.querySelector('.like__icone-aime:focus') === null) {
+      if (toucheCode === 'Enter' && document.hasFocus && document.querySelector('.select-menu:focus') !== null && document.querySelector('.like__icone-aime:focus') === null && document.querySelector('.contact_button:focus') === null && document.querySelector('.input__envoyer-bouton:focus') === null) {
         selectMenu.style.display = 'block'
       } else if (toucheCode === 'ArrowDown' && selectMenu.style.display === 'block') {
         e.preventDefault();
@@ -86,19 +86,19 @@ function selectOrdre () {
         ordreChoix = selectAllOption[i].textContent
         selectAllOption[i].focus();
         (selectAllOption[i].style.display === 'none' ? selectInput.focus() : console.log(ordreChoix))
-      } else if (toucheCode === 'Enter' && selectAllOption[i].textContent === 'Popularité' && document.querySelector('.like__icone-aime:focus') === null) {
+      } else if (toucheCode === 'Enter' && selectAllOption[i].textContent === 'Popularité' && document.querySelector('.like__icone-aime:focus') === null && document.querySelector('.input__envoyer-bouton:focus') === null) {
         optionMenuChoisie.value = tagPopularite
         selectOptionPopularite.style.display = 'none'
         selectOptionDate.style.display = 'block'
         selectOptionTitre.style.display = 'block'
         select.focus()
-      } else if (toucheCode === 'Enter' && selectAllOption[i].textContent === 'Date' && document.querySelector('.like__icone-aime:focus') === null) {
+      } else if (toucheCode === 'Enter' && selectAllOption[i].textContent === 'Date' && document.querySelector('.like__icone-aime:focus') === null && document.querySelector('.input__envoyer-bouton:focus') === null) {
         optionMenuChoisie.value = tagDate
         selectOptionPopularite.style.display = 'block'
         selectOptionDate.style.display = 'none'
         selectOptionTitre.style.display = 'block'
         select.focus()
-      } else if (toucheCode === 'Enter' && selectAllOption[i].textContent === 'Titre' && document.querySelector('.like__icone-aime:focus') === null) {
+      } else if (toucheCode === 'Enter' && selectAllOption[i].textContent === 'Titre' && document.querySelector('.like__icone-aime:focus') === null && document.querySelector('.input__envoyer-bouton:focus') === null) {
         optionMenuChoisie.value = tagTitre
         selectOptionPopularite.style.display = 'block'
         selectOptionDate.style.display = 'block'
@@ -152,7 +152,7 @@ export function SelectDeclencheTri (mediasaTrier, photographerName) {
   document.getElementById('idPopularite').addEventListener('focus', (e) => {
     document.addEventListener('keydown', (e) => {
       const toucheCode = e.key
-      if (toucheCode === 'Enter' && document.hasFocus && document.querySelector('.like__icone-aime:focus') === null) {
+      if (toucheCode === 'Enter' && document.hasFocus && document.querySelector('.like__icone-aime:focus') === null && document.querySelector('.input__envoyer-bouton:focus') === null) {
         if (document.querySelector('div.section__enveloppe') !== null) {
           document.querySelector('div.section__enveloppe').remove()
         }
@@ -164,7 +164,7 @@ export function SelectDeclencheTri (mediasaTrier, photographerName) {
   document.getElementById('idDate').addEventListener('focus', (e) => {
     document.addEventListener('keydown', (e) => {
       const toucheCode = e.key
-      if (toucheCode === 'Enter' && document.hasFocus && document.querySelector('.like__icone-aime:focus') === null) {
+      if (toucheCode === 'Enter' && document.hasFocus && document.querySelector('.like__icone-aime:focus') === null && document.querySelector('.input__envoyer-bouton:focus') === null) {
         if (document.querySelector('div.section__enveloppe') !== null) {
           document.querySelector('div.section__enveloppe').remove()
         }
@@ -176,7 +176,7 @@ export function SelectDeclencheTri (mediasaTrier, photographerName) {
   document.getElementById('idTitre').addEventListener('focus', (e) => {
     document.addEventListener('keydown', (e) => {
       const toucheCode = e.key
-      if (toucheCode === 'Enter' && document.hasFocus && document.querySelector('.like__icone-aime:focus') === null) {
+      if (toucheCode === 'Enter' && document.hasFocus && document.querySelector('.like__icone-aime:focus') === null && document.querySelector('.input__envoyer-bouton:focus') === null) {
         if (document.querySelector('div.section__enveloppe') !== null) {
           document.querySelector('div.section__enveloppe').remove()
         }

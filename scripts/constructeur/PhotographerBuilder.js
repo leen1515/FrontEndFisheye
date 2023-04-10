@@ -33,6 +33,7 @@ export class PhotographerBuilder {
     article.setAttribute('id', `id-${this.index}`)
     urlPage.setAttribute('class', 'article-photo__lien-vignette')
     img.setAttribute('class', 'lien-vignette__avatar--flou')
+    img.setAttribute('alt', `${this.tagline}, ${this.name}`)
     text.setAttribute('class', 'article-photo__texte-description')
     h2.setAttribute('class', 'texte-decription__h2')
     slogan.setAttribute('class', 'texte-description__slogan')
