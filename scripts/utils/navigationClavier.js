@@ -45,12 +45,12 @@ export function navigationClavierGalerie () {
       if (imgTitreAlt.getAttribute('alt') !== `${document.querySelectorAll('.legende__h2')[i].textContent} aimée`) {
         imgTitreAlt.setAttribute('alt', `${document.querySelectorAll('.legende__h2')[i].textContent} aimée`)
         divLikes.textContent = parseInt(divLikes.textContent) + 1
-        divClickLike.innerHTML = "<i class='fa-solid fa-heart fa-heart-margin'></i>"
+        divClickLike.innerHTML = "<span class='fa-solid fa-heart fa-heart-margin'></span>"
         coeurChiffre.textContent = parseInt(coeurChiffre.textContent) + 1
       } else {
         imgTitreAlt.setAttribute('alt', `${document.querySelectorAll('.legende__h2')[i].textContent}`)
         divLikes.textContent = parseInt(divLikes.textContent) - 1
-        divClickLike.innerHTML = "<i class='fa-regular fa-heart fa-heart-margin'></i>"
+        divClickLike.innerHTML = "<span class='fa-regular fa-heart fa-heart-margin'></span>"
         coeurChiffre.textContent = parseInt(coeurChiffre.textContent) - 1
       }
     } else if (toucheCode === 'Enter' && document.hasFocus() && document.querySelectorAll('.like__icone-aime')[i] !== null && document.querySelector('.photo-section__figure:focus') === null && videoTitreAlt && document.querySelector('.like__icone-aime:focus') !== null && document.querySelector('.contact_button:focus') === null && document.querySelector('.input__envoyer-bouton:focus') === null && document.querySelector('.modal-contact-section--invisible') !== null && document.querySelector('.photo-section__figure:focus') === null) {
@@ -59,12 +59,12 @@ export function navigationClavierGalerie () {
       if (videoTitreAlt.getAttribute('alt') !== `${document.querySelectorAll('.legende__h2')[i].textContent} aimée`) {
         videoTitreAlt.setAttribute('alt', `${document.querySelectorAll('.legende__h2')[i].textContent} aimée`)
         divLikes.textContent = parseInt(divLikes.textContent) + 1
-        divClickLike.innerHTML = "<i class='fa-solid fa-heart fa-heart-margin'></i>"
+        divClickLike.innerHTML = "<span class='fa-solid fa-heart fa-heart-margin'></span>"
         coeurChiffre.textContent = parseInt(coeurChiffre.textContent) + 1
       } else {
         videoTitreAlt.setAttribute('alt', `${document.querySelectorAll('.legende__h2')[i].textContent}`)
         divLikes.textContent = parseInt(divLikes.textContent) - 1
-        divClickLike.innerHTML = "<i class='fa-regular fa-heart fa-heart-margin'></i>"
+        divClickLike.innerHTML = "<span class='fa-regular fa-heart fa-heart-margin'></span>"
         divClickLike.setAttribute('tabindex', 0)
         coeurChiffre.textContent = parseInt(coeurChiffre.textContent) - 1
       }

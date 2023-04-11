@@ -33,7 +33,7 @@ h1 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 50px;
-    align-items: top;
+    align-items: center;
 }
 
 .photos-section{
@@ -94,18 +94,18 @@ h1 {
     width:120%;
     height:120%;
     object-fit:cover;
-    object-position:bottom -20px;
+    object-position:bottom 0;
     max-height: 300px;
     max-width: 350px;
     
  }
 
  .lien-vignette__avatar--flou{
-    filter:blur(100%);
+    filter:blur(150px);
     width:120%;
     height:120%;
     object-fit:cover;
-    object-position:bottom -20px;
+    object-position:bottom 0;
     max-height: 300px;
     max-width: 350px;
     
