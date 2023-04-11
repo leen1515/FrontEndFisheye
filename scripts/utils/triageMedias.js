@@ -43,8 +43,9 @@ function selectOrdre () {
   const selectMenu = document.querySelector('.select-option')
   const optionMenuChoisie = document.querySelector('.option-menu-choisi')
   const selectInput = document.querySelector('.select-input')
-  installerAttribute(select, { tabindex: '0' })
-  installerAttribute(optionMenuChoisie, { tabindex: '2' })
+
+  installerAttribute(select, { tabindex: '0', alt: 'Order by', name: 'Order by' })
+  installerAttribute(optionMenuChoisie, { tabindex: '2', role: 'button' })
   installerAttribute(selectOptionPopularite, { id: 'idPopularite', role: 'option', class: 'option-menu', 'aria-selected': false, tabindex: '0' })
   installerAttribute(selectOptionDate, { id: 'idDate', role: 'option', class: 'option-menu', 'aria-selected': false, tabindex: '0' })
   installerAttribute(selectOptionTitre, { id: 'idTitre', role: 'option', class: 'option-menu', 'aria-selected': false, tabindex: '0' })

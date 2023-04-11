@@ -25,12 +25,15 @@ export class ModalContactBuilder {
     const labelEmail = document.createElement('label')
     const labelMessage = document.createElement('label')
 
+    modalContactForm.setAttribute('aria-modal', true)
+    erreurVisible.setAttribute('aria-errormessage', true)
+
     // appel de la fonction installerAtribute(), créer spécialement pour me faciliter la mise en place
     // des attributs nécessaires
-    installerAttribute(labelPrenom, { for: '3', class: 'formulaire__label' })
-    installerAttribute(labelNom, { for: '5', class: 'formulaire__label' })
-    installerAttribute(labelEmail, { for: '7', class: 'formulaire__label' })
-    installerAttribute(labelMessage, { for: '9', class: 'formulaire__label' })
+    installerAttribute(labelPrenom, { for: '3', class: 'formulaire__label', 'aria-label': true })
+    installerAttribute(labelNom, { for: '5', class: 'formulaire__label', 'aria-label': true })
+    installerAttribute(labelEmail, { for: '7', class: 'formulaire__label', 'aria-label': true })
+    installerAttribute(labelMessage, { for: '9', class: 'formulaire__label', 'aria-label': true })
 
     // transmet les données au contenu html de la balise correspondante
     nomRecepteur.innerHTML = `Contactez-moi <br> ${this.name}`
@@ -40,6 +43,8 @@ export class ModalContactBuilder {
     labelMessage.textContent = 'Votre message'
     buttonClose.innerHTML = "<i class='fa-solid fa-xmark fa-3x'></i>"
     buttonEnvoyer.innerText = 'Envoyer'
+    buttonEnvoyer.setAttribute('name', 'send')
+    buttonClose.setAttribute('name', 'Close dialog')
 
     modalContactForm.setAttribute('class', 'modal-contact-section--invisible')
     formulaire.setAttribute('class', 'modal-formulaire')
@@ -48,13 +53,13 @@ export class ModalContactBuilder {
     enteteModal.setAttribute('class', 'formulaire__entete')
     nomRecepteur.setAttribute('class', 'entete__recepteur-titre')
 
-    installerAttribute(inputPrenom, { class: 'formulaire__input', id: '3', type: 'text', minlength: '2', maxlength: '50', name: 'First name', tabindex: 0 })
-    installerAttribute(inputNom, { class: 'formulaire__input', id: '5', type: 'text', minlength: '2', maxlength: '50', name: 'last name', tabindex: 0 })
-    installerAttribute(inputEmail, { class: 'formulaire__input', id: '7', type: 'email', minlength: '2', maxlength: '50', name: 'Email', tabindex: 0 })
-    installerAttribute(inputMessage, { role: 'text field', class: 'formulaire__input', id: '9', type: 'textarea', wrap: 'hard', rows: '50', cols: '50', minlength: '2', maxlength: '500', name: 'Your message', tabindex: 0 })
+    installerAttribute(inputPrenom, { class: 'formulaire__input', id: '3', type: 'text', minlength: '2', maxlength: '50', name: 'First name', tabindex: 0, 'aria-placeholder': true })
+    installerAttribute(inputNom, { class: 'formulaire__input', id: '5', type: 'text', minlength: '2', maxlength: '50', name: 'last name', tabindex: 0, 'aria-placeholder': true })
+    installerAttribute(inputEmail, { class: 'formulaire__input', id: '7', type: 'email', minlength: '2', maxlength: '50', name: 'Email', tabindex: 0, 'aria-placeholder': true })
+    installerAttribute(inputMessage, { role: 'text field', class: 'formulaire__input', id: '9', type: 'textarea', wrap: 'hard', rows: '50', cols: '50', minlength: '2', maxlength: '500', name: 'Your message', tabindex: 0, 'aria-placeholder': true })
 
-    installerAttribute(buttonEnvoyer, { class: 'input__envoyer-bouton', tabindex: 0 })
-    installerAttribute(buttonClose, { class: 'entete__close-bouton', tabindex: 0 })
+    installerAttribute(buttonEnvoyer, { class: 'input__envoyer-bouton', tabindex: 0, role: 'button' })
+    installerAttribute(buttonClose, { class: 'entete__close-bouton', tabindex: 0, role: 'button' })
 
     buttonClose.addEventListener('click', closeModal)
     document.addEventListener('keydown', (e) => {

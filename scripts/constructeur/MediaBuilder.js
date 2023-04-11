@@ -36,6 +36,7 @@ export class MediaBuilder {
     figure.setAttribute('tabindex', `${0}`)
     figure.setAttribute('id', `${this.index}`)
     lienPhoto.setAttribute('class', 'figure__lien-photographie')
+    lienPhoto.setAttribute('name', 'Lilac breasted roller, closeup view')
     photo.setAttribute('class', 'lien-photographie__photographies--flou')
     photo.setAttribute('alt', `${this.title}`)
     videoDiv.setAttribute('class', 'lien-photographie__video')
@@ -129,9 +130,11 @@ export class MediaBuilder {
       const lightboxVideoSource = document.createElement('source')
       // style ajout des classes pour l'image
       lightbox.setAttribute('class', 'lightBox-element')
+      lightbox.setAttribute('aria-label', 'mage closeup view')
       lightboxCaption.setAttribute('class', 'lightBox-element__description')
       lightboxTitre.setAttribute('class', 'description__h3')
       lightboxQuitte.setAttribute('class', 'lightBox-quitter')
+      lightboxQuitte.setAttribute('name', 'Close dialog')
       imageLightbox.setAttribute('class', 'lightBox-element__photo--flou')
 
       // attribut relatif aux variables et url et remplissage des contenus

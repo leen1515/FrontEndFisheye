@@ -86,6 +86,7 @@ export class PhotographerBuilder {
     avatar.setAttribute('class', 'lien-vignette__avatar--flou')
 
     buttonContact.setAttribute('tabindex', 0)
+    buttonContact.setAttribute('name', 'Contact Me')
     buttonContact.addEventListener('click', displayModal)
 
     // style ajout des Ids aux vignettes correspondant au photographe parcouru

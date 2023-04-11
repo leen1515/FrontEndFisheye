@@ -302,6 +302,13 @@ h1 {
   z-index: 1;
 }
 
+.contact_button:hover {
+  background-color: #DB8876;
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+}
+
 .lightBox__section {
   margin: 0 auto;
   overflow: hidden;
