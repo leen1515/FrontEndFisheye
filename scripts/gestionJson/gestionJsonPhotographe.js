@@ -1,5 +1,6 @@
 import { PhotographerBuilder } from '../constructeur/PhotographerBuilder.js'
 import { navigationClavierIndex } from '../utils/navigationClavier.js'
+
 async function getPhotographers () {
   const photographersJson = await fetch('./data/photographers.json') // lecture du lien json
   const photographers = await photographersJson.json() // promet un objet json
