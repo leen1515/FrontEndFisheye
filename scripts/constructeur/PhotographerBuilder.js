@@ -32,8 +32,9 @@ export class PhotographerBuilder {
     article.setAttribute('tabindex', this.index)
     article.setAttribute('id', `id-${this.index}`)
     urlPage.setAttribute('class', 'article-photo__lien-vignette')
+    urlPage.setAttribute('autofocus', true)
     img.setAttribute('class', 'lien-vignette__avatar--flou')
-    img.setAttribute('alt', `${this.tagline}, ${this.name}`)
+    img.setAttribute('alt', ` son slogan : ${this.tagline}, une photo de : ${this.name}`)
     text.setAttribute('class', 'article-photo__texte-description')
     h2.setAttribute('class', 'texte-decription__h2')
     slogan.setAttribute('class', 'texte-description__slogan')
@@ -42,6 +43,7 @@ export class PhotographerBuilder {
 
     // attribut relatif aux variables et url et remplissage des contenus
     urlPage.setAttribute('href', `./photos.html?id=${this.id}`)
+    urlPage.setAttribute('alt', `ce lien conduit vers la galerie du photographe ${this.name}`)
     img.setAttribute('src', picture)
     h2.textContent = `${this.name}`
     localisation.textContent = `${this.city}, ${this.country}`
@@ -84,6 +86,7 @@ export class PhotographerBuilder {
     buttonContact.setAttribute('class', 'contact_button')
     divAvatar.setAttribute('class', 'article-photo__lien-vignette')
     avatar.setAttribute('class', 'lien-vignette__avatar--flou')
+    avatar.setAttribute('alt', `une photographie représentant l'artiste en question : ${this.name}`)
 
     buttonContact.setAttribute('tabindex', 0)
     buttonContact.setAttribute('name', 'Contact Me')

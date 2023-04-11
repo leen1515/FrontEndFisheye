@@ -43,7 +43,7 @@ export class EtiquetteBuilder {
       // insère dans l'element la valeur correspondante aux nombres de like selon l'index
       divLikes.textContent = `${this.mediasIdLike[i]}`
       // ajoute l'icone coeur vide
-      divClickLike.innerHTML = "<span class='fa-regular fa-heart fa-heart-margin' aria-label=”likes”></span>"
+      divClickLike.innerHTML = "<span class='fa-regular fa-heart fa-heart-margin' aria-label='likes'></span>"
       divClickLike.setAttribute('tabindex', 0)
       // informe si l'utilisateur répète son clique ou non : utile dans le cas d'un like et d'un dislike
       // la variable est en dehors des évenements pour pouvoir la mettre à jour
@@ -53,7 +53,7 @@ export class EtiquetteBuilder {
       likeTotal += parseInt(document.getElementById(`id-nombre-aime-${this.mediasIdIndex[i]}`).textContent)
       // la balise dans totalCoeur s'écrit avec la variable likeTotal + l'icone
 
-      totalCoeur.innerHTML = " <span class='fa-solid fa-heart' aria-label=”likes”></span>"
+      totalCoeur.innerHTML = " <span class='fa-solid fa-heart' aria-label='likes'></span>"
       coeurChiffre.textContent = `${likeTotal}`
 
       // pour maitriser le focus entre l'image et la partie like => cela permet de sauter d'image en image avec la touche Tab
@@ -66,9 +66,6 @@ export class EtiquetteBuilder {
           document.querySelectorAll('.like__icone-aime')[i].addEventListener('blur', () => {
             document.querySelectorAll('figure')[i + 1].focus()
           })
-        } else if (toucheCode === 'Tab' && document.hasFocus() && document.querySelector('.photographe-etiquette__prix:focus') !== null) {
-          document.querySelector('.photographe-etiquette__prix:focus').blur()
-          document.querySelector('.logo').focus()
         }
       })
 

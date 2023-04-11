@@ -4,7 +4,7 @@ import { MediaBuilder } from '../constructeur/MediaBuilder.js'
 import { recupereIdUrl, garderPrenom, mediaFactory } from '../utils/functions.js'
 import { EtiquetteBuilder } from '../constructeur/EtiquetteBuilder.js'
 import { ModalContactBuilder } from '../constructeur/ModalContactBuilder.js'
-import { navigationClavierEchap, navigationClavierModal, navigationClavierGalerie } from '../utils/navigationClavier.js'
+import { navigationClavierEchap, navigationClavierModal, navigationClavierGalerie, navigationClavierRetour } from '../utils/navigationClavier.js'
 import { SelectDeclencheTri } from '../utils/triageMedias.js'
 
 async function getPhotographers () {
@@ -102,6 +102,7 @@ export function triage (trierMedias, photographerNameTransfert) {
 // navigation au clavier
 navigationClavierModal()
 navigationClavierEchap()
+navigationClavierRetour()
 
 navigationClavierGalerie()
 async function init () {

@@ -1,72 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link href="./css/stylefrontendfisheye.css"
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="Subject" content="arts, photographies" />
+    <meta name="Copyright" content="Fisheye" />
+    <meta name="Author" content="Fisheye" />
+    <meta name="Revisit-After" content="15 days" />
+    <meta name="Robots" content="all" />
+    <meta name="Category" content="photographies" />
+    <link
+      href="./css/stylefrontendfisheye.css"
       rel="stylesheet"
-      type="text/css" />
-    <link rel="icon"
-      type="image/png"
-      href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
-      rel="stylesheet">
-    <script src="https://kit.fontawesome.com/e4b2bae8e0.js"
-      crossorigin="anonymous"></script>
-    <title>Fisheye - photographe </title>
+      type="text/css"
+    />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/e4b2bae8e0.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Fisheye - la galerie du photographe</title>
   </head>
 
   <body>
     <header>
-      <a href="./index.html"><img src="assets/images/logo.png"
-          class="logo" alt= "Fisheye Home page"></a>
+      <a href="index.html"
+        ><img src="assets/images/logo.png" class="logo" alt="Fisheye Home page"
+      /></a>
     </header>
     <main id="main">
-      <div class="photographe-header">
-      </div>
+      <div class="photographe-header"></div>
       <div class="selection">
-        <div 
-        role="button" aria-haspopup="listbox" aria-expanded aria-describedby="Trier l'ordre d'affichage"></div>
-        <label id="8"
-          class="select-label">Trier par </label>
-        <div class="select-menu">
-          <div
-            class="select-input"
-            tabindex="0">
-            <input class="option-menu-choisi"
-            id = "8"
+        <div
+          role="button"
+          aria-haspopup="listbox"
+          aria-expanded
+          aria-describedby="Trier l'ordre d'affichage"
+        ></div>
+        <label id="8" class="select-label">Trier par </label>
+        <div
+          class="select-menu"
+          aria-describedby="Trier l'ordre d'affichage, appuyez entrer pour acceder à vos choix"
+          aria-label = "trier l'odre d'affichage"
+        >
+          <div class="select-input" tabindex="0">
+            <input
+              class="option-menu-choisi"
+              id="8"
               readonly
               type="text"
               name="option-choisie"
               value="Popularité"
-              ><i class="fa-solid fa-chevron-up fa-color-white"></i>
+              aria-label = "option de l'option choisie affichée"
+            /><i class="fa-solid fa-chevron-up fa-color-white"></i>
           </div>
-          <div class="select-option"
-          role="listbox" aria-activedescendant aria-selected aria-labelledby = 8></div>
+          <div
+            class="select-option"
+            role="listbox"
+            aria-activedescendant
+            aria-selected
+            aria-labelledby="8"
+          ></div>
         </div>
       </div>
 
       <div class="photos-section"></div>
       <div class="lightBox__section__bouton--invisible">
-        <button id="idGauche"
-          class="boutonGauche" name ="previous image"><i class="fa-solid fa-angle-left fa-5x"></i></button>
+        <button id="idGauche" class="boutonGauche" name="previous image">
+          <i class="fa-solid fa-angle-left fa-5x"></i>
+        </button>
 
-        <div class="lightBox__section">
-
-        </div>
-        <button id="idDroite"
-          class="boutonDroite" name ="next image"><i class="fa-solid fa-angle-right fa-5x"></i></button>
+        <div class="lightBox__section"></div>
+        <button id="idDroite" class="boutonDroite" name="next image">
+          <i class="fa-solid fa-angle-right fa-5x"></i>
+        </button>
       </div>
     </main>
-    <div class="contact_modal">
+    <div class="contact_modal"></div>
 
-    </div>
-
-    <script src="./scripts/gestionJson/gestionJsonMedias.js"
-      type="module"></script>
-
+    <script
+      src="./scripts/gestionJson/gestionJsonMedias.js"
+      type="module"
+    ></script>
   </body>
-
 </html>

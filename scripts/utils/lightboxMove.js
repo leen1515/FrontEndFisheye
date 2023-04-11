@@ -60,6 +60,7 @@ export function interactionClavierSouris (idImage,
     const toucheCode = e.key
     // analyse le retour du code de l'evenement detecté de la touche et la compare au code correspondant à la touche que nous attendons.
     if (toucheCode === 'ArrowRight') {
+      droite.focus()
       // si touche droite, l'index est modifié en appelant la fonction droiteAvance vu plus haut
       indexMouvementModifie = droiteAvance(indexMouvementModifie, mediasParents);
       // met à jour la variable videoVerification selon ce que retourne la propriete video, s'il retourne autre chose que undefined
@@ -83,6 +84,7 @@ export function interactionClavierSouris (idImage,
       // si la touche gauche est enclenché, nous remettons à jour les valeurs en relançant la fonction gaucheRecule et en réassignant
       // son retour, qui est le chiffre de l'index modifié, à la variable indexMouvementModifie
     } else if (toucheCode === 'ArrowLeft') {
+      gauche.focus()
       indexMouvementModifie = gaucheRecule(indexMouvementModifie, mediasParents);
       (mediasParents[indexMouvementModifie].video !== undefined ? videoVerification = true : videoVerification = false)
       const imgSrc = `assets/images/${surname}/${mediasParents[indexMouvementModifie].image}`

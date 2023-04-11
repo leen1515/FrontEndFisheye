@@ -130,13 +130,13 @@ export class MediaBuilder {
       const lightboxVideoSource = document.createElement('source')
       // style ajout des classes pour l'image
       lightbox.setAttribute('class', 'lightBox-element')
-      lightbox.setAttribute('aria-label', 'mage closeup view')
+      lightbox.setAttribute('aria-label', 'image closeup view')
       lightboxCaption.setAttribute('class', 'lightBox-element__description')
       lightboxTitre.setAttribute('class', 'description__h3')
       lightboxQuitte.setAttribute('class', 'lightBox-quitter')
       lightboxQuitte.setAttribute('name', 'Close dialog')
       imageLightbox.setAttribute('class', 'lightBox-element__photo--flou')
-
+      imageLightbox.setAttribute('alt', this.title)
       // attribut relatif aux variables et url et remplissage des contenus
       lightboxQuitte.innerHTML = "<i class='fa-solid fa-xmark fa-4x'></i>"
       lightboxQuitte.addEventListener('click', () => { parentLightbox.className = 'lightBox__section__bouton--invisible'; document.querySelector('.lightBox-element').remove() })

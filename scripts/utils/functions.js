@@ -93,24 +93,6 @@ export function verificationString (text) {
   return /^([a-zA-Z])+$/g.test(text.value)
 }
 
-export function verificationInput () {
-  const inputPrenom = document.getElementsByName('First name')
-  const inputNom = document.getElementsByName('last name')
-  const inputMessage = document.getElementsByName('Your message')
-  const inputEmail = document.getElementsByName('Email')
-  const erreurVisible = document.querySelector('.formulaire__erreur')
-  if (verificationString(inputPrenom) && verificationString(inputNom) && verificationString(inputMessage) && verificationEmail(inputEmail)) {
-    console.log(` Prenom: ${inputPrenom.value} | Nom: ${inputNom.value} | Email: ${inputEmail.value}, Votre message: ${inputMessage.value} `)
-    erreurVisible.textContent = 'Votre message a été envoyé ! '
-    setTimeout(() => { erreurVisible.textContent = '' }, 4000)
-    // renitialise le formulaire
-    document.querySelector('.modal-formulaire').reset()
-  } else {
-    erreurVisible.textContent = 'Données Incorrectes'
-    setTimeout(() => { erreurVisible.textContent = '' }, 4000)
-  }
-}
-
 export function mediaFactory (image, videoDonnee) {
   let video = true
   let media
