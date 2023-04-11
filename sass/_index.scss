@@ -1,115 +1,192 @@
 
+@use  "utils" as u;
+
+
 body {
     font-family: "DM Sans", sans-serif;
-    margin: 0;
+    margin: auto;
+    width: 100%;
+    min-width: 400px;
 }
 
-main{
-    display:flex;
+main {
+    display: flex;
     flex-direction: column;
     margin-top: 50px;
+    margin: auto;
 }
 
 header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 90px;
+ 
+    @include u.desktop{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: 90px;
+        margin-bottom: 40px;
+    }
+    @include u.tablet{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: 90px;
+        margin-bottom: 40px;
+        width: 100%;
+    }
+    @include u.mobile{
+        width: 80%;
+        min-width: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin: 40px auto;
+    }
 }
 
 h1 {
     color: #901C1C;
-    margin-right: 100px;
+    @include u.desktop{
+        padding-right: 200px;}
+    @include u.tablet{
+        padding-right: 100px;}
+    @include u.mobile{
+        margin:auto;
+        text-align: center;
+    }
 }
 
 .logo {
+    @include u.desktop{
+        
     height: 50px;
-    width:200px;
+    width: 200px;
     margin-left: 130px;
+    object-fit: contain;
+    }
+    @include u.tablet{
+        
+    height: 50px;
+    width: 100px;
+    object-fit: contain;
+    text-align: center;
+    
+    padding-left: 130px;
+    }
+    @include u.mobile{
+        
+    height: 50px;
+    width: 100px;
+
+    margin:auto;
+    object-fit: contain;
+    
+    text-align: center;
+    }
+    
 }
 
 .photographer-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 50px;
+    @include u.desktop{
+        width: 90%;
+        display: grid;
+        align-items: center;
+        margin:auto;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    @include u.tablet{ 
+        width: 80%;
+        display: grid;
+        align-items: center;
+        grid-template-columns: 1fr 1fr;
+        margin:auto;
+        }
+    @include u.mobile{
+        margin:auto;
+        width: 80%;
     align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
 }
 
-.photos-section{
-    width:100%;
-    display:grid;
+.photos-section {
+    width: 100%;
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
+
 }
 
-.article-photo{
+.article-photo {
     justify-self: center;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     text-align: center;
-    margin:auto;
-    width:400px;
+    margin: auto;
+    width: 400px;
     align-self: center;
- }
-
-.article-photo__texte-description{
-
 }
 
-.texte-decription__h2{
-    margin:0 auto;
+.article-photo__texte-description {}
+
+.texte-decription__h2 {
+    margin: 0 auto;
     color: #D3573C;
     font-size: 36px;
 }
 
-.texte-description__localisation{
-    margin:0 auto;
+.texte-description__localisation {
+    margin: 0 auto;
     color: #901C1C;
     font-size: 15px;
 }
 
-.texte-description__slogan{
-    margin:0 auto;
+.texte-description__slogan {
+    margin: 0 auto;
     font-size: 15px;
 
 }
 
-.texte-description__paragraphe{
-    margin:0 auto;
+.texte-description__paragraphe {
+    margin: 0 auto;
     color: #757575;
     font-size: 9px;
 }
 
-.article-photo__lien-vignette{
+.article-photo__lien-vignette {
     border-radius: 100%;
     overflow: hidden;
-    width:150px;
-    height:150px;
+    width: 150px;
+    height: 150px;
+
+    margin: 20px;
+}
+
+.lien-vignette__avatar {
+    width: 120%;
+    height: 120%;
+    object-fit: cover;
+    object-position: bottom;
+    max-height: 300px;
+    max-width: 350px;
 
 }
 
- .lien-vignette__avatar{
-    width:120%;
-    height:120%;
-    object-fit:cover;
-    object-position:bottom 0;
+.lien-vignette__avatar--flou {
+    filter: blur(150px);
+    width: 120%;
+    height: 120%;
+    object-fit: cover;
+    object-position: bottom;
     max-height: 300px;
     max-width: 350px;
-    
- }
 
- .lien-vignette__avatar--flou{
-    filter:blur(150px);
-    width:120%;
-    height:120%;
-    object-fit:cover;
-    object-position:bottom 0;
-    max-height: 300px;
-    max-width: 350px;
-    
     animation-name: flouChargement;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
- }
+}

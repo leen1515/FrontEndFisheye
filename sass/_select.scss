@@ -1,6 +1,9 @@
 
+@use "utils" as u;
+
 .selection{
-    position: relative;
+    @include u.desktop{
+        position: relative;
     margin-left:125px;
     margin-top: 20px;
     margin-bottom: 50px;
@@ -9,7 +12,29 @@
     flex-wrap: nowrap;
     width:150px;
     font-size: 15pt;
-    cursor:pointer;
+    cursor:pointer;}
+    @include u.tablet{
+        position: relative;
+        margin-left:40px;
+        margin-top: 20px;
+        margin-bottom: 50px;
+        display:flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        width:50px;
+        font-size: 15pt;
+    }
+    @include u.mobile{
+        position: relative;
+    margin-left:40px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width:50px;
+    font-size: 15pt;
+    }
 }
 
 .select-option{
@@ -25,7 +50,6 @@
     padding:10px 0;
     border-top: 2px solid white;
 }
-
 .selection input{
     display:block;
     white-space: nowrap;

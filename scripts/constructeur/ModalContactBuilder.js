@@ -1,4 +1,4 @@
-import { installerAttribute, verificationString, verificationEmail, closeModal } from '../utils/functions.js'
+import { installerAttribute, verificationInput, closeModal } from '../utils/functions.js'
 
 // class referente pour construire dynamiquement la modale pour chaque photographe
 export class ModalContactBuilder {
@@ -41,10 +41,10 @@ export class ModalContactBuilder {
     labelNom.textContent = 'Nom'
     labelEmail.textContent = 'Email'
     labelMessage.textContent = 'Votre message'
-    buttonClose.innerHTML = "<i class='fa-solid fa-xmark fa-3x'></i>"
+    buttonClose.innerHTML = "<span class='fa-solid fa-xmark fa-3x'></span>"
     buttonEnvoyer.innerText = 'Envoyer'
     buttonEnvoyer.setAttribute('name', 'send')
-    buttonClose.setAttribute('name', 'Close dialog')
+    buttonClose.setAttribute('name', 'Close dialogue')
 
     modalContactForm.setAttribute('class', 'modal-contact-section--invisible')
     formulaire.setAttribute('class', 'modal-formulaire')
@@ -61,7 +61,10 @@ export class ModalContactBuilder {
     installerAttribute(buttonEnvoyer, { class: 'input__envoyer-bouton', tabindex: 0, role: 'button' })
     installerAttribute(buttonClose, { class: 'entete__close-bouton', tabindex: 0, role: 'button' })
 
-    buttonClose.addEventListener('click', closeModal)
+    buttonClose.addEventListener('click', (e) => {
+      e.preventDefault()
+      closeModal()
+    })
     document.addEventListener('keydown', (e) => {
       const toucheCode = e.key
       if (toucheCode === 'Escape') {
@@ -71,16 +74,7 @@ export class ModalContactBuilder {
 
     // verifie les valeurs des champs remplie par l'utilisateur avant de renvoyer l'ensemble des valeur vers le console.log
     buttonEnvoyer.addEventListener('click', () => {
-      if (verificationString(inputPrenom) && verificationString(inputNom) && verificationString(inputMessage) && verificationEmail(inputEmail)) {
-        console.log(` Prenom: ${inputPrenom.value} | Nom: ${inputNom.value} | Email: ${inputEmail.value}, Votre message: ${inputMessage.value} `)
-        erreurVisible.innerText = 'Votre message a été envoyé ! '
-        setTimeout(() => { erreurVisible.innerText = '' }, 4000)
-        // renitialise le formulaire
-        document.querySelector('.modal-formulaire').reset()
-      } else {
-        erreurVisible.innerText = 'Données Incorrectes'
-        setTimeout(() => { erreurVisible.innerText = '' }, 4000)
-      }
+      verificationInput()
     })
 
     // ajout des différentes balises les uns aux autres

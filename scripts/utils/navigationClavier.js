@@ -91,11 +91,4 @@ export function navigationClavierEchap () {
       document.querySelector('.logo').focus()
     }
   })
-  document.addEventListener('keyup', (e) => {
-    const toucheCode = e.key
-    if (toucheCode === 'Enter' && document.hasFocus && document.querySelector('.logo:focus')) {
-      window.location.href = './index.html'
-      location.reload()
-    }
-  })
 }
