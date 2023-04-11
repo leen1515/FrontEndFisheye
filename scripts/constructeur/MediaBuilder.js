@@ -46,6 +46,7 @@ export class MediaBuilder {
     groupeLike.setAttribute('id', `${this.title}`)
     divLikes.setAttribute('class', 'like__nombre-aime')
     divLikes.setAttribute('id', `id-nombre-aime-${this.index}`)
+    divLikes.textContent = this.likes
     divClickLike.setAttribute('class', 'like__icone-aime')
     divClickLike.setAttribute('id', `bouton-icone-aime-${this.index}`)
     divClickLike.setAttribute('name', `${this.index}`)
@@ -61,7 +62,7 @@ export class MediaBuilder {
       // que le focus est actif, alors nous sélectionnons la classe css des photos qui subissent le focus. Ainsi nous pouvons récuperer
       // l'index correspondant à son attribut tabindex et nous la transmettons en parametre dans la méthode appelée this.creerLightbox.
       // L'image dont le focus est actif s'ouvre dans la lightbox lorsque nous appuyons sur la touche Entrée.
-      if (toucheCode === 'Enter' && document.hasFocus() && document.querySelector('.contact_button:focus') === null && document.querySelector('.photo-section__figure:focus')) {
+      if (toucheCode === 'Enter' && document.hasFocus() && document.querySelector('.contact_button:focus') === null && document.querySelector('.photo-section__figure:focus') !== null && document.querySelector('.modal-contact-section') === null) {
         const indexPhoto = document.querySelector('.photo-section__figure:focus').getAttribute('id')
         parentLightbox.className = 'lightBox__section__bouton'; this.creerLightbox(indexPhoto)
       }

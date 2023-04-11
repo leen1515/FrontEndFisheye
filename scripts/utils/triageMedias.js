@@ -1,6 +1,5 @@
 import { installerAttribute } from '../utils/functions.js'
 import { triage } from '../gestionJson/gestionJsonMedias.js'
-import { navigationClavierGalerie } from './navigationClavier.js'
 // une classe avec des methodes pour trier la galerie. la methode sort de js est utilisée pour réordonner l'affichage du tableau
 // avant de le retourner
 class Tri {
@@ -68,48 +67,46 @@ function selectOrdre () {
   const selectAllOption = document.querySelectorAll('.option-menu')
 
   let i = 0
-  select.addEventListener('focus', () => {
-    document.addEventListener('keydown', (e) => {
-      let ordreChoix
-      const toucheCode = e.key
-      if (toucheCode === 'Enter' && document.hasFocus && document.querySelector('.select-menu:focus') !== null && document.querySelector('.like__icone-aime:focus') === null && document.querySelector('.contact_button:focus') === null && document.querySelector('.input__envoyer-bouton:focus') === null) {
-        selectMenu.style.display = 'block'
-      } else if (toucheCode === 'ArrowDown' && selectMenu.style.display === 'block') {
-        e.preventDefault();
-        (i === selectAllOption.length - 1 ? i = 0 : i++)
-        ordreChoix = selectAllOption[i].textContent
-        selectAllOption[i].focus();
-        (selectAllOption[i].style.display === 'none' ? selectInput.focus() : console.log(ordreChoix))
-      } else if (toucheCode === 'ArrowUp' && selectMenu.style.display === 'block') {
-        (i === 0 ? i = selectAllOption.length - 1 : i--)
-        e.preventDefault()
-        ordreChoix = selectAllOption[i].textContent
-        selectAllOption[i].focus();
-        (selectAllOption[i].style.display === 'none' ? selectInput.focus() : console.log(ordreChoix))
-      } else if (toucheCode === 'Enter' && selectAllOption[i].textContent === 'Popularité' && document.querySelector('.like__icone-aime:focus') === null && document.querySelector('.input__envoyer-bouton:focus') === null) {
-        optionMenuChoisie.value = tagPopularite
-        selectOptionPopularite.style.display = 'none'
-        selectOptionDate.style.display = 'block'
-        selectOptionTitre.style.display = 'block'
-        select.focus()
-      } else if (toucheCode === 'Enter' && selectAllOption[i].textContent === 'Date' && document.querySelector('.like__icone-aime:focus') === null && document.querySelector('.input__envoyer-bouton:focus') === null) {
-        optionMenuChoisie.value = tagDate
-        selectOptionPopularite.style.display = 'block'
-        selectOptionDate.style.display = 'none'
-        selectOptionTitre.style.display = 'block'
-        select.focus()
-      } else if (toucheCode === 'Enter' && selectAllOption[i].textContent === 'Titre' && document.querySelector('.like__icone-aime:focus') === null && document.querySelector('.input__envoyer-bouton:focus') === null) {
-        optionMenuChoisie.value = tagTitre
-        selectOptionPopularite.style.display = 'block'
-        selectOptionDate.style.display = 'block'
-        selectOptionTitre.style.display = 'none'
-        select.focus()
-      } else if (toucheCode === 'Escape' && selectMenu.style.display === 'block') {
-        selectMenu.style.display = 'none'
-        select.blur()
-        document.querySelectorAll('.photo-section__figure')[0].focus()
-      }
-    })
+  document.addEventListener('keydown', (e) => {
+    let ordreChoix
+    const toucheCode = e.key
+    if (toucheCode === 'Enter' && document.hasFocus && document.querySelector('.select-menu:focus') !== null && document.querySelector('.like__icone-aime:focus') === null && document.querySelector('.contact_button:focus') === null && document.querySelector('.input__envoyer-bouton:focus') === null && document.querySelector('.modal-contact-section--invisible') !== null && document.querySelector('.photo-section__figure:focus') === null) {
+      selectMenu.style.display = 'block'
+    } else if (toucheCode === 'ArrowDown' && selectMenu.style.display === 'block' && document.querySelector('.contact_button:focus') === null) {
+      e.preventDefault();
+      (i === selectAllOption.length - 1 ? i = 0 : i++)
+      ordreChoix = selectAllOption[i].textContent
+      selectAllOption[i].focus();
+      (selectAllOption[i].style.display === 'none' ? selectInput.focus() : console.log(ordreChoix))
+    } else if (toucheCode === 'ArrowUp' && selectMenu.style.display === 'block' && document.querySelector('.contact_button:focus') === null) {
+      (i === 0 ? i = selectAllOption.length - 1 : i--)
+      e.preventDefault()
+      ordreChoix = selectAllOption[i].textContent
+      selectAllOption[i].focus();
+      (selectAllOption[i].style.display === 'none' ? selectInput.focus() : console.log(ordreChoix))
+    } else if (toucheCode === 'Enter' && selectAllOption[i].textContent === 'Popularité' && document.querySelector('.like__icone-aime:focus') === null && document.querySelector('.input__envoyer-bouton:focus') === null && document.querySelector('.contact_button:focus') === null && document.querySelector('.modal-contact-section--invisible') !== null && document.querySelector('.photo-section__figure:focus') === null) {
+      optionMenuChoisie.value = tagPopularite
+      selectOptionPopularite.style.display = 'none'
+      selectOptionDate.style.display = 'block'
+      selectOptionTitre.style.display = 'block'
+      select.focus()
+    } else if (toucheCode === 'Enter' && selectAllOption[i].textContent === 'Date' && document.querySelector('.like__icone-aime:focus') === null && document.querySelector('.input__envoyer-bouton:focus') === null && document.querySelector('.contact_button:focus') === null && document.querySelector('.modal-contact-section--invisible') !== null && document.querySelector('.photo-section__figure:focus') === null) {
+      optionMenuChoisie.value = tagDate
+      selectOptionPopularite.style.display = 'block'
+      selectOptionDate.style.display = 'none'
+      selectOptionTitre.style.display = 'block'
+      select.focus()
+    } else if (toucheCode === 'Enter' && selectAllOption[i].textContent === 'Titre' && document.querySelector('.like__icone-aime:focus') === null && document.querySelector('.input__envoyer-bouton:focus') === null && document.querySelector('.contact_button:focus') === null && document.querySelector('.modal-contact-section--invisible') !== null && document.querySelector('.photo-section__figure:focus') === null) {
+      optionMenuChoisie.value = tagTitre
+      selectOptionPopularite.style.display = 'block'
+      selectOptionDate.style.display = 'block'
+      selectOptionTitre.style.display = 'none'
+      select.focus()
+    } else if (toucheCode === 'Escape' && selectMenu.style.display === 'block') {
+      selectMenu.style.display = 'none'
+      select.blur()
+      document.querySelectorAll('.photo-section__figure')[0].focus()
+    }
   })
 
   // ajout des écouteurs d'évenement sur chaque option
@@ -152,7 +149,7 @@ export function SelectDeclencheTri (mediasaTrier, photographerName) {
   document.getElementById('idPopularite').addEventListener('focus', (e) => {
     document.addEventListener('keydown', (e) => {
       const toucheCode = e.key
-      if (toucheCode === 'Enter' && document.hasFocus && document.querySelector('.like__icone-aime:focus') === null && document.querySelector('.input__envoyer-bouton:focus') === null) {
+      if (toucheCode === 'Enter' && document.hasFocus && document.querySelector('.like__icone-aime:focus') === null && document.querySelector('.input__envoyer-bouton:focus') === null && document.querySelector('.contact_button:focus') === null && document.querySelector('.modal-contact-section--invisible') !== null && document.querySelector('.photo-section__figure:focus') === null) {
         if (document.querySelector('div.section__enveloppe') !== null) {
           document.querySelector('div.section__enveloppe').remove()
         }
@@ -164,7 +161,7 @@ export function SelectDeclencheTri (mediasaTrier, photographerName) {
   document.getElementById('idDate').addEventListener('focus', (e) => {
     document.addEventListener('keydown', (e) => {
       const toucheCode = e.key
-      if (toucheCode === 'Enter' && document.hasFocus && document.querySelector('.like__icone-aime:focus') === null && document.querySelector('.input__envoyer-bouton:focus') === null) {
+      if (toucheCode === 'Enter' && document.hasFocus && document.querySelector('.like__icone-aime:focus') === null && document.querySelector('.input__envoyer-bouton:focus') === null && document.querySelector('.contact_button:focus') === null && document.querySelector('.modal-contact-section--invisible') !== null && document.querySelector('.photo-section__figure:focus') === null) {
         if (document.querySelector('div.section__enveloppe') !== null) {
           document.querySelector('div.section__enveloppe').remove()
         }
@@ -176,7 +173,7 @@ export function SelectDeclencheTri (mediasaTrier, photographerName) {
   document.getElementById('idTitre').addEventListener('focus', (e) => {
     document.addEventListener('keydown', (e) => {
       const toucheCode = e.key
-      if (toucheCode === 'Enter' && document.hasFocus && document.querySelector('.like__icone-aime:focus') === null && document.querySelector('.input__envoyer-bouton:focus') === null) {
+      if (toucheCode === 'Enter' && document.hasFocus && document.querySelector('.like__icone-aime:focus') === null && document.querySelector('.input__envoyer-bouton:focus') === null && document.querySelector('.contact_button:focus') === null && document.querySelector('.modal-contact-section--invisible') !== null && document.querySelector('.photo-section__figure:focus') === null) {
         if (document.querySelector('div.section__enveloppe') !== null) {
           document.querySelector('div.section__enveloppe').remove()
         }
@@ -206,7 +203,4 @@ export function SelectDeclencheTri (mediasaTrier, photographerName) {
     }
     resultatTrie = new Tri(mediasaTrier).alphabetiqueCroissant(); triage(resultatTrie, photographerName)
   })
-
-  // navigation au clavier, situé dans la fonction triage pour éviter les undefined
-  navigationClavierGalerie()
 }

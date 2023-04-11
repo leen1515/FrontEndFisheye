@@ -4,7 +4,7 @@ import { MediaBuilder } from '../constructeur/MediaBuilder.js'
 import { recupereIdUrl } from '../utils/functions.js'
 import { EtiquetteBuilder } from '../constructeur/EtiquetteBuilder.js'
 import { ModalContactBuilder } from '../constructeur/ModalContactBuilder.js'
-import { navigationClavierEchap, navigationClavierModal } from '../utils/navigationClavier.js'
+import { navigationClavierEchap, navigationClavierModal, navigationClavierGalerie } from '../utils/navigationClavier.js'
 import { ProfilFactory } from '../factory/profilFactory.js'
 import { MediaFactory } from '../factory/mediaFactory.js'
 import { SelectDeclencheTri } from '../utils/triageMedias.js'
@@ -93,11 +93,19 @@ export function triage (trierMedias, photographerNameTransfert) {
   // à chaque fois que la fonction triage sera appellée, une etiquette sera ajouté a la page du photographe.
   // Elle est appele dans la fonction selectDeclencheTri, qui elle même est appelé plus haut, dans la boucle qui parcourt le tableau
   // des photographes. Ainsi, chaque photographe à son étiquette selon ses propres propriétées.
-  mediaSection.appendChild(etiquetteModel)
+
+  if (document.querySelector('.photographe-etiquette') === null) {
+    mediaSection.appendChild(etiquetteModel)
+  } else {
+    document.querySelector('.photographe-etiquette').remove()
+    mediaSection.appendChild(etiquetteModel)
+  }
 }
 // navigation au clavier
 navigationClavierModal()
 navigationClavierEchap()
+
+navigationClavierGalerie()
 async function init () {
   // Récupère les datas des photographes
   const { photographers, media } = await getPhotographers()

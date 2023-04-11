@@ -21,7 +21,6 @@ export function navigationClavierModal () {
 }
 
 export function navigationClavierGalerie () {
-  const coeurChiffre = document.querySelector('.photographe-etiquette__coeur-chiffre')
   let i = 0
   let imgTitre
   let imgTitreAlt
@@ -40,7 +39,9 @@ export function navigationClavierGalerie () {
         divLikes = document.getElementById(`id-nombre-aime-${[i]}`)
         divClickLike = document.getElementById(`bouton-icone-aime-${[i]}`)
       }
-    } else if (toucheCode === 'Enter' && document.hasFocus() && document.querySelectorAll('.like__icone-aime')[i] !== null && document.querySelector('.photo-section__figure:focus') === null && imgTitreAlt) {
+    } else if (toucheCode === 'Enter' && document.hasFocus() && document.querySelectorAll('.like__icone-aime')[i] !== null && document.querySelector('.photo-section__figure:focus') === null && imgTitreAlt && document.querySelector('.like__icone-aime:focus') !== null && document.querySelector('.contact_button:focus') === null && document.querySelector('.input__envoyer-bouton:focus') === null && document.querySelector('.modal-contact-section--invisible') !== null && document.querySelector('.photo-section__figure:focus') === null) {
+      const coeurChiffre = document.querySelector('.photographe-etiquette__coeur-chiffre')
+      console.log('coeur', coeurChiffre)
       if (imgTitreAlt.getAttribute('alt') !== `${document.querySelectorAll('.legende__h2')[i].textContent} aimée`) {
         imgTitreAlt.setAttribute('alt', `${document.querySelectorAll('.legende__h2')[i].textContent} aimée`)
         divLikes.textContent = parseInt(divLikes.textContent) + 1
@@ -52,7 +53,9 @@ export function navigationClavierGalerie () {
         divClickLike.innerHTML = "<i class='fa-regular fa-heart fa-heart-margin'></i>"
         coeurChiffre.textContent = parseInt(coeurChiffre.textContent) - 1
       }
-    } else if (toucheCode === 'Enter' && document.hasFocus() && document.querySelectorAll('.like__icone-aime')[i] !== null && document.querySelector('.photo-section__figure:focus') === null && videoTitreAlt) {
+    } else if (toucheCode === 'Enter' && document.hasFocus() && document.querySelectorAll('.like__icone-aime')[i] !== null && document.querySelector('.photo-section__figure:focus') === null && videoTitreAlt && document.querySelector('.like__icone-aime:focus') !== null && document.querySelector('.contact_button:focus') === null && document.querySelector('.input__envoyer-bouton:focus') === null && document.querySelector('.modal-contact-section--invisible') !== null && document.querySelector('.photo-section__figure:focus') === null) {
+      const coeurChiffre = document.querySelector('.photographe-etiquette__coeur-chiffre')
+      console.log('coeur', coeurChiffre)
       if (videoTitreAlt.getAttribute('alt') !== `${document.querySelectorAll('.legende__h2')[i].textContent} aimée`) {
         videoTitreAlt.setAttribute('alt', `${document.querySelectorAll('.legende__h2')[i].textContent} aimée`)
         divLikes.textContent = parseInt(divLikes.textContent) + 1
