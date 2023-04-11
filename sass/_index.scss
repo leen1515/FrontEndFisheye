@@ -50,7 +50,7 @@ header {
 h1 {
     color: #901C1C;
     @include u.desktop{
-        padding-right: 200px;}
+        padding-right: 150px;}
     @include u.tablet{
         padding-right: 100px;}
     @include u.mobile{
@@ -64,7 +64,7 @@ h1 {
         
     height: 50px;
     width: 200px;
-    margin-left: 130px;
+    margin-left: 150px;
     object-fit: contain;
     }
     @include u.tablet{
