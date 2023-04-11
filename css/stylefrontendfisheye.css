@@ -372,6 +372,8 @@ h1 {
 }
 
 .lightBox-quitter {
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
   position: absolute;
   color: #901C1C;
   right: 0;
@@ -380,12 +382,16 @@ h1 {
 }
 
 .boutonGauche {
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
   color: #901C1C;
   margin-left: 100px;
   cursor: pointer;
 }
 
 .boutonDroite {
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
   color: #901C1C;
   margin-right: 100px;
   cursor: pointer;
@@ -482,6 +488,8 @@ h1 {
 .entete__close-bouton {
   color: white;
   cursor: pointer;
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
 }
 
 .formulaire__erreur {

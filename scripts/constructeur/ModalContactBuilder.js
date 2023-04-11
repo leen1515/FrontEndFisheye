@@ -18,7 +18,7 @@ export class ModalContactBuilder {
     const inputEmail = document.createElement('input')
     const inputMessage = document.createElement('textarea')
     const buttonEnvoyer = document.createElement('div')
-    const buttonClose = document.createElement('div')
+    const buttonClose = document.createElement('button')
 
     const labelPrenom = document.createElement('label')
     const labelNom = document.createElement('label')

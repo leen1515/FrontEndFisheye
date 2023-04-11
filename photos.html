@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <head>
     <link href="./css/stylefrontendfisheye.css"
       rel="stylesheet"
       type="text/css" />
-    <meta charset="utf-8">
     <link rel="icon"
       type="image/png"
       href="assets/favicon.png">
@@ -19,46 +21,42 @@
   <body>
     <header>
       <a href="./index.html"><img src="assets/images/logo.png"
-          class="logo" alt= "Fisheye Home page" tabindex="1"></a>
+          class="logo" alt= "Fisheye Home page"></a>
     </header>
     <main id="main">
       <div class="photographe-header">
       </div>
       <div class="selection">
+        <div 
+        role="button" aria-haspopup="listbox" aria-expanded></div>
         <label id="8"
           class="select-label">Trier par </label>
         <div class="select-menu">
-          <div aria-controls="listbox"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-labelledby="8"
+          <div
             class="select-input"
-            role="button"
             tabindex="0">
             <input class="option-menu-choisi"
               readonly
               type="text"
               name="option-choisie"
               value="Popularité"
-              role="option"
-              aria-labelledby="8"
-              aria-activedescendant="8"
-              aria-selected="true"><i class="fa-solid fa-chevron-up fa-color-white"></i>
+              ><i class="fa-solid fa-chevron-up fa-color-white"></i>
           </div>
-          <div class="select-option"></div>
+          <div class="select-option"
+          role="listbox" aria-activedescendant aria-selected aria-labelledby = 8></div>
         </div>
       </div>
 
       <div class="photos-section"></div>
       <div class="lightBox__section__bouton--invisible">
-        <div id="idGauche"
-          class="boutonGauche" name = "Previous image"><i class="fa-solid fa-angle-left fa-5x"></i></div>
+        <button id="idGauche"
+          class="boutonGauche" name ="previous image"><i class="fa-solid fa-angle-left fa-5x"></i></button>
 
         <div class="lightBox__section">
 
         </div>
-        <div id="idDroite"
-          class="boutonDroite" name = "Next image"><i class="fa-solid fa-angle-right fa-5x"></i></div>
+        <button id="idDroite"
+          class="boutonDroite" name ="next image"><i class="fa-solid fa-angle-right fa-5x"></i></button>
       </div>
     </main>
     <div class="contact_modal">

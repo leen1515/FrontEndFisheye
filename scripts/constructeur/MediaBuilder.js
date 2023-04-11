@@ -124,7 +124,7 @@ export class MediaBuilder {
       const lightbox = document.createElement('figure')
       const lightboxCaption = document.createElement('figcaption')
       const lightboxTitre = document.createElement('h3')
-      const lightboxQuitte = document.createElement('div')
+      const lightboxQuitte = document.createElement('button')
       const imageLightbox = document.createElement('img')
       const lightboxVideo = document.createElement('video')
       const lightboxVideoSource = document.createElement('source')
