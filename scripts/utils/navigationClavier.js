@@ -80,7 +80,6 @@ export function navigationClavierIndex (id, index) {
     const toucheCode = e.key
     if (toucheCode === 'Enter' && document.hasFocus && document.querySelector(`article#id-${index}:focus`) !== null) {
       window.location.href = `./photos.html?id=${id}`
-      location.reload()
     }
   })
 }

@@ -1,4 +1,4 @@
-import { chargement, urlImageMiniature, displayModal } from '../utils/functions.js'
+import { chargement, urlImageMiniature, displayModal, navigationClavierIndex } from '../utils/functions.js'
 
 // création de la classe model de la bannière du photographe, construit et associe les proprietes
 export class PhotographerBuilder {
@@ -32,7 +32,6 @@ export class PhotographerBuilder {
     article.setAttribute('tabindex', this.index)
     article.setAttribute('id', `id-${this.index}`)
     urlPage.setAttribute('class', 'article-photo__lien-vignette')
-    urlPage.setAttribute('autofocus', true)
     img.setAttribute('class', 'lien-vignette__avatar--flou')
     img.setAttribute('alt', ` une photo représentant l'artiste : ${this.name}, son slogan : ${this.tagline}`)
     text.setAttribute('class', 'article-photo__texte-description')
@@ -51,6 +50,7 @@ export class PhotographerBuilder {
     paragraphe.textContent = `${this.price}€/jour`
     img.addEventListener('onload', chargement(img, picture, urlImageMiniature(picture)))
 
+    navigationClavierIndex(this.id, this.index)
     // ajout des éléments les uns aux autres jusqu'au *DOM
     urlPage.appendChild(img)
     article.appendChild(urlPage)
