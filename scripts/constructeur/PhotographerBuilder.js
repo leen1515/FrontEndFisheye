@@ -1,4 +1,5 @@
-import { chargement, urlImageMiniature, displayModal, navigationClavierIndex } from '../utils/functions.js'
+import { chargement, urlImageMiniature, displayModal } from '../utils/functions.js'
+import { navigationClavierIndex } from '../utils/navigationClavier.js'
 
 // création de la classe model de la bannière du photographe, construit et associe les proprietes
 export class PhotographerBuilder {
