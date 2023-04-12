@@ -44,7 +44,7 @@ function selectOrdre () {
   const optionMenuChoisie = document.querySelector('.option-menu-choisi')
   const selectInput = document.querySelector('.select-input')
 
-  installerAttribute(select, { alt: 'Order by', name: 'Order by', tabindex: '1' })
+  installerAttribute(select, { alt: 'Order by', name: 'Order by' })
   installerAttribute(optionMenuChoisie, { tabindex: '2', role: 'button' })
   installerAttribute(selectOptionPopularite, { id: 'idPopularite', role: 'option', class: 'option-menu', 'aria-selected': false, tabindex: '0', 'aria-label': 'ordre par Popularité' })
   installerAttribute(selectOptionDate, { id: 'idDate', role: 'option', class: 'option-menu', 'aria-selected': false, tabindex: '0', 'aria-label': 'ordre par Date' })
@@ -73,8 +73,11 @@ function selectOrdre () {
     const toucheCode = e.key
     if (toucheCode === 'Enter' && document.hasFocus && document.querySelector('.select-menu:focus') !== null && document.querySelector('.like__icone-aime:focus') === null && document.querySelector('.contact_button:focus') === null && document.querySelector('.input__envoyer-bouton:focus') === null && document.querySelector('.modal-contact-section--invisible') !== null && document.querySelector('.photo-section__figure:focus') === null && document.querySelector('.photographe-etiquette__prix:focus') === null) {
       selectMenu.style.display = 'block'
-    } else if (toucheCode === 'ArrowDown' && selectMenu.style.display === 'block' && document.querySelector('.contact_button:focus') === null) {
+    } else if (toucheCode === 'Enter' && document.hasFocus && document.querySelector('.option-menu-choisi:focus') !== null && document.querySelector('.like__icone-aime:focus') === null && document.querySelector('.contact_button:focus') === null && document.querySelector('.input__envoyer-bouton:focus') === null && document.querySelector('.modal-contact-section--invisible') !== null && document.querySelector('.photo-section__figure:focus') === null && document.querySelector('.photographe-etiquette__prix:focus') === null) {
+      selectMenu.style.display = 'block'
+    } else if (toucheCode === 'ArrowDown' && document.querySelector('.contact_button:focus') === null) {
       e.preventDefault();
+      selectMenu.style.display = 'block';
       (i === selectAllOption.length - 1 ? i = 0 : i++)
       // met à jour le label du bouton pour qu'une liseuse d'écran puisse lire sa nouvelle valeur chargé dynamiquement
       optionMenuChoisie.setAttribute('aria-label', "l'ordre est actuellement organisé par" + optionMenuChoisie.value)
