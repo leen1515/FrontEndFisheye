@@ -161,7 +161,9 @@ export class MediaBuilder {
       lightboxVideo.setAttribute('width', '90%')
       lightboxVideoSource.setAttribute('type', 'video/mp4')
       lightboxVideo.setAttribute('class', 'lightBox-element__video')
-      lightboxVideo.appendChild(lightboxVideoSource)
+      if (videoVerification) {
+        lightboxVideo.appendChild(lightboxVideoSource)
+      }
       imageLightbox.setAttribute('class', 'lightBox-element__photo--flou')
       lightboxSection.appendChild(lightbox)
     }

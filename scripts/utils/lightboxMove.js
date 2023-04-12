@@ -19,6 +19,7 @@ function droiteAvance (indexMouvementModifie, mediasParents) {
 function lightboxMove (videoVerification, srcImg, srcVideo, titre, lightboxVideo, lightbox, imageLightbox, lightboxVideoSource, lightboxTitre, lightboxCaption) {
   if (videoVerification) {
     lightbox.appendChild(lightboxVideo)
+    lightboxVideo.appendChild(lightboxVideoSource)
     imageLightbox.remove()
     lightboxVideoSource.setAttribute('src', srcVideo)
     lightboxTitre.innerText = titre
