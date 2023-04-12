@@ -92,7 +92,7 @@ export function navigationClavierRetour () {
     if (toucheCode === 'Escape' && document.hasFocus()) {
       document.querySelector('#retourIndex').focus()
     } else if ((toucheCode === 'Escape' || toucheCode === 'Enter') && document.hasFocus() && document.querySelector('#retourIndex:focus')) {
-      window.location.href = '/index.html'
+      window.location.href = '/FrontEndFisheye/index.html'
     }
   })
 }
