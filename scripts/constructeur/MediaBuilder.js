@@ -65,7 +65,8 @@ export class MediaBuilder {
       // L'image dont le focus est actif s'ouvre dans la lightbox lorsque nous appuyons sur la touche Entrée.
       if (toucheCode === 'Enter' && document.hasFocus() && document.querySelector('.contact_button:focus') === null && document.querySelector('.photo-section__figure:focus') !== null && document.querySelector('.modal-contact-section') === null) {
         const indexPhoto = document.querySelector('.photo-section__figure:focus').getAttribute('id')
-        parentLightbox.className = 'lightBox__section__bouton'; this.creerLightbox(indexPhoto)
+        parentLightbox.className = 'lightBox__section__bouton'
+        this.creerLightbox(indexPhoto)
       }
     })
 
@@ -130,13 +131,16 @@ export class MediaBuilder {
       const lightboxVideoSource = document.createElement('source')
       // style ajout des classes pour l'image
       lightbox.setAttribute('class', 'lightBox-element')
+      lightbox.setAttribute('tabindex', 1)
       lightbox.setAttribute('aria-label', 'image closeup view')
       lightboxCaption.setAttribute('class', 'lightBox-element__description')
       lightboxTitre.setAttribute('class', 'description__h3')
+      lightboxTitre.setAttribute('tabindex', 0)
       lightboxQuitte.setAttribute('class', 'lightBox-quitter')
       lightboxQuitte.setAttribute('name', 'Close dialog')
       imageLightbox.setAttribute('class', 'lightBox-element__photo--flou')
       imageLightbox.setAttribute('alt', this.title)
+      lightboxVideo.textContent = this.title
       // attribut relatif aux variables et url et remplissage des contenus
       lightboxQuitte.innerHTML = "<i class='fa-solid fa-xmark fa-4x'></i>"
       lightboxQuitte.addEventListener('click', () => { parentLightbox.className = 'lightBox__section__bouton--invisible'; document.querySelector('.lightBox-element').remove() })

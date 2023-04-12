@@ -23,16 +23,20 @@ function lightboxMove (videoVerification, srcImg, srcVideo, titre, lightboxVideo
     imageLightbox.remove()
     lightboxVideoSource.setAttribute('src', srcVideo)
     lightboxTitre.innerText = titre
+    lightboxVideo.textContent = titre
     lightboxCaption.appendChild(lightboxTitre)
     lightbox.appendChild(lightboxCaption)
+    lightboxTitre.focus()
   } else {
     imageLightbox.setAttribute('src', srcImg)
     imageLightbox.addEventListener('onload', chargement(imageLightbox, srcImg, urlImageMiniature(srcImg), 'lightBox-element__photo--flou'))
+    imageLightbox.setAttribute('alt', titre)
     lightboxTitre.innerText = titre
     lightboxVideo.remove()
     lightbox.appendChild(imageLightbox)
     lightboxCaption.appendChild(lightboxTitre)
     lightbox.appendChild(lightboxCaption)
+    lightboxTitre.focus()
   }
 }
 // permet de se mouvoir au sein de la lightbox a la souris ou au clavier. Les arguments recupere l'idImage que lui transmet
@@ -62,6 +66,7 @@ export function interactionClavierSouris (idImage,
     // analyse le retour du code de l'evenement detecté de la touche et la compare au code correspondant à la touche que nous attendons.
     if (toucheCode === 'ArrowRight') {
       droite.focus()
+      droite.setAttribute('aria-label', 'next image')
       // si touche droite, l'index est modifié en appelant la fonction droiteAvance vu plus haut
       indexMouvementModifie = droiteAvance(indexMouvementModifie, mediasParents);
       // met à jour la variable videoVerification selon ce que retourne la propriete video, s'il retourne autre chose que undefined
@@ -86,6 +91,7 @@ export function interactionClavierSouris (idImage,
       // son retour, qui est le chiffre de l'index modifié, à la variable indexMouvementModifie
     } else if (toucheCode === 'ArrowLeft') {
       gauche.focus()
+      gauche.setAttribute('aria-label', 'prevous image')
       indexMouvementModifie = gaucheRecule(indexMouvementModifie, mediasParents);
       (mediasParents[indexMouvementModifie].video !== undefined ? videoVerification = true : videoVerification = false)
       const imgSrc = `assets/images/${surname}/${mediasParents[indexMouvementModifie].image}`
