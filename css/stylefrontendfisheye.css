@@ -20,7 +20,7 @@ main {
   margin: auto;
 }
 
-@media (min-width: 1500px) {
+@media (min-width: 1100px) {
   header {
     display: flex;
     flex-direction: row;
@@ -30,7 +30,7 @@ main {
     margin-bottom: 40px;
   }
 }
-@media (min-width: 800px) and (max-width: 1500px) {
+@media (min-width: 800px) and (max-width: 1100px) {
   header {
     display: flex;
     flex-direction: row;
@@ -57,12 +57,12 @@ main {
 h1 {
   color: #901C1C;
 }
-@media (min-width: 1500px) {
+@media (min-width: 1100px) {
   h1 {
     padding-right: 150px;
   }
 }
-@media (min-width: 800px) and (max-width: 1500px) {
+@media (min-width: 800px) and (max-width: 1100px) {
   h1 {
     padding-right: 100px;
   }
@@ -74,7 +74,7 @@ h1 {
   }
 }
 
-@media (min-width: 1500px) {
+@media (min-width: 1100px) {
   .logo {
     height: 50px;
     width: 200px;
@@ -82,7 +82,7 @@ h1 {
     object-fit: contain;
   }
 }
-@media (min-width: 800px) and (max-width: 1500px) {
+@media (min-width: 800px) and (max-width: 1100px) {
   .logo {
     height: 50px;
     width: 100px;
@@ -101,7 +101,7 @@ h1 {
   }
 }
 
-@media (min-width: 1500px) {
+@media (min-width: 1100px) {
   .photographer-section {
     width: 90%;
     display: grid;
@@ -110,7 +110,7 @@ h1 {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
-@media (min-width: 800px) and (max-width: 1500px) {
+@media (min-width: 800px) and (max-width: 1100px) {
   .photographer-section {
     width: 80%;
     display: grid;
@@ -206,7 +206,7 @@ h1 {
   z-index: 0;
 }
 
-@media (min-width: 1500px) {
+@media (min-width: 1100px) {
   .section__enveloppe {
     width: 95%;
     margin: auto;
@@ -217,7 +217,7 @@ h1 {
     text-align: center;
   }
 }
-@media (min-width: 800px) and (max-width: 1500px) {
+@media (min-width: 800px) and (max-width: 1100px) {
   .section__enveloppe {
     width: 95%;
     margin: auto;
@@ -362,7 +362,7 @@ main {
   width: 100%;
 }
 
-@media (min-width: 1500px) {
+@media (min-width: 1100px) {
   .banniere-entete {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -376,7 +376,7 @@ main {
     border-radius: 5px;
   }
 }
-@media (min-width: 800px) and (max-width: 1500px) {
+@media (min-width: 800px) and (max-width: 1100px) {
   .banniere-entete {
     background-color: #FAFAFA;
     margin: auto;
@@ -404,20 +404,22 @@ main {
   }
 }
 
-@media (min-width: 1500px) {
+@media (min-width: 1100px) {
   .banniere-entete .article-photo__lien-vignette {
     position: relative;
     margin-left: 200px;
   }
 }
-@media (min-width: 800px) and (max-width: 1500px) {
+@media (min-width: 800px) and (max-width: 1100px) {
   .banniere-entete .article-photo__lien-vignette {
-    margin: auto;
+    margin: 40px;
+    min-width: 150px;
   }
 }
 @media (max-width: 800px) {
   .banniere-entete .article-photo__lien-vignette {
     margin: auto;
+    margin: 40px auto;
   }
 }
 
@@ -438,6 +440,11 @@ main {
   font-weight: 400;
   margin: 20px 20px 0 0;
   padding: 0;
+}
+@media (max-width: 800px) {
+  .texte__nom {
+    font-size: 20pt;
+  }
 }
 
 .texte__slogan {
@@ -481,18 +488,51 @@ main {
 
 .lightBox-element {
   margin: auto;
-  width: 800px;
+  width: 90%;
   height: 100%;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 1100px) {
+  .lightBox-element {
+    width: 90%;
+  }
+}
+@media (min-width: 800px) and (max-width: 1100px) {
+  .lightBox-element {
+    width: 70%;
+  }
+}
+@media (max-width: 800px) {
+  .lightBox-element {
+    width: 60%;
+  }
 }
 
 .lightBox-element__photo {
   margin: 0 auto;
   position: relative;
   top: 0;
-  width: 100%;
-  height: 600px;
   object-fit: contain;
+}
+@media (min-width: 1100px) {
+  .lightBox-element__photo {
+    width: 100%;
+    height: 700px;
+  }
+}
+@media (min-width: 800px) and (max-width: 1100px) {
+  .lightBox-element__photo {
+    width: 100%;
+    height: 500px;
+  }
+}
+@media (max-width: 800px) {
+  .lightBox-element__photo {
+    width: 100%;
+    height: 400px;
+  }
 }
 
 .lightBox-element__photo--flou {
@@ -503,14 +543,36 @@ main {
   margin: 0 auto;
   position: relative;
   top: 0;
-  width: 100%;
-  height: 600px;
   object-fit: contain;
+}
+@media (min-width: 1100px) {
+  .lightBox-element__photo--flou {
+    width: 100%;
+    height: 700px;
+  }
+}
+@media (min-width: 800px) and (max-width: 1100px) {
+  .lightBox-element__photo--flou {
+    width: 100%;
+    height: 500px;
+  }
+}
+@media (max-width: 800px) {
+  .lightBox-element__photo--flou {
+    width: 100%;
+    height: 400px;
+  }
 }
 
 .lightBox-element__video {
   margin: auto;
-  width: 800px;
+  width: 90%;
+}
+@media (max-width: 800px) {
+  .lightBox-element__video {
+    width: 90%;
+    height: 500px;
+  }
 }
 
 .lightBox__section__bouton {
@@ -542,7 +604,7 @@ main {
   position: absolute;
   color: #901C1C;
   right: 0;
-  margin-right: 100px;
+  margin-right: 30px;
   cursor: pointer;
 }
 
@@ -550,7 +612,7 @@ main {
   border: none;
   background-color: rgba(255, 255, 255, 0);
   color: #901C1C;
-  margin-left: 100px;
+  margin-left: 30px;
   cursor: pointer;
 }
 
@@ -558,7 +620,7 @@ main {
   border: none;
   background-color: rgba(255, 255, 255, 0);
   color: #901C1C;
-  margin-right: 100px;
+  margin-right: 30px;
   cursor: pointer;
 }
 
@@ -673,7 +735,7 @@ main {
   animation-fill-mode: backwards;
 }
 
-@media (min-width: 1500px) {
+@media (min-width: 1100px) {
   .selection {
     position: relative;
     margin-left: 125px;
@@ -687,7 +749,7 @@ main {
     cursor: pointer;
   }
 }
-@media (min-width: 800px) and (max-width: 1500px) {
+@media (min-width: 800px) and (max-width: 1100px) {
   .selection {
     position: relative;
     margin-left: 40px;

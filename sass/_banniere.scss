@@ -59,10 +59,13 @@ main{
         margin-left: 200px;
     }
     @include u.tablet{
-        margin:auto;
+        margin:40px;
+        min-width: 150px;
     }
     @include u.mobile{
         margin:auto;
+        
+        margin:40px auto;
     }
 }
 
@@ -82,6 +85,10 @@ main{
     font-weight: 400;
     margin: 20px 20px 0 0;
     padding: 0;
+    @include u.mobile{
+        
+    font-size: 20pt;
+    }
 
 }
 

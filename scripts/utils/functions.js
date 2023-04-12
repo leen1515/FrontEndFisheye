@@ -92,7 +92,7 @@ export function verificationEmail (email) {
 export function verificationString (text) {
   return /^([a-zA-Z])+$/g.test(text.value)
 }
-
+// pour retourner le type de donnée et son titre pour l'url
 export function mediaFactory (image, videoDonnee) {
   let video = true
   let media

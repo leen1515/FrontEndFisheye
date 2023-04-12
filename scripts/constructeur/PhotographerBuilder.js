@@ -34,7 +34,7 @@ export class PhotographerBuilder {
     urlPage.setAttribute('class', 'article-photo__lien-vignette')
     urlPage.setAttribute('autofocus', true)
     img.setAttribute('class', 'lien-vignette__avatar--flou')
-    img.setAttribute('alt', ` son slogan : ${this.tagline}, une photo de : ${this.name}`)
+    img.setAttribute('alt', ` une photo représentant l'artiste : ${this.name}, son slogan : ${this.tagline}`)
     text.setAttribute('class', 'article-photo__texte-description')
     h2.setAttribute('class', 'texte-decription__h2')
     slogan.setAttribute('class', 'texte-description__slogan')
@@ -86,7 +86,7 @@ export class PhotographerBuilder {
     buttonContact.setAttribute('class', 'contact_button')
     divAvatar.setAttribute('class', 'article-photo__lien-vignette')
     avatar.setAttribute('class', 'lien-vignette__avatar--flou')
-    avatar.setAttribute('alt', `une photographie représentant l'artiste en question : ${this.name}`)
+    avatar.setAttribute('alt', `une photographie représentant l'artiste selectionné : ${this.name}`)
 
     buttonContact.setAttribute('tabindex', 0)
     buttonContact.setAttribute('name', 'Contact Me')
