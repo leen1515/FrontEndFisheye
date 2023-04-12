@@ -140,7 +140,6 @@ export class MediaBuilder {
       lightboxQuitte.setAttribute('name', 'Close dialog')
       imageLightbox.setAttribute('class', 'lightBox-element__photo--flou')
       imageLightbox.setAttribute('alt', this.title)
-      lightboxVideo.textContent = this.title
       // attribut relatif aux variables et url et remplissage des contenus
       lightboxQuitte.innerHTML = "<i class='fa-solid fa-xmark fa-4x'></i>"
       lightboxQuitte.addEventListener('click', () => { parentLightbox.className = 'lightBox__section__bouton--invisible'; document.querySelector('.lightBox-element').remove() })

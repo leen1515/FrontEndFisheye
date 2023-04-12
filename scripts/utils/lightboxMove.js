@@ -23,7 +23,6 @@ function lightboxMove (videoVerification, srcImg, srcVideo, titre, lightboxVideo
     imageLightbox.remove()
     lightboxVideoSource.setAttribute('src', srcVideo)
     lightboxTitre.innerText = titre
-    lightboxVideo.textContent = titre
     lightboxCaption.appendChild(lightboxTitre)
     lightbox.appendChild(lightboxCaption)
     lightboxTitre.focus()
