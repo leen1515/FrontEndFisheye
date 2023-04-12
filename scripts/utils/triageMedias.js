@@ -76,7 +76,7 @@ function selectOrdre () {
     } else if (toucheCode === 'Enter' && document.hasFocus && document.querySelector('.option-menu-choisi:focus') !== null && document.querySelector('.like__icone-aime:focus') === null && document.querySelector('.contact_button:focus') === null && document.querySelector('.input__envoyer-bouton:focus') === null && document.querySelector('.modal-contact-section--invisible') !== null && document.querySelector('.photo-section__figure:focus') === null && document.querySelector('.photographe-etiquette__prix:focus') === null) {
       selectMenu.style.display = 'block'
     } else if (toucheCode === 'ArrowDown' && document.querySelector('.contact_button:focus') === null) {
-      e.preventDefault();
+      e.preventDefault()
       selectMenu.style.display = 'block';
       (i === selectAllOption.length - 1 ? i = 0 : i++)
       // met à jour le label du bouton pour qu'une liseuse d'écran puisse lire sa nouvelle valeur chargé dynamiquement
