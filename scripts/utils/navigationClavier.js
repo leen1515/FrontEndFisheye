@@ -1,8 +1,8 @@
 import { displayModal } from '../utils/functions.js'
 
 export function navigationClavierModal () {
-  let i = -1
   // permet de naviguer de champs en champs de texte dans la modale avec Tab
+  let i = -1
   document.addEventListener('keyup', (e) => {
     const toucheCode = e.key
     if (toucheCode === 'Enter' && document.querySelector('.contact_button:focus') !== null && document.hasFocus) {
@@ -13,6 +13,7 @@ export function navigationClavierModal () {
         document.querySelectorAll('.formulaire__input')[i].focus()
       } else if (i === document.querySelectorAll('.formulaire__input').length - 1) {
         document.querySelector('.input__envoyer-bouton').focus()
+        if (document.querySelector('.input__envoyer-bouton:focus')) { i = -1 }
       } else if (i === document.querySelectorAll('.formulaire__input').length) {
         document.querySelector('.formulaire__erreur').focus()
       } else {
