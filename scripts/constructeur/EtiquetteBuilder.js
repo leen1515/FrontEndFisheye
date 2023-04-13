@@ -43,7 +43,7 @@ export class EtiquetteBuilder {
       // insère dans l'element la valeur correspondante aux nombres de like selon l'index
       divLikes.textContent = `${this.mediasIdLike[i]}`
       // ajoute l'icone coeur vide
-      divClickLike.innerHTML = "<span class='fa-regular fa-heart fa-heart-margin' aria-label='likes'></span>"
+      divClickLike.innerHTML = `<span class='fa-regular fa-heart fa-heart-margin' aria-label= '${this.mediasIdLike[i]} likes'></span>`
       divClickLike.setAttribute('tabindex', 0)
       // informe si l'utilisateur répète son clique ou non : utile dans le cas d'un like et d'un dislike
       // la variable est en dehors des évenements pour pouvoir la mettre à jour
@@ -53,7 +53,7 @@ export class EtiquetteBuilder {
       likeTotal += parseInt(document.getElementById(`id-nombre-aime-${this.mediasIdIndex[i]}`).textContent)
       // la balise dans totalCoeur s'écrit avec la variable likeTotal + l'icone
 
-      totalCoeur.innerHTML = " <span class='fa-solid fa-heart' aria-label='likes'></span>"
+      totalCoeur.innerHTML = ` <span class='fa-solid fa-heart' aria-label='${likeTotal}likes'></span>`
       coeurChiffre.textContent = `${likeTotal}`
 
       // pour maitriser le focus entre l'image et la partie like => cela permet de sauter d'image en image avec la touche Tab
@@ -93,10 +93,10 @@ export class EtiquetteBuilder {
           }
           // la variable likeTotal s'additionne lui même avec un +1, le contenu like du media cliqué s'additionne aussi de 1
           // l'icone du coeur change
-          likeTotalVerifierAuClique += 1; divLikes.textContent = `${this.mediasIdLike[i] + 1} `; divClickLike.innerHTML = " <span class='fa-solid fa-heart fa-heart-margin' aria-label='likes' ></span>"
+          likeTotalVerifierAuClique += 1; divLikes.textContent = `${this.mediasIdLike[i] + 1} `; divClickLike.innerHTML = ` <span class='fa-solid fa-heart fa-heart-margin' aria-label='${this.mediasIdLike[i] + 1} likes' ></span>`
           // dans la balise totalCoeur est écrite la valeur numérique de likeTotal + l'icone coeur
 
-          totalCoeur.innerHTML = " <span class='fa-solid fa-heart' aria-label='likes'></span>"
+          totalCoeur.innerHTML = ` <span class='fa-solid fa-heart' aria-label='${likeTotalVerifierAuClique} likes'></span>`
           coeurChiffre.textContent = `${likeTotalVerifierAuClique}`
 
           totalCoeur.appendChild(coeurChiffre)
@@ -112,11 +112,11 @@ export class EtiquetteBuilder {
           // likeTotal se désincrémente à chaque média décliqué
           likeTotalVerifierAuClique -= 1
           // l'icone du coeur est mis à jour en se vidant
-          divClickLike.innerHTML = "<span class='fa-regular fa-heart fa-heart-margin' aria-label='likes'></span>"
+          divClickLike.innerHTML = `<span class='fa-regular fa-heart fa-heart-margin' aria-label='${this.mediasIdLike[i]} likes'></span>`
           divClickLike.setAttribute('tabindex', 0)
           // la balise totalCoeur est mis à jour
 
-          totalCoeur.innerHTML = " <span class='fa-solid fa-heart' aria-label='likes'></span>"
+          totalCoeur.innerHTML = `<span class='fa-solid fa-heart' aria-label='${likeTotalVerifierAuClique} likes'></span>`
           coeurChiffre.textContent = `${likeTotalVerifierAuClique}`
 
           totalCoeur.appendChild(coeurChiffre)
